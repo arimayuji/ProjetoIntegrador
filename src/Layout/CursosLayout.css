@@ -68,5 +68,6 @@ input[type="submit"].limpa_btn {
 .error-txt {
   display: flex;
   color: red;
+  font-weight: bold;
   font-size: 1rem;
 }
