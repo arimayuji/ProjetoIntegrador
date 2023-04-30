@@ -1,0 +1,30 @@
+.root-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  display: flex;
+  min-height: 10vh;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  margin-top: auto;
+  flex: 1;
+  overflow: hidden;
+  padding-top: 10vh;
+  /* Define a margem superior para acomodar a altura da navbar */
+  padding-bottom: 10vh;
+  /* Define a margem superior para acomodar a altura do footer */
+}
+.footer {
+    /* mantem o footer no topo , porem nao fixado */
+  margin-top: auto;
+}
+.header {
+    /* mantem a navbar no topo , porem nao fixada */
+  margin-top: auto;
+}

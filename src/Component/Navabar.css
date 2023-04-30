@@ -1,0 +1,65 @@
+.nav {
+  background-color: #004684;
+  min-height: 10vh;
+}
+.container {
+  height: fit-content;
+}
+.logo {
+  display: flex;
+  margin-left: 0;
+}
+a.link {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+a.link:hover {
+  color: white;
+  border: .1rem solid white;
+  padding: 0.1rem;
+  font-weight: 500;
+}
+#nav-items {
+  display: flex;
+  margin: auto;
+  color: white;
+  column-gap: 20%;
+  row-gap: 20%;
+}
+/* css do botão que aciona o dropdown 24-39 */
+#navDropDown {
+  display: flex;
+  background-color: white;
+  color: #004684;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #004684;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem;
+  margin: 0;
+  z-index: 1;
+}
+#navDropDown:hover {
+  background-color: #004684;
+  color: white;
+  text-decoration: none;
+  border-color: white;
+}
+/* css dos itens presentes no dropdown 41-49*/
+a#navDrop-item {
+  font-size: 1rem;
+  color: #004684;
+}
+
+a#navDrop-item:hover {
+  background-color: #004684;
+  color: white;
+}
+/* css para alterar a div que contém todas as opções do dropdown */
+.dropdown-menu.show {
+  display: flex;
+  border-color: #004684;
+  height: fit-content;
+  box-shadow: #004684 0px 5px 15px;
+}

@@ -1,0 +1,67 @@
+label {
+  display: flex;
+  color: black;
+  text-decoration: underline;
+  text-decoration-color: #004684;
+}
+
+select,
+option {
+  display: flex;
+  color: black;
+}
+
+form input:active {
+  border: 0;
+  color: #004684;
+}
+
+input[type="submit"] {
+  display: flex;
+  justify-content: center;
+  padding: 0.1rem 0;
+  outline: 0;
+  background-color: #004684;
+  color: white;
+  border: 0.1rem solid #004684;
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color: #004684;
+  font-weight: bold;
+}
+
+/* css para os resultados das medias! */
+.resultado_p,
+.resultado_np {
+  display: flex;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.resultado_p {
+  color: green;
+  text-decoration: none;
+}
+
+.resultado_np {
+  color: red;
+  text-decoration: none;
+}
+
+.resultados {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  margin: 0 auto;
+  padding: 5%;
+}
+
+input[type="submit"].limpa_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem;
+}

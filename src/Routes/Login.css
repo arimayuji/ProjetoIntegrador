@@ -1,0 +1,17 @@
+@import url("../Layout/CursosLayout.css");
+
+form > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  padding: 1rem;
+}
+.error-span {
+  display: flex;
+  color: red;
+  font-size: 1rem;
+}
+label{
+  display: flex;
+}
