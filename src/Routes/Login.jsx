@@ -31,44 +31,46 @@ function Login() {
   return (
     <>
       <GlobalStyle />
-      <form onSubmit={handleSubmit(form_result)} className="form-login">
-        <div className="campo-nome">
+      <div className="main-content">
+        <form onSubmit={handleSubmit(form_result)}>
+
           <label htmlFor="nome">Nome :</label>
           <input
             type="text"
-            {...register("nome", { required: true })}
+            {...register("nome")}
             name="nome"
           />
           <p className="error-txt">{errors.nome?.message}</p>
-        </div>
 
-        <div className="campo-email">
+
+
           <label htmlFor="email">Email :</label>
           <input
             type="email"
-            {...register("email", { required: true })}
+            {...register("email")}
             name="email"
           />
 
           <p className="error-txt">{errors.email?.message}</p>
-        </div>
 
-        <div className="campo-senha">
+
+
           <label htmlFor="senha">Senha :</label>
           <input
             type="password"
-            {...register("senha", { required: true })}
+            {...register("senha")}
             name="senha"
           />
           <p className="error-txt">{errors.senha?.message}</p>
-        </div>
 
-        <button
-          type="submit"
-        >
-          Login
-        </button>
-      </form>
+
+          <button
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </>
   );
 }

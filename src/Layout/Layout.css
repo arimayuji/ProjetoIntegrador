@@ -21,10 +21,10 @@
   /* Define a margem superior para acomodar a altura do footer */
 }
 .footer {
-    /* mantem o footer no topo , porem nao fixado */
+  /* mantem o footer no topo , porem nao fixado */
   margin-top: auto;
 }
 .header {
-    /* mantem a navbar no topo , porem nao fixada */
+  /* mantem a navbar no topo , porem nao fixada */
   margin-top: auto;
 }

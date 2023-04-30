@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     border-radius: 0.5rem;
     border: 0.2rem solid #004684;
-    padding: 1rem;
+    padding: 2rem;
     row-gap: 2rem;
   }
   body {
@@ -37,12 +37,7 @@ export const GlobalStyle = createGlobalStyle`
      text-decoration:underline;
      text-decoration-color:#004684;
   }
-  main{
-  display: flex;
-  margin: 2rem auto;
-  background-color: white;
-  }
-
+  
   
   button{
     display: flex;
