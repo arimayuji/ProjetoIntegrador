@@ -2,8 +2,10 @@ import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   cic_calculos,
   cic_semestres,
@@ -18,11 +20,59 @@ const disciplinas = (semestre) => {
     <option key={chave}>{disciplina}</option>
   ));
 };
+
 const validateInput = (value) => {
   const intValue = parseInt(value);
   return intValue >= 0;
 };
 const CursosLayout = () => {
+  const schema = yup.object().shape({
+    P1: yup
+      .number()
+      .positive()
+      .test("is-between", "Nota Inválida", function (value) {
+        return value >= 0.0 && value <= 10.0;
+      })
+      .required("Nota Inválida")
+      .min(0)
+      .max(10),
+    P2: yup
+      .number()
+      .required("Nota Inválida")
+      .test("is-between", "Nota Inválida", function (value) {
+        return value >= 0.0 && value <= 10.0;
+      })
+      .positive()
+      .min(0)
+      .max(10),
+    T1: yup
+      .number()
+      .required("Nota Inválida")
+      .test("is-between", "Nota Inválida", function (value) {
+        return value >= 0.0 && value <= 10.0;
+      })
+      .positive()
+      .min(0)
+      .max(10),
+    T2: yup
+      .number()
+      .required("Nota Inválida")
+      .test("is-between", "Nota Inválida", function (value) {
+        return value >= 0.0 && value <= 10.0;
+      })
+      .positive()
+      .min(0)
+      .max(10),
+    PI: yup
+      .number()
+      .required("Nota Inválida")
+      .test("is-between", "Nota Inválida", function (value) {
+        return value >= 0.0 && value <= 10.0;
+      })
+      .positive()
+      .min(0)
+      .max(10),
+  });
   const [semestre, setSemestre] = useState(0);
   const [p1, setP1] = useState(0);
   const [p2, setP2] = useState(0);
@@ -37,12 +87,13 @@ const CursosLayout = () => {
     handleSubmit,
     reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid },
+    formState: { isSubmitted, isValid, errors },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
-    mode: "onSubmit",
     defaultValues: { T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 },
+    resolver: yupResolver(schema),
   });
+  const submit_valid = isSubmitted && isValid;
   // resultados do forms quando ocorrer o submit
   const form_result = (data) => {
     console.log(data);
@@ -81,101 +132,68 @@ const CursosLayout = () => {
           >
             {disciplinas(semestre)}
           </select>
+          <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P1"> P1 :</label>
           <input
-            {...register("P1", {
-              required: true,
-              maxLength: 3,
-              validate: validateInput,
-            })}
+            {...register("P1")}
             onChange={(e) => {
               let p1 = parseInt(e.target.value);
               setP1(p1);
             }}
             name="P1"
             id="P1"
-            type="number"
-            min={0}
-            max={10}
           />
-
+          <p className="error-txt">{errors.P2?.message}</p>
           <label htmlFor="P2">P2 :</label>
           <input
-            {...register("P2", {
-              required: true,
-              maxLength: 3,
-              validate: validateInput,
-            })}
+            {...register("P2")}
             name="P2"
             id="P2"
             onChange={(e) => {
               let p2 = parseInt(e.target.value);
               setP2(p2);
             }}
-            type="number"
-            min={0}
-            max={10}
           />
-
+          <p className="error-txt">{errors.T1?.message}</p>
           <label htmlFor="T1">T1 :</label>
           <input
-            {...register("T1", {
-              required: true,
-              maxLength: 3,
-              validate: validateInput,
-            })}
+            {...register("T1")}
             name="T1"
             id="T1"
             onChange={(e) => {
               let t1 = parseInt(e.target.value);
               setT1(t1);
             }}
-            type="number"
-            min={0}
-            max={10}
           />
-
+          <p className="error-txt">{errors.T1?.message}</p>
           <label htmlFor="T2">T2 :</label>
           <input
-            {...register("T2", {
-              required: true,
-              maxLength: 3,
-
-              validate: validateInput,
-            })}
+            {...register("T2")}
             name="T2"
             id="T2"
             onChange={(e) => {
               let t2 = parseInt(e.target.value);
               setT2(t2);
             }}
-            type="number"
-            min={0}
-            max={10}
           />
+          <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
           <input
-            {...register("PI", {
-              required: true,
-              maxLength: 3,
-              validate: validateInput,
-            })}
+            {...register("PI")}
             name="PI"
             id="PI"
             onChange={(e) => {
               let pi = parseInt(e.target.value);
               setPi(pi);
             }}
-            type="number"
-            min={0}
-            max={10}
           />
+          <p className="error-txt">{errors.PI?.message}</p>
           <button
             type="submit"
             onClick={() => {
               setDisplay(true);
             }}
-            style={{ display: !display ? "flex" : "none" }}
+            style={{ display: submit_valid ? "none" : "flex" }}
           >
             Calcular
           </button>
@@ -189,9 +207,9 @@ const CursosLayout = () => {
                 {media_prova(p1, p2)}
                 {media_final(disciplina, p1, p2, t1, t2, pi)}
                 {
-                  <input
+                  <button
                     type="submit"
-                    value={"Limpar Resultados"}
+                    className="limpa_btn"
                     onClick={() => {
                       setDisplay(false);
                       // altera o valor do campo
@@ -209,8 +227,9 @@ const CursosLayout = () => {
                       setT2(0);
                       setPi(0);
                     }}
-                    className="limpa_btn"
-                  />
+                  >
+                    Limpar Resultados
+                  </button>
                 }
               </>
             )}
