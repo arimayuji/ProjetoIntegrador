@@ -21,15 +21,12 @@ const disciplinas = (semestre) => {
   ));
 };
 
-const validateInput = (value) => {
-  const intValue = parseInt(value);
-  return intValue >= 0;
-};
+
 const CursosLayout = () => {
   const schema = yup.object().shape({
     P1: yup
-      .number()
-      .positive()
+      .number("Apenas números")
+      .positive("Apenas números positivos")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
@@ -37,50 +34,58 @@ const CursosLayout = () => {
       .min(0)
       .max(10),
     P2: yup
-      .number()
+      .number("Apenas números")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .positive()
+      .positive("Apenas números positivos")
       .min(0)
       .max(10),
     T1: yup
-      .number()
+      .number("Apenas números")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .positive()
+      .positive("Apenas números positivos")
       .min(0)
       .max(10),
     T2: yup
-      .number()
+      .number("Apenas números")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .positive()
+      .positive("Apenas números positivos")
       .min(0)
       .max(10),
     PI: yup
-      .number()
+      .number("Apenas números")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .positive()
+      .positive("Apenas números positivos")
       .min(0)
       .max(10),
   });
-  const [semestre, setSemestre] = useState(0);
-  const [p1, setP1] = useState(0);
-  const [p2, setP2] = useState(0);
-  const [t1, setT1] = useState(0);
-  const [t2, setT2] = useState(0);
-  const [pi, setPi] = useState(0);
-  const [disciplina, setDisciplina] = useState("Banco de Dados");
-  const [display, setDisplay] = useState(false);
+  const [form, setForm] = useState({
+    semestre: 0,
+    P1: 0,
+    P2: 0,
+    T1: 0,
+    T2: 0,
+    PI: 0,
+    disciplina: "Banco de Dados",
+  });
+  const [display, setDisplay] = useState(false)
+  const handleChange = (campo, valor) => {
+    setForm(prevState => ({
+      ...prevState,
+      [campo]: valor
+    }));
+  }
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
@@ -91,6 +96,7 @@ const CursosLayout = () => {
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
     defaultValues: { T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 },
+    mode: "onSubmit",
     resolver: yupResolver(schema),
   });
   const submit_valid = isSubmitted && isValid;
@@ -111,70 +117,76 @@ const CursosLayout = () => {
             {...register("Semestre")}
             name="Semestre"
             id="Semestre"
-            onChange={(e) => {
-              setSemestre(Number(e.target.value));
+            onChange={(event) => {
+              handleChange("semestre", event.target.value);
             }}
           >
             <option value="0">1</option>
             <option value="1">2</option>
             <option value="2">3</option>
           </select>
-          <label htmlFor="Disciplinas" id="Disciplinas">
-            Disciplina :
-          </label>
           <select
             {...register("Disciplinas")}
             name="Disciplinas"
             id="Disciplinas"
-            onChange={(e) => {
-              setDisciplina(e.target.value);
+            onChange={(event) => {
+              handleChange("disciplina", event.target.options[event.target.selectedIndex].text);
             }}
           >
-            {disciplinas(semestre)}
+            {disciplinas(form.semestre)}
           </select>
-          <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P1"> P1 :</label>
           <input
             {...register("P1")}
-            onChange={(e) => {
-              let p1 = parseInt(e.target.value);
-              setP1(p1);
+            onChange={(event) => {
+              handleChange("P1", parseFloat(event.target.value));
             }}
             name="P1"
             id="P1"
+            type="number"
+            min="0"
+            max="10"
           />
-          <p className="error-txt">{errors.P2?.message}</p>
+          <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
           <input
             {...register("P2")}
             name="P2"
             id="P2"
-            onChange={(e) => {
-              let p2 = parseInt(e.target.value);
-              setP2(p2);
+            onChange={(event) => {
+              handleChange("P2", parseFloat(event.target.value));
             }}
+            type="number"
+            min="0"
+            max="10"
           />
-          <p className="error-txt">{errors.T1?.message}</p>
+          <p className="error-txt">{errors.P2?.message}</p>
+
           <label htmlFor="T1">T1 :</label>
           <input
             {...register("T1")}
             name="T1"
             id="T1"
-            onChange={(e) => {
-              let t1 = parseInt(e.target.value);
-              setT1(t1);
+            onChange={(event) => {
+              handleChange("T1", parseFloat(event.target.value));
             }}
+            type="number"
+            min="0"
+            max="10"
           />
           <p className="error-txt">{errors.T1?.message}</p>
+
           <label htmlFor="T2">T2 :</label>
           <input
             {...register("T2")}
             name="T2"
             id="T2"
-            onChange={(e) => {
-              let t2 = parseInt(e.target.value);
-              setT2(t2);
+            onChange={(event) => {
+              handleChange("T2", parseFloat(event.target.value));
             }}
+            type="number"
+            min="0"
+            max="10"
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -182,10 +194,12 @@ const CursosLayout = () => {
             {...register("PI")}
             name="PI"
             id="PI"
-            onChange={(e) => {
-              let pi = parseInt(e.target.value);
-              setPi(pi);
+            onChange={(event) => {
+              handleChange("PI", parseFloat(event.target.value));
             }}
+            type="number"
+            min="0"
+            max="10"
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
@@ -193,7 +207,7 @@ const CursosLayout = () => {
             onClick={() => {
               setDisplay(true);
             }}
-            style={{ display: submit_valid ? "none" : "flex" }}
+            style={{ display: !display ? "flex" : "none" }}
           >
             Calcular
           </button>
@@ -203,29 +217,16 @@ const CursosLayout = () => {
           >
             {isSubmitted && isValid && (
               <>
-                {media_tarefa(t1, t2)}
-                {media_prova(p1, p2)}
-                {media_final(disciplina, p1, p2, t1, t2, pi)}
+
+                {media_tarefa(form.T1, form.T2)}
+                {media_prova(form.P1, form.P2)}
+                {media_final(form.disciplina, form.P1, form.P2, form.T1, form.T2, form.PI)}
                 {
                   <button
                     type="submit"
                     className="limpa_btn"
                     onClick={() => {
                       setDisplay(false);
-                      // altera o valor do campo
-                      reset({
-                        P1: 0,
-                        P2: 0,
-                        T1: 0,
-                        T2: 0,
-                        PI: 0,
-                      });
-                      // altera o valor da variavel
-                      setP1(0);
-                      setP2(0);
-                      setT1(0);
-                      setT2(0);
-                      setPi(0);
                     }}
                   >
                     Limpar Resultados
