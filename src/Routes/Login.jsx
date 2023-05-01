@@ -60,6 +60,7 @@ function Login() {
             type="password"
             {...register("senha")}
             name="senha"
+            placeholder="*****"
           />
           <p className="error-txt">{errors.senha?.message}</p>
 
