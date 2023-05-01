@@ -7,11 +7,6 @@ form > div {
   column-gap: 2rem;
   padding: 1rem;
 }
-.error-span {
-  display: flex;
-  color: red;
-  font-size: 1rem;
-}
 label{
   display: flex;
 }

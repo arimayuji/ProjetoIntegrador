@@ -1,10 +1,17 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
 import "./Login.css";
-import { Button } from "react-bootstrap";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 function Login() {
-  const [error, setError] = useState(false);
+
+  const schema = yup.object().shape({
+    nome: yup.string().required("Preencher Campo"),
+    email: yup.string().email("Email Inválido").required("Preencher Campo"),
+    senha: yup.string().required("Preencher Campo"),
+  })
+
   const {
     register,
     handleSubmit,
@@ -15,6 +22,7 @@ function Login() {
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
     mode: "onSubmit",
+    resolver: yupResolver(schema)
   });
 
   const form_result = (data) => {
@@ -23,56 +31,46 @@ function Login() {
   return (
     <>
       <GlobalStyle />
-      <form onSubmit={handleSubmit(form_result)} className="form-login">
-        <div className="campo-nome">
-          <label htmlFor="Nome">Nome :</label>
+      <div className="main-content">
+        <form onSubmit={handleSubmit(form_result)}>
+
+          <label htmlFor="nome">Nome :</label>
           <input
             type="text"
-            {...register("nome", { required: true })}
-            name="Nome"
+            {...register("nome")}
+            name="nome"
           />
-          {errors.nome &&
-            setError(true)(<span className="error-span">Nome inválido</span>)}
-        </div>
+          <p className="error-txt">{errors.nome?.message}</p>
 
-        <div className="campo-email">
-          <label htmlFor="Email">Email :</label>
+
+
+          <label htmlFor="email">Email :</label>
           <input
             type="email"
-            {...register("email", { required: true })}
-            name="Email"
+            {...register("email")}
+            name="email"
           />
-          {errors.email &&
-            setError(true)(<span className="error-span">Email inválido</span>)}
-        </div>
 
-        <div className="campo-senha">
-          <label htmlFor="Senha">Senha :</label>
+          <p className="error-txt">{errors.email?.message}</p>
+
+
+
+          <label htmlFor="senha">Senha :</label>
           <input
             type="password"
-            {...register("senha", { required: true })}
-            name="Senha"
+            {...register("senha")}
+            name="senha"
           />
-          {errors.senha &&
-            setError(true)(<span className="error-span">Senha inválida</span>)}
-        </div>
-         
-        <button
-          type="submit"
-          onClick={() => {
-            // altera o valor do campo
-            error
-              ? reset()
-              : reset({
-                  nome: "",
-                  email: "",
-                  senha: "",
-                });
-          }}
-        >
-          Login
-        </button>
-      </form>
+          <p className="error-txt">{errors.senha?.message}</p>
+
+
+          <button
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </>
   );
 }
