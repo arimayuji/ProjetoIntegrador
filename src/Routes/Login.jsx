@@ -8,10 +8,9 @@ function Login() {
 
   const schema = yup.object().shape({
     nome: yup.string().required("Preencher Campo"),
-    email: yup.string().email("Email Inválido").required("Preencher Campo"),
+    email: yup.string().required("Preencher Campo").matches(/^(\d{2}\.\d{5}-\d)@maua\.br$/, "Email Inválido"),
     senha: yup.string().required("Preencher Campo"),
-  })
-
+  });
   const {
     register,
     handleSubmit,
@@ -35,32 +34,44 @@ function Login() {
         <form onSubmit={handleSubmit(form_result)}>
 
           <label htmlFor="nome">Nome :</label>
-          <input
-            type="text"
-            {...register("nome")}
-            name="nome"
-          />
+          <div className="campo-dados">
+            <i class="bi bi-person"></i>
+            <input
+              type="text"
+              {...register("nome")}
+              name="nome"
+            />
+          </div>
+
           <p className="error-txt">{errors.nome?.message}</p>
 
 
 
           <label htmlFor="email">Email :</label>
-          <input
-            type="email"
-            {...register("email")}
-            name="email"
-          />
+          <div className="campo-dados">
+            <i class="bi bi-envelope"></i>
+            <input
+              type="text"
+              {...register("email")}
+              name="email"
+            />
+          </div>
+
 
           <p className="error-txt">{errors.email?.message}</p>
 
 
 
           <label htmlFor="senha">Senha :</label>
-          <input
-            type="password"
-            {...register("senha")}
-            name="senha"
-          />
+          <div className="campo-dados">
+            <i className="bi bi-eye-fill"></i>
+            <input
+              type="password"
+              {...register("senha")}
+              name="senha"
+            />
+          </div>
+
           <p className="error-txt">{errors.senha?.message}</p>
 
 
@@ -69,6 +80,7 @@ function Login() {
           >
             Login
           </button>
+          <span className="admin-text">Acesso Administrador</span>
         </form>
       </div>
     </>
