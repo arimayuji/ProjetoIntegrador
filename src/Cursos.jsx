@@ -23,7 +23,7 @@ export const cic_semestres = [
   {
     semestre: 3,
     disciplinas: [
-      "Física Física e Modelagem Computacional",
+      "Física e Modelagem Computacional",
       "Cálculo Computacional",
       "Algoritmos e Estrutura de dados",
       "Desenvolvimento Ágil",
