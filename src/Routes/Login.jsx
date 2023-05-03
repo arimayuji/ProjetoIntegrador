@@ -1,76 +1,21 @@
-import { useForm } from "react-hook-form";
-import { GlobalStyle } from "../GlobalStyle";
+import logo from "../images/logo-maua.png";
+import office from "../images/office365.png";
 import "./Login.css";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 function Login() {
-
-  const schema = yup.object().shape({
-    nome: yup.string().required("Preencher Campo"),
-    email: yup.string().email("Email Inválido").required("Preencher Campo"),
-    senha: yup.string().required("Preencher Campo"),
-  })
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid },
-  } = useForm({
-    // apenas verifica os campos quando ocorrer o Submit
-    mode: "onSubmit",
-    resolver: yupResolver(schema)
-  });
-
-  const form_result = (data) => {
-    console.log(data);
-  };
   return (
     <>
-      <GlobalStyle />
-      <div className="main-content">
-        <form onSubmit={handleSubmit(form_result)}>
-
-          <label htmlFor="nome">Nome :</label>
-          <input
-            type="text"
-            {...register("nome")}
-            name="nome"
-          />
-          <p className="error-txt">{errors.nome?.message}</p>
-
-
-
-          <label htmlFor="email">Email :</label>
-          <input
-            type="email"
-            {...register("email")}
-            name="email"
-          />
-
-          <p className="error-txt">{errors.email?.message}</p>
-
-
-
-          <label htmlFor="senha">Senha :</label>
-          <input
-            type="password"
-            {...register("senha")}
-            name="senha"
-            placeholder="*****"
-          />
-          <p className="error-txt">{errors.senha?.message}</p>
-
-
-          <button
-            type="submit"
-          >
-            Login
-          </button>
-        </form>
+      <div className="office-login">
+        <img src={logo} alt="" />
+        <div className="office">
+          <span>Autenticar usando sua conta em:</span>
+          <span className="office-img">
+            <Link to="/Login" className="link">
+              <img src={office} alt="" />
+            </Link>
+          </span>
+          \
+        </div>
       </div>
     </>
   );
