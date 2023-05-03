@@ -24,8 +24,12 @@ export const GlobalStyle = createGlobalStyle`
   form input,
   form select {
     display: flex;
+    font-size: 1rem;
+    height: 2rem;
+    width:fit-content;
     color: black;
-    padding: 1% 0;
+    background-color: white;
+    padding: 10%;
     text-align: center;
     outline: 0;
     overflow-x:hidden;
@@ -54,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
   button{
     display: flex;
     margin: 0 auto;
-    padding: .5rem;
+    padding: 1rem;
     width: fit-content;
     background-color: #004684;
     border-radius:.5rem;
