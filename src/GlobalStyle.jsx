@@ -26,7 +26,6 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     font-size: 1rem;
     height: 2rem;
-    width:fit-content;
     color: black;
     background-color: white;
     padding: 10%;
