@@ -4,37 +4,15 @@
   font-weight: 400;
   color: black;
 }
-h1.title {
-  display: flex;
-  color: black;
-  width: fit-content;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 
-p.content-text::after,
-h1.title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 0%;
-  height: 3px;
-  background-color: #004684;
-  transition: width 0.5s ease-in-out;
-}
-
-p.content-text:hover::after,
-h1.title:hover::after {
-  width: 100%;
-}
 p.content-text {
   display: flex;
   width: fit-content;
   justify-content: center;
   align-items: center;
-  position: relative;
+  color: white;
+  line-height: 1rem;
+  font-weight: bolder;
 }
 section {
   display: flex;
@@ -42,20 +20,10 @@ section {
   row-gap: 2rem;
   justify-content: center;
   align-items: center;
-}
-.content {
-  box-shadow: 16px 14px 20px white;
-  border-radius: 0.8rem;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 5rem;
-  --c: #004684; /* cor da borda */
+  position: relative;
+  --c: white; /* cor da borda */
   --b: 3px; /* grossura da borda*/
   --g: 1.5rem; /* padding do efeito */
-
   padding: calc(var(--g) + var(--b));
   --_g: #0000 25%, var(--c) 0;
   background: conic-gradient(
@@ -68,8 +36,53 @@ section {
   transition: 2s, background-position 2s 2s;
   cursor: pointer;
 }
-
-.content:hover {
+section:hover {
   --_i: 100%;
-  transition: 2s, background-size 2s 2s;
+  transition: 0.5s, background-size 1s 1s;
+}
+.content {
+  box-shadow: white 3px 3px 6px 0px inset, white -3px -3px 6px 1px inset;
+  border-radius: 0.8rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 5rem;
+}
+.content img {
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  background-color: #004684;
+  border-radius: 0.5rem;
+  box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;
+}
+button {
+  border: none;
+  box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;
+}
+button {
+  display: flex;
+  background-color: #004684;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+button:hover {
+  background-color: white;
+  color: #004684;
+}
+@keyframes animation {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
 }

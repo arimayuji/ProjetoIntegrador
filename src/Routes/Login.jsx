@@ -1,4 +1,4 @@
-import logo from "../images/logo-maua.png";
+import logo from "../images/logo-mauaBlue.png";
 import office from "../images/office365.png";
 import "./Login.css";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ function Login() {
               <img src={office} alt="" />
             </Link>
           </span>
-          \
+          
         </div>
       </div>
     </>

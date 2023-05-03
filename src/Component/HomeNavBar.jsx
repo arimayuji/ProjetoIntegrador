@@ -4,10 +4,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "./HomeNavBar.css";
-
 const NavBar = () => {
     return (
         <>
+     
             <Navbar className="nav" expand="lg">
                 <Container fluid>
 
@@ -20,10 +20,6 @@ const NavBar = () => {
                                 <img src={logo} alt="" />
                             </Link>
                         </Navbar.Brand>
-                        <Link to="/Login" className="link">
-                            <button>Login</button>
-
-                        </Link>
                     </Nav>
                 </Container>
             </Navbar>

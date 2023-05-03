@@ -1,8 +1,9 @@
 import NavBar from "../Component/HomeNavBar";
 import Footer from "../Component/Footer";
 import "./Layout.css";
+import "./HomeLayout.css"
 import { Outlet } from "react-router-dom";
-const Layout = () => {
+const HomeLayout = () => {
     return (
         <>
             <div className="root-main">
@@ -20,4 +21,4 @@ const Layout = () => {
         </>
     );
 };
-export default Layout;
+export default HomeLayout;

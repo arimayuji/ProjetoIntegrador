@@ -1,0 +1,8 @@
+
+.main-content {
+    background-image: url('../images/homePageBack.jpg');
+    background-repeat: no-repeat;
+    background-position: right 0;
+    background-color: black;
+    background-size: cover;
+}

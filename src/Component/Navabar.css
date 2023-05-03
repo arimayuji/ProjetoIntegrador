@@ -9,17 +9,7 @@
   display: flex;
   margin-left: 0;
 }
-a.link {
-  display: flex;
-  color: white;
-  text-decoration: none;
-}
-a.link:hover {
-  color: white;
-  border: .1rem solid white;
-  padding: 0.1rem;
-  font-weight: 500;
-}
+
 #nav-items {
   display: flex;
   margin: auto;
@@ -47,15 +37,7 @@ a.link:hover {
   border-color: white;
 }
 /* css dos itens presentes no dropdown 41-49*/
-a#navDrop-item {
-  font-size: 1rem;
-  color: #004684;
-}
 
-a#navDrop-item:hover {
-  background-color: #004684;
-  color: white;
-}
 /* css para alterar a div que contém todas as opções do dropdown */
 .dropdown-menu.show {
   display: flex;

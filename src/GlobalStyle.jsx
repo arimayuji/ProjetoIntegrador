@@ -78,4 +78,12 @@ export const GlobalStyle = createGlobalStyle`
   font-weight: bold;
   margin: 0 auto;
 }
+a.link {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+a.link:hover {
+  color: white;
+}
 `;
