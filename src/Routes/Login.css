@@ -7,6 +7,31 @@ form > div {
   column-gap: 2rem;
   padding: 1rem;
 }
-label{
+label {
   display: flex;
+}
+span.admin-text {
+  display: flex;
+  color: red;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 0;
+  text-decoration: underline;
+}
+i {
+  color: white;
+  display: flex;
+  padding: .5rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: #004684;
+  border-radius: .5rem;
+
+}
+.campo-dados {
+  display: flex;
+  column-gap: 3rem;
+  flex-direction: row;
 }
