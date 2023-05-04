@@ -14,9 +14,6 @@ const HomeLayout = () => {
                 <div className="main-content-homepage">
                     <Outlet />
                 </div>
-                <div className="footer">
-                    <Footer />
-                </div>
             </div>
         </>
     );
