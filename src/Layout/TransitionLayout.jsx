@@ -1,7 +1,6 @@
 import NavBar from "../Component/HomeNavBar";
 import Footer from "../Component/Footer";
 import "./Layout.css";
-import "./HomeLayout.css"
 import { Outlet } from "react-router-dom";
 const HomeLayout = () => {
     return (
@@ -11,7 +10,7 @@ const HomeLayout = () => {
                     <NavBar />
                 </div>
 
-                <div className="main-content-homepage">
+                <div className="main-content">
                     <Outlet />
                 </div>
                 <div className="footer">

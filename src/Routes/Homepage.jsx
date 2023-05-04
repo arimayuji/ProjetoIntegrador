@@ -13,7 +13,7 @@ const Layout = () => {
                     <div className="line">Simples!</div>
                 </div> */}
                 <section>
-            
+
 
                 </section>
 
@@ -25,8 +25,8 @@ const Layout = () => {
 
                 </section>
                 <button>
-                    <Link to="/Office365 - Login" className="link">  </Link>
-                    Quero Calcular Minha Nota!
+                    <Link to="/Office365 - Login" className="link"> Quero Calcular Minha Nota! </Link>
+
                 </button>
                 <section className="text-two"><p className="content-text">
                     Com a nossa calculadora de notas, você pode facilmente inserir suas notas em cada disciplina e ver seus resultados em segundos.
