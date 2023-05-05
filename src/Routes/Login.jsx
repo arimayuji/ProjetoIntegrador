@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
-import  Logo  from "../images/logo-mauaBlue.png";
+import Logo from "../images/logo-mauaBlue.png";
 import "./Login.css";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,8 +8,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 function Login() {
 
     const schema = yup.object().shape({
-        email: yup.string().email("Email Inválido").required("Preencher Campo"),
-        senha: yup.string().required("Preencher Campo"),
+        email: yup.string().email("Email Inválido").required("Preencher Campo").test('existe-numero', 'Senha deve possuir ao menos um número', (value) => {
+            return /\d/.test(value);
+        }),
+        senha: yup.string().required("Preencher Campo").min(8, "Mínimo de 8 caracteres").max(20, "Máximo de 20 caracteres"),
     })
 
     const {
