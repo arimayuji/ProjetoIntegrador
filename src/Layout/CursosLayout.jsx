@@ -25,6 +25,7 @@ const CursosLayout = () => {
   const schema = yup.object().shape({
     P1: yup
       .number("Apenas números")
+      .nullable(false,"Campo vazio")
       .positive("Apenas números positivos")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
@@ -33,16 +34,18 @@ const CursosLayout = () => {
       .min(0)
       .max(10),
     P2: yup
-      .number("Apenas números")
+      .number()
+      .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
       .positive("Apenas números positivos")
-      .min(0)
-      .max(10),
+      .min(0,"Valor Inválido")
+      .max(10,"Valor Inválido"),
     T1: yup
       .number("Apenas números")
+      .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
@@ -52,6 +55,7 @@ const CursosLayout = () => {
       .max(10),
     T2: yup
       .number("Apenas números")
+      .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
@@ -61,6 +65,7 @@ const CursosLayout = () => {
       .max(10),
     PI: yup
       .number("Apenas números")
+      .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
@@ -209,7 +214,9 @@ const CursosLayout = () => {
           </button>
           <button
             type="reset"
-            onClick={reset({ T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 })}
+            onClick={() => {
+              reset({ T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 });
+            }}
           >
             Limpar
           </button>
