@@ -40,15 +40,17 @@ input[type="submit"]:hover {
   font-size: 1rem;
   font-weight: bold;
 }
-
+/* css para passou */
 .resultado_p {
-  color: green;
-  text-decoration: none;
+  background-color: green;
+  border-radius: 0.5rem;
+  border: 0.2rem solid green;
 }
-
+/* css para nao passou */
 .resultado_np {
-  color: red;
-  text-decoration: none;
+  background-color: rgb(110, 27, 27);
+  border-radius: 0.5rem;
+  border: 0.2rem solid rgb(110, 27, 27);
 }
 
 .resultados {
@@ -58,12 +60,21 @@ input[type="submit"]:hover {
   margin: 0 auto;
   padding: 5%;
 }
-
+.resultado-display {
+  display: flex;
+  background-color: #004684;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  border: 0.2rem solid #004684;
+  padding: 1rem;
+  row-gap: 1.5rem;
+  box-shadow: #004684 0px 2px 5px 0px, #004684 0px 1px 1px 0px;
+}
 input[type="submit"].limpa_btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.1rem;
+  padding: 0.5rem;
 }
 
 button[type="reset"] {

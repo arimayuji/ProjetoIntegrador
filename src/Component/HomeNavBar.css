@@ -1,0 +1,28 @@
+.nav {
+  background-color: #004684;
+  min-height: 10vh;
+}
+.container {
+  height: fit-content;
+}
+.logo {
+  display: flex;
+  margin-left: auto;
+}
+a.link {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+
+#nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  color: white;
+}
+img {
+  display: flex;
+  border-radius: 0.5rem;
+}

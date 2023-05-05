@@ -30,7 +30,7 @@ const CursosLayout = () => {
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .required("Nota Inválida")
+      .required("Preencher Campo")
       .min(0)
       .max(10),
     P2: yup
@@ -39,18 +39,31 @@ const CursosLayout = () => {
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
+      .number()
+      .typeError("Inserir um número válido")
+      .required("Preencher Campo")
+      .test("is-between", "Nota Inválida", function (valor) {
+        return valor >= 0.0 && valor <= 10.0;
       })
       .positive("Apenas números positivos")
       .min(0,"Valor Inválido")
       .max(10,"Valor Inválido"),
+      .positive()
+      .min(0)
+      .max(10),
     T1: yup
       .number("Apenas números")
       .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
+      .number()
+      .typeError("Inserir um número válido")
+      .required("Preencher Campo")
+      .test("is-between", "Nota Inválida", function (valor) {
+        return valor >= 0.0 && valor <= 10.0;
       })
-      .positive("Apenas números positivos")
+      .positive()
       .min(0)
       .max(10),
     T2: yup
@@ -60,7 +73,7 @@ const CursosLayout = () => {
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .positive("Apenas números positivos")
+      .positive()
       .min(0)
       .max(10),
     PI: yup
@@ -70,7 +83,7 @@ const CursosLayout = () => {
       .test("is-between", "Nota Inválida", function (value) {
         return value >= 0.0 && value <= 10.0;
       })
-      .positive("Apenas números positivos")
+      .positive()
       .min(0)
       .max(10),
   });
@@ -84,6 +97,36 @@ const CursosLayout = () => {
     disciplina: "Banco de Dados",
   });
   const [display, setDisplay] = useState(false);
+  const resultado_forms = () => {
+    return (
+      <>
+        <div className="resultado-display">
+          {media_tarefa(form.T1, form.T2)}
+          {media_prova(form.P1, form.P2)}
+          {media_final(
+            form.disciplina,
+            form.P1,
+            form.P2,
+            form.T1,
+            form.T2,
+            form.PI
+          )}
+          {
+            <button
+              type="submit"
+              className="limpa_btn"
+              onClick={() => {
+                setDisplay(false);
+              }}
+            >
+              Limpar Resultados
+            </button>
+          }
+        </div>
+      </>
+    );
+  };
+  const [display, setDisplay] = useState(false);
   const handleChange = (campo, valor) => {
     setForm((prevState) => ({
       ...prevState,
@@ -96,10 +139,10 @@ const CursosLayout = () => {
     handleSubmit,
     reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid, errors },
+    formState: { isSubmitted, isValid, errors, },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
-    defaultValues: { T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 },
+    defaultValues: { T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
     mode: "onSubmit",
     resolver: yupResolver(schema),
   });

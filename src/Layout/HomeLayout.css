@@ -1,0 +1,21 @@
+
+.main-content-homepage {
+  display: flex;
+  min-height: 10vh;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  margin-top: auto;
+  flex: 1;
+  overflow: hidden;
+  padding-top: 10vh;
+  /* Define a margem superior para acomodar a altura da navbar */
+  padding-bottom: 10vh;
+  /* Define a margem superior para acomodar a altura do footer */
+  background-image: url("../images/homePageBack.jpg");
+  background-repeat: no-repeat;
+  background-position: right 0;
+  background-color: black;
+  background-size: cover;
+}

@@ -24,8 +24,12 @@ export const GlobalStyle = createGlobalStyle`
   form input,
   form select {
     display: flex;
+    font-size: 1rem;
+    height: 2rem;
+    width:fit-content;
     color: black;
-    padding: 1% 0;
+    background-color: white;
+    padding: 10%;
     text-align: center;
     outline: 0;
     overflow-x:hidden;
@@ -73,5 +77,13 @@ export const GlobalStyle = createGlobalStyle`
   font-size: 1rem;
   font-weight: bold;
   margin: 0 auto;
+}
+a.link {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+a.link:hover {
+  color: white;
 }
 `;

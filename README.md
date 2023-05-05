@@ -7,7 +7,7 @@ Projeto do Terceiro Semestre do Curso Ciência da Computação
 
 ## Participantes
 
-- [@Cadu](https://github.com/Cadub)
+- [@Cadu Dias](https://github.com/Cadub)
 
 - [@Henrique Oda](https://github.com/luigishii)
 
@@ -15,7 +15,7 @@ Projeto do Terceiro Semestre do Curso Ciência da Computação
 
 - [@Luigi Ishii](https://github.com/luigishii)
 
-- [@Rafel Carrasco](https://github.com/RafCarrasco)
+- [@Rafael Carrasco](https://github.com/RafCarrasco)
 
 - [@Yuji Arima](https://github.com/yujiarima17)
 
