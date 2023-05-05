@@ -67,6 +67,12 @@ function Login() {
                     >
                         Entrar
                     </button>
+                    <div className="opcoes">
+                        <ul>
+                            <li>Recuperar Senha</li>
+                            <li>Cadastrar-se!</li>
+                        </ul>
+                    </div>
                 </form>
             </div>
         </>
