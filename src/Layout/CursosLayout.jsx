@@ -207,7 +207,12 @@ const CursosLayout = () => {
           >
             Calcular
           </button>
-          <button type="reset">Limpar</button>
+          <button
+            type="reset"
+            onClick={reset({ T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 })}
+          >
+            Limpar
+          </button>
           <button type="button"> Histórico</button>
 
           <span
