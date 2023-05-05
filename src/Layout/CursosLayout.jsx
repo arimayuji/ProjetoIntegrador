@@ -38,8 +38,7 @@ const CursosLayout = () => {
       .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      .number()
+        return value >= 0.0 && value <= 10.0;)
       .typeError("Inserir um número válido")
       .required("Preencher Campo")
       .test("is-between", "Nota Inválida", function (valor) {
@@ -48,16 +47,12 @@ const CursosLayout = () => {
       .positive("Apenas números positivos")
       .min(0,"Valor Inválido")
       .max(10,"Valor Inválido"),
-      .positive()
-      .min(0)
-      .max(10),
     T1: yup
       .number("Apenas números")
       .nullable(false,"Campo vazio")
       .required("Nota Inválida")
       .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      .number()
+        return value >= 0.0 && value <= 10.0;})
       .typeError("Inserir um número válido")
       .required("Preencher Campo")
       .test("is-between", "Nota Inválida", function (valor) {
@@ -126,7 +121,7 @@ const CursosLayout = () => {
       </>
     );
   };
-  const [display, setDisplay] = useState(false);
+  
   const handleChange = (campo, valor) => {
     setForm((prevState) => ({
       ...prevState,
