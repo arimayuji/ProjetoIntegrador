@@ -65,6 +65,17 @@ input[type="submit"].limpa_btn {
   align-items: center;
   padding: 0.1rem;
 }
+
+button[type="reset"] {
+  background-color: red;
+  box-shadow: red 0px 2px 4px, red 0px 7px 13px -3px, red 0px -3px 0px inset;
+}
+
+button[type="button"] {
+  background-color: green;
+  box-shadow: green 0px 2px 4px, green 0px 7px 13px -3px, green 0px -3px 0px inset;
+}
+
 .error-txt {
   display: flex;
   color: red;

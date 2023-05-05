@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle`
   button{
     display: flex;
     margin: 0 auto;
-    padding: .5rem;
+    padding: .5rem 2rem;
     width: fit-content;
     background-color: #004684;
     border-radius:.5rem;

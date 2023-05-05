@@ -21,7 +21,6 @@ const disciplinas = (semestre) => {
   ));
 };
 
-
 const CursosLayout = () => {
   const schema = yup.object().shape({
     P1: yup
@@ -79,13 +78,13 @@ const CursosLayout = () => {
     PI: 0,
     disciplina: "Banco de Dados",
   });
-  const [display, setDisplay] = useState(false)
+  const [display, setDisplay] = useState(false);
   const handleChange = (campo, valor) => {
-    setForm(prevState => ({
+    setForm((prevState) => ({
       ...prevState,
-      [campo]: valor
+      [campo]: valor,
     }));
-  }
+  };
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
@@ -130,7 +129,10 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
-              handleChange("disciplina", event.target.options[event.target.selectedIndex].text);
+              handleChange(
+                "disciplina",
+                event.target.options[event.target.selectedIndex].text
+              );
             }}
           >
             {disciplinas(form.semestre)}
@@ -143,7 +145,6 @@ const CursosLayout = () => {
             }}
             name="P1"
             id="P1"
-            type="number"
             min="0"
             max="10"
           />
@@ -156,7 +157,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("P2", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -170,7 +170,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("T1", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -184,7 +183,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("T2", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -197,7 +195,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("PI", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -207,20 +204,28 @@ const CursosLayout = () => {
             onClick={() => {
               setDisplay(true);
             }}
-            style={{ display: !display ? "flex" : "none" }}
           >
             Calcular
           </button>
+          <button type="reset">Limpar</button>
+          <button type="button"> Histórico</button>
+
           <span
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
             {isSubmitted && isValid && (
               <>
-
                 {media_tarefa(form.T1, form.T2)}
                 {media_prova(form.P1, form.P2)}
-                {media_final(form.disciplina, form.P1, form.P2, form.T1, form.T2, form.PI)}
+                {media_final(
+                  form.disciplina,
+                  form.P1,
+                  form.P2,
+                  form.T1,
+                  form.T2,
+                  form.PI
+                )}
                 {
                   <button
                     type="submit"
