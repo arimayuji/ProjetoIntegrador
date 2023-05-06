@@ -61,3 +61,9 @@ export const schemaCalculadora = yup.object().shape({
         .min(0, "Valor menor que 0")
         .max(10, "Valor maior que 10"),
 });
+export const schemaLogin = yup.object().shape({
+    email: yup.string().email("Email Inválido").required("Preencher Campo").test('existe-numero', 'Senha deve possuir ao menos um número', (value) => {
+        return /\d/.test(value);
+    }),
+    senha: yup.string().required("Preencher Campo").min(8, "Mínimo de 8 caracteres").max(20, "Máximo de 20 caracteres"),
+})
