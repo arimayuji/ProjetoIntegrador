@@ -260,7 +260,14 @@ const CursosLayout = () => {
           <button
             type="reset"
             onClick={() => {
-              reset({ T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 });
+              setForm({
+                semestre: 0,
+                P1: 0,
+                P2: 0,
+                T1: 0,
+                T2: 0,
+                PI: 0,
+              });
             }}
           >
             Limpar
