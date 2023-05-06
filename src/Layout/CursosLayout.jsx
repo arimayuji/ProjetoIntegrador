@@ -2,7 +2,6 @@ import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
@@ -22,15 +21,15 @@ const disciplinas = (semestre) => {
 };
 
 const CursosLayout = () => {
-  
+
   const [form, setForm] = useState({
-    semestre: 0,
+    Semestre: 0,
     P1: 0,
     P2: 0,
     T1: 0,
     T2: 0,
     PI: 0,
-    disciplina: "Banco de Dados",
+    Disciplinas: "Banco de Dados",
   });
   const [display, setDisplay] = useState(false);
   const resultado_forms = () => {
@@ -40,7 +39,7 @@ const CursosLayout = () => {
           {media_tarefa(form.T1, form.T2)}
           {media_prova(form.P1, form.P2)}
           {media_final(
-            form.disciplina,
+            form.Disciplinas,
             form.P1,
             form.P2,
             form.T1,
@@ -100,11 +99,12 @@ const CursosLayout = () => {
             name="Semestre"
             id="Semestre"
             onChange={(event) => {
-              handleChange("semestre", event.target.value);
+              handleChange("Semestre", event.target.value);
               console.log(event.target.value);
             }}
-            value={form.semestre}
+            value={String(form.Semestre)}
           >
+
             <option value="0">1</option>
             <option value="1">2</option>
             <option value="2">3</option>
@@ -117,14 +117,11 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
-              handleChange(
-                "disciplina",
-                event.target.options[event.target.selectedIndex].text
-              );
+              handleChange("Disciplinas", event.target.value);
             }}
-            value={form.disciplina}
+            value={form.Disciplinas} // Ajustado aqui
           >
-            {disciplinas(form.semestre)}
+            {disciplinas(form.Semestre)}
           </select>
           <label htmlFor="P1"> P1 :</label>
           <input
@@ -210,34 +207,10 @@ const CursosLayout = () => {
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
-            {isSubmitted && isValid && (
-              <>
-                {media_tarefa(form.T1, form.T2)}
-                {media_prova(form.P1, form.P2)}
-                {media_final(
-                  form.disciplina,
-                  form.P1,
-                  form.P2,
-                  form.T1,
-                  form.T2,
-                  form.PI
-                )}
-                {
-                  <button
-                    type="submit"
-                    className="limpa_btn"
-                    onClick={() => {
-                      setDisplay(false);
-                    }}
-                  >
-                    Limpar Resultados
-                  </button>
-                }
-              </>
-            )}
+            {isSubmitted && isValid && resultado_forms()}
           </span>
         </form>
-      </div>
+      </div >
     </>
   );
 };

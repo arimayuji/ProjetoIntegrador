@@ -1,4 +1,4 @@
-
+import * as yup from "yup";
 export const schemaCalculadora = yup.object().shape({
     P1: yup
         .number()
