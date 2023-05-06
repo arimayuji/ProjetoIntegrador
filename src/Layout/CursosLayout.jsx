@@ -2,7 +2,7 @@ import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
+import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
 import { useState } from "react";
@@ -14,7 +14,6 @@ import {
   media_tarefa,
 } from "../Cursos";
 
-// transforma cada disciplina da lista cic_semestres em options HTML dentro do select (l.38-44)
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
     <option key={chave}>{disciplina}</option>
@@ -22,76 +21,15 @@ const disciplinas = (semestre) => {
 };
 
 const CursosLayout = () => {
-  const schema = yup.object().shape({
-    P1: yup
-      .number()
-      .nullable(true, "Campo vazio")
-      .positive("Apenas números positivos")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .required("Preencher Campo")
-      .min(0, "Valor menor que 0")
-      .max(10, "Valor maior que 10"),
-    P2: yup
-      .number()
-      .nullable(true, "Campo vazio")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .typeError("Inserir um número válido")
-      .required("Preencher Campo")
-      .test("is-between", "Nota Inválida", function (valor) {
-        return valor >= 0.0 && valor <= 10.0;
-      })
-      .positive("Apenas números positivos")
-      .min(0, "Valor menor que 0")
-      .max(10, "Valor maior que 10"),
-    T1: yup
-      .number()
-      .nullable(true, "Campo vazio")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .typeError("Inserir um número válido")
-      .required("Preencher Campo")
-      .test("is-between", "Nota Inválida", function (valor) {
-        return valor >= 0.0 && valor <= 10.0;
-      })
-      .positive()
-      .min(0, "Valor menor que 0")
-      .max(10, "Valor maior que 10"),
-    T2: yup
-      .number()
-      .nullable(true, "Campo vazio")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .positive()
-      .min(0, "Valor menor que 0")
-      .max(10, "Valor maior que 10"),
-    PI: yup
-      .number("valor errado")
-      .nullable(true, "Campo vazio")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .positive()
-      .min(0, "Valor menor que 0")
-      .max(10, "Valor maior que 10"),
-  });
+
   const [form, setForm] = useState({
-    semestre: 0,
+    Semestre: 0,
     P1: 0,
     P2: 0,
     T1: 0,
     T2: 0,
     PI: 0,
-    disciplina: "Banco de Dados",
+    Disciplinas: "Banco de Dados",
   });
   const [display, setDisplay] = useState(false);
   const resultado_forms = () => {
@@ -101,7 +39,7 @@ const CursosLayout = () => {
           {media_tarefa(form.T1, form.T2)}
           {media_prova(form.P1, form.P2)}
           {media_final(
-            form.disciplina,
+            form.Disciplinas,
             form.P1,
             form.P2,
             form.T1,
@@ -141,7 +79,7 @@ const CursosLayout = () => {
     // apenas verifica os campos quando ocorrer o Submit
     defaultValues: { T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
     mode: "onSubmit",
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaCalculadora),
   });
   // resultados do forms quando ocorrer o submit
   const form_result = (data) => {
@@ -161,11 +99,12 @@ const CursosLayout = () => {
             name="Semestre"
             id="Semestre"
             onChange={(event) => {
-              handleChange("semestre", event.target.value);
+              handleChange("Semestre", event.target.value);
               console.log(event.target.value);
             }}
-            value={form.semestre}
+            value={String(form.Semestre)}
           >
+
             <option value="0">1</option>
             <option value="1">2</option>
             <option value="2">3</option>
@@ -178,14 +117,11 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
-              handleChange(
-                "disciplina",
-                event.target.options[event.target.selectedIndex].text
-              );
+              handleChange("Disciplinas", event.target.value);
             }}
-            value={form.disciplina}
+            value={form.Disciplinas} // Ajustado aqui
           >
-            {disciplinas(form.semestre)}
+            {disciplinas(form.Semestre)}
           </select>
           <label htmlFor="P1"> P1 :</label>
           <input
@@ -278,34 +214,10 @@ const CursosLayout = () => {
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
-            {isSubmitted && isValid && (
-              <>
-                {media_tarefa(form.T1, form.T2)}
-                {media_prova(form.P1, form.P2)}
-                {media_final(
-                  form.disciplina,
-                  form.P1,
-                  form.P2,
-                  form.T1,
-                  form.T2,
-                  form.PI
-                )}
-                {
-                  <button
-                    type="submit"
-                    className="limpa_btn"
-                    onClick={() => {
-                      setDisplay(false);
-                    }}
-                  >
-                    Limpar Resultados
-                  </button>
-                }
-              </>
-            )}
+            {isSubmitted && isValid && resultado_forms()}
           </span>
         </form>
-      </div>
+      </div >
     </>
   );
 };

@@ -29,7 +29,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-weight:bolder;
     height: 2rem;
-    width:fit-content;
     color: black;
     justify-content: center;
     align-items: center;
@@ -38,9 +37,25 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
     outline: 0;
     border-radius: 0.5rem;
-    border: 0.1rem solid #004684;
+    border: 0.2rem solid #004684;
   }
-  form input :focus{
+  option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  select::-ms-expand {
+  display: none; /* Remove o botão de seta no Internet Explorer */
+  }
+  select::after {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: blue; /* Define a cor do botão de seta */
+  pointer-events: none; /* Evita que o botão de seta seja clicável */
+  background-color: transparent;
+  } 
+   form input :focus{
      border: 0;
      text-decoration:underline;
      text-decoration-color:#004684;
