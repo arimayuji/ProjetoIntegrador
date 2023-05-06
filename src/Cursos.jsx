@@ -4,9 +4,9 @@ export const cic_semestres = [
     semestre: 1,
     disciplinas: [
       "Banco de Dados",
-      "Modelagem",
+      "Modelagem Orientada a Objetos",
       "Lógica de Programação",
-      "POO",
+      "Programação Orientada a Objetos",
       "Projeto Integrador I",
     ],
   },
@@ -23,9 +23,9 @@ export const cic_semestres = [
   {
     semestre: 3,
     disciplinas: [
-      "Física",
-      "Cálculo",
-      "Algoritmo",
+      "Física e Modelagem Computacional",
+      "Cálculo Computacional",
+      "Algoritmos e Estrutura de dados",
       "Desenvolvimento Ágil",
       "Paradigmas",
       "Projeto Integrador III",

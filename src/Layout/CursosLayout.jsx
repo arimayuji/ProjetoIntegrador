@@ -21,9 +21,7 @@ const disciplinas = (semestre) => {
   ));
 };
 
-
 const CursosLayout = () => {
-
   const [form, setForm] = useState({
     semestre: 0,
     P1: 0,
@@ -33,23 +31,52 @@ const CursosLayout = () => {
     PI: 0,
     disciplina: "Banco de Dados",
   });
-  const [display, setDisplay] = useState(false)
+  const resultado_forms = () => {
+    return (
+      <>
+        <div className="resultado-display">
+          {media_tarefa(form.T1, form.T2)}
+          {media_prova(form.P1, form.P2)}
+          {media_final(
+            form.disciplina,
+            form.P1,
+            form.P2,
+            form.T1,
+            form.T2,
+            form.PI
+          )}
+          {
+            <button
+              type="submit"
+              className="limpa_btn"
+              onClick={() => {
+                setDisplay(false);
+              }}
+            >
+              Limpar Resultados
+            </button>
+          }
+        </div>
+      </>
+    );
+  };
+  const [display, setDisplay] = useState(false);
   const handleChange = (campo, valor) => {
-    setForm(prevState => ({
+    setForm((prevState) => ({
       ...prevState,
-      [campo]: valor
+      [campo]: valor,
     }));
-  }
+  };
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
     handleSubmit,
     reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid, errors },
+    formState: { isSubmitted, isValid, errors, },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
-    defaultValues: { T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 },
+    defaultValues: { T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
     mode: "onSubmit",
     resolver: yupResolver(schemaCalculadora),
   });
@@ -74,16 +101,19 @@ const CursosLayout = () => {
               handleChange("semestre", event.target.value);
             }}
           >
-            <option value="0">1</option>
-            <option value="1">2</option>
-            <option value="2">3</option>
+            <option valor="0">1</option>
+            <option valor="1">2</option>
+            <option valor="2">3</option>
           </select>
           <select
             {...register("Disciplinas")}
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
-              handleChange("disciplina", event.target.options[event.target.selectedIndex].text);
+              handleChange(
+                "disciplina",
+                event.target.options[event.target.selectedIndex].text
+              );
             }}
           >
             {disciplinas(form.semestre)}
@@ -160,7 +190,7 @@ const CursosLayout = () => {
             onClick={() => {
               setDisplay(true);
             }}
-            style={{ display: !display ? "flex" : "none" }}
+
           >
             Calcular
           </button>
@@ -168,25 +198,7 @@ const CursosLayout = () => {
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
-            {isSubmitted && isValid && (
-              <>
-
-                {media_tarefa(form.T1, form.T2)}
-                {media_prova(form.P1, form.P2)}
-                {media_final(form.disciplina, form.P1, form.P2, form.T1, form.T2, form.PI)}
-                {
-                  <button
-                    type="submit"
-                    className="limpa_btn"
-                    onClick={() => {
-                      setDisplay(false);
-                    }}
-                  >
-                    Limpar Resultados
-                  </button>
-                }
-              </>
-            )}
+            {isSubmitted && isValid && resultado_forms()}
           </span>
         </form>
       </div>

@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 0.5rem;
     border: 0.2rem solid #004684;
     padding: 2rem;
@@ -76,5 +78,13 @@ export const GlobalStyle = createGlobalStyle`
   font-size: 1rem;
   font-weight: bold;
   margin: 0 auto;
+}
+a.link {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+a.link:hover {
+  color: white;
 }
 `;
