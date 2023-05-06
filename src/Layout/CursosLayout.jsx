@@ -3,6 +3,7 @@ import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
 import { useState } from "react";
@@ -14,7 +15,6 @@ import {
   media_tarefa,
 } from "../Cursos";
 
-// transforma cada disciplina da lista cic_semestres em options HTML dentro do select (l.38-44)
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
     <option key={chave}>{disciplina}</option>
@@ -23,53 +23,7 @@ const disciplinas = (semestre) => {
 
 
 const CursosLayout = () => {
-  const schema = yup.object().shape({
-    P1: yup
-      .number("Apenas números")
-      .positive("Apenas números positivos")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .required("Nota Inválida")
-      .min(0)
-      .max(10),
-    P2: yup
-      .number("Apenas números")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .positive("Apenas números positivos")
-      .min(0)
-      .max(10),
-    T1: yup
-      .number("Apenas números")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .positive("Apenas números positivos")
-      .min(0)
-      .max(10),
-    T2: yup
-      .number("Apenas números")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .positive("Apenas números positivos")
-      .min(0)
-      .max(10),
-    PI: yup
-      .number("Apenas números")
-      .required("Nota Inválida")
-      .test("is-between", "Nota Inválida", function (value) {
-        return value >= 0.0 && value <= 10.0;
-      })
-      .positive("Apenas números positivos")
-      .min(0)
-      .max(10),
-  });
+
   const [form, setForm] = useState({
     semestre: 0,
     P1: 0,
@@ -97,9 +51,8 @@ const CursosLayout = () => {
     // apenas verifica os campos quando ocorrer o Submit
     defaultValues: { T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 },
     mode: "onSubmit",
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaCalculadora),
   });
-  const submit_valid = isSubmitted && isValid;
   // resultados do forms quando ocorrer o submit
   const form_result = (data) => {
     console.log(data);
