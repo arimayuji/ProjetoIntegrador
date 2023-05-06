@@ -5,17 +5,24 @@ label {
   text-decoration-color: #004684;
 }
 
-select,
-option {
-  display: flex;
-  color: black;
+select {
+  color: black !important;
 }
-
 form input:active {
   border: 0;
   color: #004684;
 }
-
+select::-ms-expand {
+  display: none; /* Remove o botão de seta no Internet Explorer */
+}
+select::after {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: blue; /* Define a cor do botão de seta */
+  pointer-events: none; /* Evita que o botão de seta seja clicável */
+  background-color: transparent;
+}
 input[type="submit"] {
   display: flex;
   justify-content: center;
@@ -70,16 +77,20 @@ input[type="submit"]:hover {
   row-gap: 1.5rem;
   box-shadow: #004684 0px 2px 5px 0px, #004684 0px 1px 1px 0px;
 }
-input[type="submit"].limpa_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
+button[type="reset"] {
+  background-color: red;
+  box-shadow: red 0px 2px 4px, red 0px 7px 13px -3px, red 0px -3px 0px inset;
 }
+
+button[type="button"] {
+  background-color: green;
+  box-shadow: green 0px 2px 4px, green 0px 7px 13px -3px,
+    green 0px -3px 0px inset;
+}
+
 .error-txt {
   display: flex;
   color: red;
   font-weight: bold;
   font-size: 1rem;
-  margin: 0 auto;
 }

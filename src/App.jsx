@@ -6,6 +6,7 @@ import Notas from "./Routes/Notas.jsx";
 import Cic from "./Routes/Cic.jsx";
 import Calculadora from "./Routes/Calculadora.jsx";
 import Layout from "./Layout/layout.jsx";
+import Login from "./Routes/Login.jsx";
 import TransitionLayout from "./Layout/TransitionLayout.jsx";
 import HomeLayout from "./Layout/HomeLayout.jsx";
 import CursosLayout from "./Layout/CursosLayout.jsx";

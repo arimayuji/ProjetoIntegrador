@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   * {
   box-sizing: border-box;
-  color: white;
+  color: black;
   font-size: 1.2rem;
   font-weight: 400;
   transition: 0.5s;
@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 0.5rem;
     border: 0.2rem solid #004684;
     padding: 2rem;
@@ -25,18 +27,35 @@ export const GlobalStyle = createGlobalStyle`
   form select {
     display: flex;
     font-size: 1rem;
+    font-weight:bolder;
     height: 2rem;
-    width:fit-content;
     color: black;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     padding: 10%;
     text-align: center;
     outline: 0;
-    overflow-x:hidden;
     border-radius: 0.5rem;
-    border: 0.1rem solid #004684;
+    border: 0.2rem solid #004684;
   }
-  form input :focus{
+  option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  select::-ms-expand {
+  display: none; /* Remove o botão de seta no Internet Explorer */
+  }
+  select::after {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: blue; /* Define a cor do botão de seta */
+  pointer-events: none; /* Evita que o botão de seta seja clicável */
+  background-color: transparent;
+  } 
+   form input :focus{
      border: 0;
      text-decoration:underline;
      text-decoration-color:#004684;
@@ -58,7 +77,7 @@ export const GlobalStyle = createGlobalStyle`
   button{
     display: flex;
     margin: 0 auto;
-    padding: 1rem;
+    padding: .5rem 2rem;
     width: fit-content;
     background-color: #004684;
     border-radius:.5rem;
