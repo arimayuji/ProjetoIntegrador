@@ -22,6 +22,7 @@ const disciplinas = (semestre) => {
 };
 
 const CursosLayout = () => {
+  
   const [form, setForm] = useState({
     semestre: 0,
     P1: 0,
@@ -31,6 +32,7 @@ const CursosLayout = () => {
     PI: 0,
     disciplina: "Banco de Dados",
   });
+  const [display, setDisplay] = useState(false);
   const resultado_forms = () => {
     return (
       <>
@@ -60,7 +62,7 @@ const CursosLayout = () => {
       </>
     );
   };
-  const [display, setDisplay] = useState(false);
+
   const handleChange = (campo, valor) => {
     setForm((prevState) => ({
       ...prevState,
@@ -99,12 +101,17 @@ const CursosLayout = () => {
             id="Semestre"
             onChange={(event) => {
               handleChange("semestre", event.target.value);
+              console.log(event.target.value);
             }}
+            value={form.semestre}
           >
-            <option valor="0">1</option>
-            <option valor="1">2</option>
-            <option valor="2">3</option>
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
           </select>
+          <label htmlFor="Disciplina" id="Disciplina">
+            Disciplinas :
+          </label>
           <select
             {...register("Disciplinas")}
             name="Disciplinas"
@@ -115,6 +122,7 @@ const CursosLayout = () => {
                 event.target.options[event.target.selectedIndex].text
               );
             }}
+            value={form.disciplina}
           >
             {disciplinas(form.semestre)}
           </select>
@@ -126,7 +134,6 @@ const CursosLayout = () => {
             }}
             name="P1"
             id="P1"
-            type="number"
             min="0"
             max="10"
           />
@@ -139,7 +146,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("P2", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -153,7 +159,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("T1", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -167,7 +172,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("T2", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -180,7 +184,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("PI", parseFloat(event.target.value));
             }}
-            type="number"
             min="0"
             max="10"
           />
@@ -190,15 +193,48 @@ const CursosLayout = () => {
             onClick={() => {
               setDisplay(true);
             }}
-
           >
             Calcular
           </button>
+          <button
+            type="reset"
+            onClick={() => {
+              reset({ T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 });
+            }}
+          >
+            Limpar
+          </button>
+          <button type="button"> Histórico</button>
+
           <span
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
-            {isSubmitted && isValid && resultado_forms()}
+            {isSubmitted && isValid && (
+              <>
+                {media_tarefa(form.T1, form.T2)}
+                {media_prova(form.P1, form.P2)}
+                {media_final(
+                  form.disciplina,
+                  form.P1,
+                  form.P2,
+                  form.T1,
+                  form.T2,
+                  form.PI
+                )}
+                {
+                  <button
+                    type="submit"
+                    className="limpa_btn"
+                    onClick={() => {
+                      setDisplay(false);
+                    }}
+                  >
+                    Limpar Resultados
+                  </button>
+                }
+              </>
+            )}
           </span>
         </form>
       </div>

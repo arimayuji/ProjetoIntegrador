@@ -70,16 +70,19 @@ input[type="submit"]:hover {
   row-gap: 1.5rem;
   box-shadow: #004684 0px 2px 5px 0px, #004684 0px 1px 1px 0px;
 }
-input[type="submit"].limpa_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
+button[type="reset"] {
+  background-color: red;
+  box-shadow: red 0px 2px 4px, red 0px 7px 13px -3px, red 0px -3px 0px inset;
 }
+
+button[type="button"] {
+  background-color: green;
+  box-shadow: green 0px 2px 4px, green 0px 7px 13px -3px, green 0px -3px 0px inset;
+}
+
 .error-txt {
   display: flex;
   color: red;
   font-weight: bold;
   font-size: 1rem;
-  margin: 0 auto;
 }

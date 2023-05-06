@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   * {
   box-sizing: border-box;
-  color: white;
+  color: black;
   font-size: 1.2rem;
   font-weight: 400;
   transition: 0.5s;
@@ -27,13 +27,15 @@ export const GlobalStyle = createGlobalStyle`
   form select {
     display: flex;
     font-size: 1rem;
+    font-weight:bolder;
     height: 2rem;
     color: black;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     padding: 10%;
     text-align: center;
     outline: 0;
-    overflow-x:hidden;
     border-radius: 0.5rem;
     border: 0.1rem solid #004684;
   }
@@ -59,7 +61,7 @@ export const GlobalStyle = createGlobalStyle`
   button{
     display: flex;
     margin: 0 auto;
-    padding: 1rem;
+    padding: .5rem 2rem;
     width: fit-content;
     background-color: #004684;
     border-radius:.5rem;
