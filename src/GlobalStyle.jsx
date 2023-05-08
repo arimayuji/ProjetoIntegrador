@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   * {
   box-sizing: border-box;
-  color: black;
   font-size: 1.2rem;
   font-weight: 400;
   transition: 0.5s;
@@ -104,5 +103,10 @@ a.link {
 }
 a.link:hover {
   color: white;
+}
+img{
+  display: flex;
+  width: fit-content;
+  height: 5rem;
 }
 `;

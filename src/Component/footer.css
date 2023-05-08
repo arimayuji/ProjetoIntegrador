@@ -1,1 +1,6 @@
 @import url("./Navabar.css");
+img {
+  display: flex;
+  width: 50%;
+  height: 50%;
+}

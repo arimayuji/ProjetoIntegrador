@@ -17,7 +17,7 @@ function Login() {
     } = useForm({
         // apenas verifica os campos quando ocorrer o Submit
         mode: "onSubmit",
-        resolver: yupResolver(schema)
+        resolver: yupResolver(schemaLogin)
     });
 
     const form_result = (data) => {
@@ -28,7 +28,6 @@ function Login() {
             <GlobalStyle />
             <div className="login">
                 <img src={Logo} alt="" />
-                <span>Entrar</span>
                 <form onSubmit={handleSubmit(form_result)} className="login-forms">
                     <div className="email-campo">
                         <label htmlFor="email">Email :</label>

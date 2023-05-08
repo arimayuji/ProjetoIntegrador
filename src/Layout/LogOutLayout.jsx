@@ -3,7 +3,7 @@ import Footer from "../Component/Footer";
 import "./Layout.css";
 import "./HomeLayout.css"
 import { Outlet } from "react-router-dom";
-const HomeLayout = () => {
+const LogOutLayout = () => {
     return (
         <>
             <div className="root-main">
@@ -14,8 +14,11 @@ const HomeLayout = () => {
                 <div className="main-content-homepage">
                     <Outlet />
                 </div>
+                <div className="footer">
+                    <Footer />
+                </div>
             </div>
         </>
     );
 };
-export default HomeLayout;
+export default LogOutLayout;

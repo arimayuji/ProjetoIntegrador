@@ -8,14 +8,14 @@
   align-items: center;
   flex-direction: column;
   row-gap: 1rem;
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
-    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: #004684 0px 1px 1px 0px inset, #004684 0px 50px 100px -20px,
+    #004684 0px 30px 60px -30px;
 }
 
 .login-forms {
   display: flex;
   border: 0;
+  color: #004684;
 }
 .email-campo,
 .senha-campo {
@@ -30,6 +30,8 @@
   border: 0;
   border-radius: 0;
   border-bottom: 0.1rem solid #004684;
+  background-color: transparent;
+  color: white;
 }
 .login-forms input :hover {
   border-bottom-color: black;
@@ -38,6 +40,11 @@
   display: flex;
   width: 60%;
   height: 60%;
+}
+.login-forms label {
+  display: flex;
+  color:#004684;
+  text-decoration: none;
 }
 .opcoes ul {
   display: flex;
@@ -51,8 +58,9 @@
 }
 ul li {
   margin: 0 auto;
-  color: black;
+  color: white;
   display: flex;
+  font-size: 1rem;
   text-decoration: underline;
   color: #004684;
 }

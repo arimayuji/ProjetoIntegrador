@@ -25,7 +25,7 @@ const Layout = () => {
 
                 </section>
                 <button>
-                    <Link to="/Office365 - Login" className="link"> Quero Calcular Minha Nota! </Link>
+                    <Link to="/Login" className="link"> Quero Calcular Minha Nota! </Link>
 
                 </button>
                 <section className="text-two"><p className="content-text">

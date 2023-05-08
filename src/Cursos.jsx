@@ -63,11 +63,11 @@ export const media_prova = (P1, P2) => {
     return resultado_0("Média Prova", media_p.toFixed(1), "resultado_np");
   }
 };
-export const media_final = (disciplina, P1, P2, T1, T2, pi) => {
+export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
   let media_f =
-    ((P1 + P2) / 2) * cic_calculos[disciplina].peso_prova +
-    ((T1 + T2) / 2) * cic_calculos[disciplina].peso_tarefa +
-    pi * 0.1;
+    ((P1 + P2) / 2) * cic_calculos[Disciplina].peso_prova +
+    ((T1 + T2) / 2) * cic_calculos[Disciplina].peso_tarefa +
+    PI * 0.1;
   // retorna media tarefa,prova e final na lista medias
   if (media_f >= 6) {
     return resultado_0("Média Final", media_f.toFixed(1), "resultado_p");
