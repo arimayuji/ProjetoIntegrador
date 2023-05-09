@@ -32,10 +32,13 @@
   border-radius: 0;
   border-bottom: 0.1rem solid #004684;
   background-color: transparent;
-  color: white;
+  color: #004684;
 }
 .cadastro-forms input :hover {
   border-bottom-color: black;
+}
+.cadastro-forms input:focus {
+    box-shadow: #004684 0px 1px 3px, #004684 0px 1px 2px;
 }
 .cadastro img {
   display: flex;

@@ -31,10 +31,13 @@
   border-radius: 0;
   border-bottom: 0.1rem solid #004684;
   background-color: transparent;
-  color: white;
+  color: #004684;
 }
 .login-forms input :hover {
   border-bottom-color: black;
+}
+.login-forms input:focus {
+  box-shadow: #004684 0px 1px 3px, #004684 0px 1px 2px;
 }
 .login img {
   display: flex;
@@ -43,10 +46,10 @@
 }
 .login-forms label {
   display: flex;
-  color:#004684;
+  color: #004684;
   justify-content: center;
   align-items: center;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
   text-decoration: none;
 }
 .opcoes ul {
@@ -66,7 +69,7 @@
   text-decoration: underline;
   color: red;
 }
-li a.link{
+li a.link {
   margin: 0 auto;
   display: flex;
   font-size: 1rem;

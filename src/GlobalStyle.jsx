@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-weight:bolder;
     height: 2rem;
-    color: black;
+    color: #004684;
     justify-content: center;
     align-items: center;
     background-color: white;
