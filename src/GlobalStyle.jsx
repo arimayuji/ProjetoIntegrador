@@ -98,12 +98,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 a.link {
   display: flex;
-  color: white;
   text-decoration: none;
 }
-a.link:hover {
-  color: white;
-}
+
 img{
   display: flex;
   width: fit-content;
@@ -117,5 +114,15 @@ i{
   border-radius: 0.5rem;
   color: white;
   padding: .5rem;
+}
+i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #004684;
+  color: white;
+  border-radius:.5rem;
+  padding: .5rem;
+
 }
 `;

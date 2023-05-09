@@ -1,13 +1,11 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
-import Logo from "../images/logo-mauaBlue.png";
-import { schemaLogin } from "../Schema/schemas";
-import "./Login.css";
-import { Link } from "react-router-dom";
+import Logo from "../images/logo-toSalvo.png";
+import { schemaCadastro } from "../Schema/schemas";
+import "./Cadastro.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-function Login() {
-
+const cadastrar = () => {
     const {
         register,
         handleSubmit,
@@ -18,7 +16,7 @@ function Login() {
     } = useForm({
         // apenas verifica os campos quando ocorrer o Submit
         mode: "onSubmit",
-        resolver: yupResolver(schemaLogin)
+        resolver: yupResolver(schemaCadastro)
     });
 
     const form_result = (data) => {
@@ -27,9 +25,18 @@ function Login() {
     return (
         <>
             <GlobalStyle />
-            <div className="login">
+            <div className="cadastro">
                 <img src={Logo} alt="" />
-                <form onSubmit={handleSubmit(form_result)} className="login-forms">
+                <form onSubmit={handleSubmit(form_result)} className="cadastro-forms">
+                    <div className="nome-campo">
+                        <label htmlFor="email"><i class="bi bi-person"></i>Nome :</label>
+                        <input
+                            {...register("nome")}
+                            name="nome"
+                        />
+
+                        <p className="error-txt">{errors.nome?.message}</p>
+                    </div>
                     <div className="email-campo">
                         <label htmlFor="email"><i class="bi bi-envelope"></i>Email :</label>
                         <input
@@ -58,19 +65,14 @@ function Login() {
                     <button
                         type="submit"
                     >
-                        Entrar
+                        Cadastrar
                     </button>
                     <div className="opcoes">
-                        <ul>
-                            <li>Recuperar Senha</li>
-                            <li><Link to="/Cadastrar" className="link">
-                                Cadastrar-se</Link></li>
-                        </ul>
+
                     </div>
                 </form>
             </div>
         </>
-    );
+    )
 }
-
-export default Login;
+export default cadastrar;
