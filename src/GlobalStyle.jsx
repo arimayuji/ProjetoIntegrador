@@ -109,4 +109,13 @@ img{
   width: fit-content;
   height: 5rem;
 }
+i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #004684;
+  border-radius: 0.5rem;
+  color: white;
+  padding: .5rem;
+}
 `;

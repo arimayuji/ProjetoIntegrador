@@ -44,6 +44,9 @@
 .login-forms label {
   display: flex;
   color:#004684;
+  justify-content: center;
+  align-items: center;
+  column-gap: .5rem;
   text-decoration: none;
 }
 .opcoes ul {

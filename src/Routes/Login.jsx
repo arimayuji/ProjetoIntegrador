@@ -30,7 +30,7 @@ function Login() {
                 <img src={Logo} alt="" />
                 <form onSubmit={handleSubmit(form_result)} className="login-forms">
                     <div className="email-campo">
-                        <label htmlFor="email">Email :</label>
+                        <label htmlFor="email"><i class="bi bi-envelope"></i>Email :</label>
                         <input
                             type="email"
                             {...register("email")}
@@ -42,7 +42,7 @@ function Login() {
                     </div>
 
                     <div className="senha-campo">
-                        <label htmlFor="senha">Senha :</label>
+                        <label htmlFor="senha"><i class="bi bi-lock"></i>Senha :</label>
                         <input
                             type="password"
                             {...register("senha")}
