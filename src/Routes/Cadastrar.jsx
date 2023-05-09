@@ -3,6 +3,7 @@ import { GlobalStyle } from "../GlobalStyle";
 import Logo from "../images/logo-toSalvo.png";
 import { schemaCadastro } from "../Schema/schemas";
 import "./Cadastro.css";
+import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const cadastrar = () => {
@@ -68,7 +69,10 @@ const cadastrar = () => {
                         Cadastrar
                     </button>
                     <div className="opcoes">
-
+                        <ul>
+                            <li><Link to="/Termos de Uso" className="link">
+                                Termos de Uso</Link></li>
+                        </ul>
                     </div>
                 </form>
             </div>

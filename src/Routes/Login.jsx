@@ -62,9 +62,10 @@ function Login() {
                     </button>
                     <div className="opcoes">
                         <ul>
-                            <li>Recuperar Senha</li>
+                            <li><Link to="/Recuperar Senha" className="link">
+                                Recuperar Senha</Link></li>
                             <li><Link to="/Cadastrar" className="link">
-                                Cadastrar-se</Link></li>
+                                Cadastrar-se!</Link></li>
                         </ul>
                     </div>
                 </form>

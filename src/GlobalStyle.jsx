@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   * {
   box-sizing: border-box;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 550;
   transition: 0.5s;
   font-family: "Oxygen", sans-serif;
   }
@@ -99,6 +99,7 @@ export const GlobalStyle = createGlobalStyle`
 a.link {
   display: flex;
   text-decoration: none;
+  font-weight: 550;
 }
 
 img{
@@ -106,15 +107,7 @@ img{
   width: fit-content;
   height: 5rem;
 }
-i{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #004684;
-  border-radius: 0.5rem;
-  color: white;
-  padding: .5rem;
-}
+
 i{
   display: flex;
   justify-content: center;

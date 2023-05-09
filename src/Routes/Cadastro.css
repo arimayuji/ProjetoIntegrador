@@ -18,7 +18,8 @@
   color: #004684;
 }
 .email-campo,
-.senha-campo,.nome-campo {
+.senha-campo,
+.nome-campo {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,18 +57,24 @@
   /* bootstrap coloca elemento ul com pl */
   padding-left: 0;
 }
-ul li {
+.opcoes ul li {
   margin: 0 auto;
   color: white;
   display: flex;
   font-size: 1rem;
   text-decoration: underline;
-  color: #004684;
+  color: red;
 }
-div label{
- display: flex;
- column-gap: .5rem;
- justify-content: center;
- align-items: center;
+li a.link {
+  margin: 0 auto;
+  display: flex;
+  font-size: 1rem;
+  text-decoration: underline;
+  color: red;
 }
-
+div label {
+  display: flex;
+  column-gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}

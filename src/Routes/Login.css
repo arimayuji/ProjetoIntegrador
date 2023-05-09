@@ -59,10 +59,18 @@
   /* bootstrap coloca elemento ul com pl */
   padding-left: 0;
 }
-ul li,li a.link {
+.opcoes ul li {
   margin: 0 auto;
   display: flex;
   font-size: 1rem;
   text-decoration: underline;
-  color: #004684;
+  color: red;
+}
+li a.link{
+  margin: 0 auto;
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: red;
 }
