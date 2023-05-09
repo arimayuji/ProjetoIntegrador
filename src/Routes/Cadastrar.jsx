@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
-import Logo from "../images/logo-mauaBlue.png";
-import { schemaLogin } from "../Schema/schemas";
-import "./Login.css";
-import { Link } from "react-router-dom";
+import Logo from "../images/logo-toSalvo.png";
+import { schemaCadastro } from "../Schema/schemas";
+import "./Cadastro.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const cadastrar = () => {
@@ -17,7 +16,7 @@ const cadastrar = () => {
     } = useForm({
         // apenas verifica os campos quando ocorrer o Submit
         mode: "onSubmit",
-        resolver: yupResolver(schemaLogin)
+        resolver: yupResolver(schemaCadastro)
     });
 
     const form_result = (data) => {
@@ -26,10 +25,10 @@ const cadastrar = () => {
     return (
         <>
             <GlobalStyle />
-            <div className="login">
+            <div className="cadastro">
                 <img src={Logo} alt="" />
-                <form onSubmit={handleSubmit(form_result)} className="login-forms">
-                <div className="nome-campo">
+                <form onSubmit={handleSubmit(form_result)} className="cadastro-forms">
+                    <div className="nome-campo">
                         <label htmlFor="email">Nome :</label>
                         <input
                             {...register("nome")}
