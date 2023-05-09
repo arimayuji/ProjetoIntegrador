@@ -3,6 +3,7 @@ import { GlobalStyle } from "../GlobalStyle";
 import Logo from "../images/logo-mauaBlue.png";
 import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
+import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 function Login() {
@@ -62,7 +63,8 @@ function Login() {
                     <div className="opcoes">
                         <ul>
                             <li>Recuperar Senha</li>
-                            <li>Cadastrar-se!</li>
+                            <li><Link to="/Cadastrar" className="link">
+                            </Link></li>
                         </ul>
                     </div>
                 </form>
