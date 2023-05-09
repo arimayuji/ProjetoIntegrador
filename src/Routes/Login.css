@@ -56,9 +56,8 @@
   /* bootstrap coloca elemento ul com pl */
   padding-left: 0;
 }
-ul li {
+ul li,li a.link {
   margin: 0 auto;
-  color: white;
   display: flex;
   font-size: 1rem;
   text-decoration: underline;

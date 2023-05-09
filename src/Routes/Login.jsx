@@ -64,7 +64,7 @@ function Login() {
                         <ul>
                             <li>Recuperar Senha</li>
                             <li><Link to="/Cadastrar" className="link">
-                            </Link></li>
+                                Cadastrar-se</Link></li>
                         </ul>
                     </div>
                 </form>

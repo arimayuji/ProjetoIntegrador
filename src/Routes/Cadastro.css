@@ -1,0 +1,66 @@
+.cadastro {
+  display: flex;
+  height: fit-content;
+  width: 20rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  box-shadow: #004684 0px 1px 1px 0px inset, #004684 0px 50px 100px -20px,
+    #004684 0px 30px 60px -30px;
+}
+
+.cadastro-forms {
+  display: flex;
+  border: 0;
+  color: #004684;
+}
+.email-campo,
+.senha-campo,.nome-campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+.cadastro-forms input {
+  display: flex;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 0.1rem solid #004684;
+  background-color: transparent;
+  color: white;
+}
+.cadastro-forms input :hover {
+  border-bottom-color: black;
+}
+.cadastro img {
+  display: flex;
+  width: 60%;
+  height: 60%;
+}
+.cadastro-forms label {
+  display: flex;
+  color: #004684;
+  text-decoration: none;
+}
+.opcoes ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin: 0 auto;
+  /* bootstrap coloca elemento ul com pl */
+  padding-left: 0;
+}
+ul li {
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  font-size: 1rem;
+  text-decoration: underline;
+  color: #004684;
+}

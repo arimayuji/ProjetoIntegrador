@@ -98,12 +98,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 a.link {
   display: flex;
-  color: white;
   text-decoration: none;
 }
-a.link:hover {
-  color: white;
-}
+
 img{
   display: flex;
   width: fit-content;
