@@ -64,3 +64,10 @@ ul li {
   text-decoration: underline;
   color: #004684;
 }
+div label{
+ display: flex;
+ column-gap: .5rem;
+ justify-content: center;
+ align-items: center;
+}
+

@@ -29,7 +29,7 @@ const cadastrar = () => {
                 <img src={Logo} alt="" />
                 <form onSubmit={handleSubmit(form_result)} className="cadastro-forms">
                     <div className="nome-campo">
-                        <label htmlFor="email">Nome :</label>
+                        <label htmlFor="email"><i class="bi bi-person"></i>Nome :</label>
                         <input
                             {...register("nome")}
                             name="nome"
@@ -38,7 +38,7 @@ const cadastrar = () => {
                         <p className="error-txt">{errors.nome?.message}</p>
                     </div>
                     <div className="email-campo">
-                        <label htmlFor="email">Email :</label>
+                        <label htmlFor="email"><i class="bi bi-envelope"></i>Email :</label>
                         <input
                             type="email"
                             {...register("email")}
@@ -50,7 +50,7 @@ const cadastrar = () => {
                     </div>
 
                     <div className="senha-campo">
-                        <label htmlFor="senha">Senha :</label>
+                        <label htmlFor="senha"><i class="bi bi-lock"></i>Senha :</label>
                         <input
                             type="password"
                             {...register("senha")}
