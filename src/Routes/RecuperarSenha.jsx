@@ -3,8 +3,8 @@ import { GlobalStyle } from "../GlobalStyle";
 import Logo from "../images/logo-toSalvoblue.png";
 import { schemaCadastro } from "../Schema/schemas";
 import "./RecuperarSenha.css";
+import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 
 const RecuperarSenha = () => {
   const {
@@ -24,14 +24,16 @@ const RecuperarSenha = () => {
     console.log(data);
   };
 
-
   return (
     <>
       <GlobalStyle />
       <div className="cadastro">
+        <Link to="/Login" className="link">
+          {" "}
+          <i class="bi bi-arrow-left"></i>
+        </Link>
         <img src={Logo} alt="" />
         <form onSubmit={handleSubmit(form_result)} className="cadastro-forms">
-          
           <div className="email-campo">
             <label htmlFor="email">
               <i class="bi bi-envelope"></i>Digite seu Email :
@@ -46,12 +48,8 @@ const RecuperarSenha = () => {
             <p className="error-txt">{errors.email?.message}</p>
           </div>
 
-          
-         
           <button type="submit">Recuperar</button>
-          <div className="opcoes">
-            
-          </div>
+          <div className="opcoes"></div>
         </form>
       </div>
     </>

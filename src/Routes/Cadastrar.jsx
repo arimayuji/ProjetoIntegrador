@@ -18,7 +18,7 @@ function MyVerticallyCenteredModal(props) {
       centered
       id="modal"
     >
-      <Modal.Header >
+      <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
           Termos de Uso
         </Modal.Title>
@@ -93,6 +93,10 @@ const cadastrar = () => {
     <>
       <GlobalStyle />
       <div className="cadastro">
+        <Link to="/Login" className="link">
+          {" "}
+          <i class="bi bi-arrow-left"></i>
+        </Link>
         <img src={Logo} alt="" />
         <form onSubmit={handleSubmit(form_result)} className="cadastro-forms">
           <div className="nome-campo">

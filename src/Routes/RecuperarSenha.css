@@ -4,8 +4,6 @@
   width: 20rem;
   border-radius: 0.5rem;
   padding: 2rem;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   row-gap: 1rem;
   box-shadow: #004684 0px 1px 1px 0px inset, #004684 0px 50px 100px -20px,
@@ -27,6 +25,7 @@
   justify-content: center;
   align-items: center;
   row-gap: 1rem;
+  margin: 0 auto;
 }
 
 .cadastro-forms input {
@@ -67,6 +66,7 @@
   margin: 0 auto;
   /* bootstrap coloca elemento ul com pl */
   padding-left: 0;
+  margin: 0 auto;
 }
 
 .opcoes ul li {
@@ -100,33 +100,7 @@ div label {
 
 }
 
-.modal-content {
+.cadastro a {
   display: flex;
-  color: #004684;
-}
-
-.modal-body p {
-  display: flex;
-  color: #004684;
-  line-height: 2rem;
-  font-size: 1rem;
-  text-indent: 10px;
-
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
-
-.modal-title.h4 {
-  display: flex;
-  font-weight: bold;
-}
-
-#modal button[type="button"] {
-  display: flex;
-  background-color: #004684;
-  box-shadow: 0;
+  margin-right: auto;
 }
