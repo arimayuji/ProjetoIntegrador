@@ -23,6 +23,18 @@ const cadastrar = () => {
     const form_result = (data) => {
         console.log(data);
     };
+    const [showSenha, setSenha] = useState("bi bi-eye-slash");
+    const [showInputType, setInputType] = useState("password");
+
+    const handleToggleSenha = () => {
+        setSenha(prevState =>
+            prevState === "bi bi-eye-slash" ? "bi bi-eye" : "bi bi-eye-slash"
+        );
+
+        setInputType(prevState =>
+            prevState === "password" ? "text" : "password"
+        );
+    };
     return (
         <>
             <GlobalStyle />
@@ -52,14 +64,14 @@ const cadastrar = () => {
 
                     <div className="senha-campo">
                         <label htmlFor="senha"><i class="bi bi-lock"></i>Senha :</label>
-                        <input
-                            type="password"
+                        <span className="campo"><i class={showSenha} onClick={handleToggleSenha}></i><input
+                            type={showInputType}
                             {...register("senha")}
                             name="senha"
                             placeholder="*****"
-                        />
-                    </div>
+                        /></span>
 
+                    </div>
                     <p className="error-txt">{errors.senha?.message}</p>
 
 

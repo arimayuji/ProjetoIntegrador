@@ -81,3 +81,10 @@ div label {
   justify-content: center;
   align-items: center;
 }
+.campo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
