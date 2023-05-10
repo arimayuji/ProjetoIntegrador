@@ -10,6 +10,7 @@
   row-gap: 1rem;
   box-shadow: #004684 0px 1px 1px 0px inset, #004684 0px 50px 100px -20px,
     #004684 0px 30px 60px -30px;
+  background-color: white;
 }
 
 .cadastro-forms {

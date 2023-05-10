@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     border: 0.2rem solid #004684;
     padding: 2rem;
     row-gap: 2rem;
+    background-color:white;
   }
   body {
   width: 100%;
