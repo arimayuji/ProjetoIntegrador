@@ -5,6 +5,7 @@ import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 
 function Login() {
 
@@ -23,6 +24,18 @@ function Login() {
 
     const form_result = (data) => {
         console.log(data);
+    };
+    const [showSenha, setSenha] = useState("bi bi-eye-slash");
+    const [showInputType, setInputType] = useState("password");
+
+    const handleToggleSenha = () => {
+        setSenha(prevState =>
+            prevState === "bi bi-eye-slash" ? "bi bi-eye" : "bi bi-eye-slash"
+        );
+
+        setInputType(prevState =>
+            prevState === "password" ? "text" : "password"
+        );
     };
     return (
         <>
@@ -44,12 +57,13 @@ function Login() {
 
                     <div className="senha-campo">
                         <label htmlFor="senha"><i class="bi bi-lock"></i>Senha :</label>
-                        <input
-                            type="password"
+                        <span className="campo"><i class={showSenha} onClick={handleToggleSenha}></i><input
+                            type={showInputType}
                             {...register("senha")}
                             name="senha"
                             placeholder="*****"
-                        />
+                        /></span>
+
                     </div>
 
                     <p className="error-txt">{errors.senha?.message}</p>
@@ -68,8 +82,8 @@ function Login() {
                                 Cadastrar-se!</Link></li>
                         </ul>
                     </div>
-                </form>
-            </div>
+                </form >
+            </div >
         </>
     );
 }

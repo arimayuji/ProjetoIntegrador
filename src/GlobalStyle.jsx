@@ -112,10 +112,7 @@ i{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #004684;
-  color: white;
-  border-radius:.5rem;
-  padding: .5rem;
+  color: #004684;
 
 }
 `;
