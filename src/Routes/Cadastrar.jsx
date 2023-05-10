@@ -103,7 +103,9 @@ const cadastrar = () => {
             <label htmlFor="email">
               <i class="bi bi-person"></i>Nome :
             </label>
-            <input {...register("nome")} name="nome" />
+            <input {...register("nome")} 
+            placeholder="nome do usuário"
+            name="nome" />
 
             <p className="error-txt">{errors.nome?.message}</p>
           </div>
