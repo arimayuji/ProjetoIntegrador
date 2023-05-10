@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
-import Logo from "../images/logo-mauaBlue.png";
+import Logo from "../images/logo-toSalvoBlue.png";
 import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
 import { Link } from "react-router-dom";
@@ -76,7 +76,7 @@ function Login() {
                     </button>
                     <div className="opcoes">
                         <ul>
-                            <li><Link to="/Recuperar Senha" className="link">
+                            <li><Link to="/RecuperarSenha" className="link">
                                 Recuperar Senha</Link></li>
                             <li><Link to="/Cadastrar" className="link">
                                 Cadastrar-se!</Link></li>

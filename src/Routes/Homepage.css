@@ -52,8 +52,8 @@ section:hover {
 }
 .content img {
   display: flex;
-  width: 10rem;
-  height: 10rem;
+  width: 11rem;
+  height: 8.5rem;
   background-color: #004684;
   border-radius: 0.5rem;
   box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;

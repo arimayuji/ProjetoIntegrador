@@ -9,6 +9,7 @@ import Login from "./Routes/Login.jsx";
 import LogOutLayout from "./Layout/LogOutLayout.jsx";
 import CursosLayout from "./Layout/CursosLayout.jsx";
 import Cadastrar from "./Routes/Cadastrar.jsx";
+import RecuperarSenha from "./Routes/RecuperarSenha.jsx";
 import "./Component/NavaBar.css";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,6 +23,7 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Cadastrar" element={< Cadastrar />} />
+        <Route path="/RecuperarSenha" element={< RecuperarSenha />} />
       </Route>
       <Route element={<Layout />}>
         <Route path="/Calculadora" element={<Calculadora />} />

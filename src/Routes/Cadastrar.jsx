@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
-import Logo from "../images/logo-toSalvo.png";
+import Logo from "../images/logo-toSalvoBlue.png";
 import { schemaCadastro } from "../Schema/schemas";
 import { useState } from "react";
 import "./Cadastro.css";
