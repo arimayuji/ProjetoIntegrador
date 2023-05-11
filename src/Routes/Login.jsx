@@ -34,13 +34,28 @@ function Login() {
     for(let i = 0; i < users.length; i++) {
       if(data.email === users[i].id) {
         if(data.senha === users[i].senha) {
-          return navigate("/Calculadora")
+          
+          verificar_Curso(users[i].curso);
+          
         }
       }
-      
     }
   };
 
+  
+  const verificar_Curso = (curso) => {
+
+    if(curso === "Ciência da Computação") return navigate("/Ciência%20da%20Computação")
+  
+    else if(curso === "Sistema da Informação") return navigate("/Sistema%20da%20Informação")
+
+    else if(curso === "Design") return navigate("/Design")
+
+    else if(curso === "Engenharia") return navigate("/Engenharia") 
+
+    else if(curso === "Administração") return navigate("/Administração")
+  
+  }
   const [showSenha, setSenha] = useState("bi bi-eye-slash");
   const [showInputType, setInputType] = useState("password");
 
