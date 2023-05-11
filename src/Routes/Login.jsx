@@ -5,9 +5,9 @@ import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState, useEffect } from "react";
-import { initializeApp } from 'firebase/app';
-import { collection, deleteDoc, doc, getDocs, getFirestore, setDoc } from 'firebase/firestore';
+import { useState } from "react";
+import { ListaUsuarios } from "../db/BancoDeDados";
+
 
 function Login() {
   const {
@@ -25,31 +25,8 @@ function Login() {
   //variável usada para realizar a navegação entre páginas
   let navigate = useNavigate();
 
-  //dados do banco firebase
-  const firebaseapp = initializeApp({
-    apiKey: "AIzaSyBt-jfOZdmMNuDQryRXOjTd3ZW0cXseURE",
-    authDomain: "testando-firebase-b99d0.firebaseapp.com",
-    projectId: "testando-firebase-b99d0",
-  });
-  
-  //variavel que recebera a lista de usuarios
-  const [users, setUsers] = useState([]);
-
-  //faz conexão com o banco
-  const db = getFirestore(firebaseapp);
-  const useCollectionRef = collection(db, "usuarios");
-
-  useEffect(() => {
-
-    //transforma os dados do banco numa array
-    const getUsers = async () => {
-      const data = await getDocs(useCollectionRef);
-      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-      
-    }
-    getUsers();
-
-  }, [])
+  //recebe a lista de usuários os dados do banco
+  let users = ListaUsuarios();
   
  //verificação de conta
   const account_verification = (data) => {
@@ -57,10 +34,7 @@ function Login() {
     for(let i = 0; i < users.length; i++) {
       if(data.email === users[i].id) {
         if(data.senha === users[i].senha) {
-          
-          
           return navigate("/Calculadora")
-
         }
       }
       
