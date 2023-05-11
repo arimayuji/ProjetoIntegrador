@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
 import Logo from "../images/logo-toSalvoblue.png";
-import { schemaCadastro } from "../Schema/schemas";
+import { schemaRecuperar } from "../Schema/schemas";
 import "./RecuperarSenha.css";
 import { Link } from "react-router-dom";
+import { sendEmail } from "../../backend/email";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const RecuperarSenha = () => {
@@ -17,13 +18,13 @@ const RecuperarSenha = () => {
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
     mode: "onSubmit",
-    resolver: yupResolver(schemaCadastro),
+    resolver: yupResolver(schemaRecuperar),
   });
 
   const form_result = (data) => {
     console.log(data);
+    sendEmail(data);
   };
-
   return (
     <>
       <GlobalStyle />

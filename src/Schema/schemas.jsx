@@ -74,3 +74,6 @@ export const schemaCadastro = yup.object().shape({
     }),
     nome: yup.string().required("Preencher Campo").min(3, "Mínimo de 3 caracteres").max(15, "Máximo de 15 caracteres"),
 })
+export const schemaRecuperar = yup.object().shape({
+    email: yup.string().email("Email Inválido").required("Preencher Campo"),
+})
