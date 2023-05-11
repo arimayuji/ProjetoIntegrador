@@ -2,21 +2,21 @@ import { initializeApp } from 'firebase/app';
 import { collection, deleteDoc, doc, getDocs, getFirestore, setDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react'
 
-export const ListaUsuarios = () => {
 //dados do banco firebase
-
-    const firebaseapp = initializeApp({
+const firebaseapp = initializeApp({
         apiKey: "AIzaSyBt-jfOZdmMNuDQryRXOjTd3ZW0cXseURE",
         authDomain: "testando-firebase-b99d0.firebaseapp.com",
         projectId: "testando-firebase-b99d0",
     });
-  
-  //variavel que recebera a lista de usuarios
-    const [users, setUsers] = useState([]);
 
-  //faz conexão com o banco
-    const db = getFirestore(firebaseapp);
-    const useCollectionRef = collection(db, "usuarios");
+//faz conexão com o banco
+const db = getFirestore(firebaseapp);
+const useCollectionRef = collection(db, "usuarios");
+
+export const ListaUsuarios = () => {
+
+    //variavel que recebera a lista de usuarios
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
 
