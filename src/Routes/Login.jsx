@@ -3,7 +3,7 @@ import { GlobalStyle } from "../GlobalStyle";
 import Logo from "../images/logo-toSalvoBlue.png";
 import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useEffect } from "react";
 import { initializeApp } from 'firebase/app';
@@ -22,20 +22,26 @@ function Login() {
     mode: "onSubmit",
     resolver: yupResolver(schemaLogin),
   });
+  //variável usada para realizar a navegação entre páginas
+  let navigate = useNavigate();
 
+  //dados do banco firebase
   const firebaseapp = initializeApp({
     apiKey: "AIzaSyBt-jfOZdmMNuDQryRXOjTd3ZW0cXseURE",
     authDomain: "testando-firebase-b99d0.firebaseapp.com",
     projectId: "testando-firebase-b99d0",
   });
   
+  //variavel que recebera a lista de usuarios
   const [users, setUsers] = useState([]);
 
+  //faz conexão com o banco
   const db = getFirestore(firebaseapp);
   const useCollectionRef = collection(db, "usuarios");
 
   useEffect(() => {
 
+    //transforma os dados do banco numa array
     const getUsers = async () => {
       const data = await getDocs(useCollectionRef);
       setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
@@ -44,11 +50,23 @@ function Login() {
     getUsers();
 
   }, [])
+  
+ //verificação de conta
+  const account_verification = (data) => {
+     
+    for(let i = 0; i < users.length; i++) {
+      if(data.email === users[i].id) {
+        if(data.senha === users[i].senha) {
+          
+          
+          return navigate("/Calculadora")
 
-
-  const form_result = (data) => {
-    console.log(data);
+        }
+      }
+      
+    }
   };
+
   const [showSenha, setSenha] = useState("bi bi-eye-slash");
   const [showInputType, setInputType] = useState("password");
 
@@ -70,7 +88,7 @@ function Login() {
           <i class="bi bi-arrow-left"></i>
         </Link>
         <img src={Logo} alt="" />
-        <form onSubmit={handleSubmit(form_result)} className="login-forms">
+        <form onSubmit={handleSubmit(account_verification)} className="login-forms">
           <div className="email-campo">
             <label htmlFor="email">
               <i class="bi bi-envelope"></i>Email :
