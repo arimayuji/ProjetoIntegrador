@@ -5,7 +5,9 @@ import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { initializeApp } from 'firebase/app';
+import { collection, deleteDoc, doc, getDocs, getFirestore, setDoc } from 'firebase/firestore';
 
 function Login() {
   const {
@@ -20,6 +22,29 @@ function Login() {
     mode: "onSubmit",
     resolver: yupResolver(schemaLogin),
   });
+
+  const firebaseapp = initializeApp({
+    apiKey: "AIzaSyBt-jfOZdmMNuDQryRXOjTd3ZW0cXseURE",
+    authDomain: "testando-firebase-b99d0.firebaseapp.com",
+    projectId: "testando-firebase-b99d0",
+  });
+  
+  const [users, setUsers] = useState([]);
+
+  const db = getFirestore(firebaseapp);
+  const useCollectionRef = collection(db, "usuarios");
+
+  useEffect(() => {
+
+    const getUsers = async () => {
+      const data = await getDocs(useCollectionRef);
+      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+      
+    }
+    getUsers();
+
+  }, [])
+
 
   const form_result = (data) => {
     console.log(data);
