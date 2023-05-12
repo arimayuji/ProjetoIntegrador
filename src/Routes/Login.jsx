@@ -78,20 +78,6 @@ function Login() {
           <p className="error-txt">{errors.senha?.message}</p>
 
           <button type="submit">Entrar</button>
-          <div className="opcoes">
-            <ul>
-              <li>
-                <Link to="/RecuperarSenha" className="link">
-                  Recuperar Senha
-                </Link>
-              </li>
-              <li>
-                <Link to="/Cadastrar" className="link">
-                  Cadastrar-se!
-                </Link>
-              </li>
-            </ul>
-          </div>
         </form>
       </div>
     </>
