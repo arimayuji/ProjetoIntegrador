@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react'
 
 //dados do banco firebase
 const firebaseapp = initializeApp({
-        apiKey: "AIzaSyBt-jfOZdmMNuDQryRXOjTd3ZW0cXseURE",
-        authDomain: "testando-firebase-b99d0.firebaseapp.com",
-        projectId: "testando-firebase-b99d0",
-    });
+    apiKey: "AIzaSyBohZe48d0kBpMkjTl5Z8OvvXkinO9ewNI",
+    authDomain: "pi-firebase-fcf48.firebaseapp.com",
+    projectId: "pi-firebase-fcf48",
+});
 
 //faz conexão com o banco
 const db = getFirestore(firebaseapp);
