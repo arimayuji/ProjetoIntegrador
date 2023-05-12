@@ -2,45 +2,7 @@
   font-family: "Hind", sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
-  color: black;
-}
-
-p.content-text {
-  display: flex;
-  width: fit-content;
-  justify-content: center;
-  align-items: center;
   color: #004684;
-  line-height: 1rem;
-  font-weight: bolder;
-  line-height: 2rem;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  row-gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  --c: #004684;
-  /* cor da borda */
-  --b: 3px;
-  /* grossura da borda*/
-  --g: 1.5rem;
-  /* padding do efeito */
-  padding: calc(var(--g) + var(--b));
-  --_g: #0000 25%, var(--c) 0;
-  background: conic-gradient(from 180deg at top var(--b) right var(--b),
-      var(--_g)) var(--_i, 200%) 0 /200% var(--_i, var(--b)) no-repeat,
-    conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%) / var(--_i, var(--b)) 200% no-repeat;
-  transition: 1s, background-position 1s 1s;
-  cursor: pointer;
-}
-
-section:hover {
-  --_i: 100%;
-  transition: 1s, background-size 1s 1s;
 }
 
 .team-members {
@@ -48,19 +10,24 @@ section:hover {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  column-gap: 1rem;
+  column-gap: 5rem;
+  row-gap: 5rem;
 }
 
-div.icons{
+div.icons {
   display: flex;
   flex-direction: row;
   column-gap: 1rem;
-  
+  padding-top: 0.5rem;
   justify-content: center;
   align-items: center;
+  border-top: 0.1rem solid #004684;
 }
-div.icons i{
+.bio {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 .member {
@@ -70,33 +37,60 @@ div.icons i{
   flex-direction: column;
   row-gap: 1rem;
   text-align: center;
+  padding: 1rem;
+  border: 0.1rem solid #004684;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;
+  transition: transform 0.3s ease-in-out;
 }
 
+.member:hover {
+  transform: translateY(-1.5rem) translateZ(1.5rem);
+}
 .member img {
+  display: flex;
+  margin: 0 auto;
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
+  border: 0.2rem dashed #004684;
 }
-
-.bsz {
-
+.bio h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  row-gap: 50rem;
-
-
+  margin: 0;
 }
-
+.icons i {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+.icons i:hover {
+  transform: translateY(-.5rem) translateZ(.5rem);
+}
+.bsz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 5rem;
+}
+.bsz h1 {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  background-color: #004684;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
 .bsz img {
   display: flex;
-  width: 11rem;
-  height: 8.5rem;
+  width: 10rem;
+  height: 10rem;
   background-color: #004684;
   border-radius: 0.5rem;
-  box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;
 }
 
 button {
@@ -115,12 +109,10 @@ button {
 }
 
 button :hover {
-
   color: #004684;
 }
 
 @keyframes animation {
-
   0%,
   10%,
   100% {
