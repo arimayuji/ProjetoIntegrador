@@ -17,6 +17,16 @@ const Footer = () => {
             <Link to="" className="link">
               <img src={logo} alt="" />
             </Link>
+            
+          </Nav>
+          <Nav
+            className="justify-content-center align-items-center"
+            id="nav-items"
+          >
+            <Link to="/SobreNos" className="link">
+            <button  className="sbn">Sobre nós</button>
+            </Link>
+            
           </Nav>
         </Container>
       </Navbar>
