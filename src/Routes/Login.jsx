@@ -76,7 +76,7 @@ function Login() {
 
           <p className="error-txt">{errors.senha?.message}</p>
 
-          <button type="submit" disabled={!isValid}>
+          <button type="submit" >
             Entrar
           </button>
         </form>
