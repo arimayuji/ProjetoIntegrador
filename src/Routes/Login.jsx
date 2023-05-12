@@ -12,9 +12,8 @@ function Login() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid },
+    formState: { isValid },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
     mode: "onSubmit",
@@ -77,7 +76,9 @@ function Login() {
 
           <p className="error-txt">{errors.senha?.message}</p>
 
-          <button type="submit">Entrar</button>
+          <button type="submit" disabled={!isValid}>
+            Entrar
+          </button>
         </form>
       </div>
     </>
