@@ -28,7 +28,7 @@ function App() {
         <Route path="/Notas" element={<Notas />} />F
         <Route path="/Contato" element={<Contato />} />
         <Route element={<CursosLayout />}>
-          <Route path="/Ciência da Computação" element={<Cic />} />
+          <Route path="/Ciência_da_Computação" element={<Cic />} />
         </Route>
       </Route>
     </Routes>
