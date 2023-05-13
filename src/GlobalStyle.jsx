@@ -28,12 +28,12 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     font-size: 1rem;
     font-weight:bolder;
-    height: 2rem;
+    height: 5rem;
     color: #004684;
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 10%;
+    padding: 0 1rem;
     text-align: center;
     outline: 0;
     border-radius: 0.5rem;
