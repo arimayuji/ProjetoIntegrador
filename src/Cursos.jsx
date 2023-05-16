@@ -18,6 +18,7 @@ export const cic_semestres = [
       "Matemática Discreta",
       "Legislação",
       "Estatística",
+      "Projeto Integrador II",
     ],
   },
   {
@@ -65,8 +66,8 @@ export const media_prova = (P1, P2) => {
 };
 export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
   let media_f =
-    ((P1 + P2) / 2) * cic_calculos[Disciplina].peso_prova +
-    ((T1 + T2) / 2) * cic_calculos[Disciplina].peso_tarefa +
+    (((P1 + P2) / 2) * cic_calculos[Disciplina].peso_prova +
+      ((T1 + T2) / 2) * cic_calculos[Disciplina].peso_tarefa) * 0.9 +
     PI * 0.1;
   // retorna media tarefa,prova e final na lista medias
   if (media_f >= 6) {
@@ -86,6 +87,10 @@ export const cic_calculos = {
     peso_tarefa: 0.5,
   },
   "Banco de Dados": {
+    peso_prova: 0.6,
+    peso_tarefa: 0.4,
+  },
+  "Modelagem Orientada a Objetos": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },

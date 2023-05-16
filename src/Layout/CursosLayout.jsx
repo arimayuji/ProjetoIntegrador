@@ -68,13 +68,13 @@ const CursosLayout = () => {
       [campo]: valor,
     }));
   };
-  
+
   const notas = VerificaHistorico(localStorage.getItem("email"), "materias");
   const alterarNotas = () => {
-    if(notas != []) {
-      for(let i = 0; i < notas.length; i++) {
-        if(notas[i].disciplinas === sessionStorage.getItem("Materia")) {
-          
+    if (notas != []) {
+      for (let i = 0; i < notas.length; i++) {
+        if (notas[i].disciplinas === sessionStorage.getItem("Materia")) {
+
           procuraElemento("P1", notas[i].P1);
           procuraElemento("P2", notas[i].P2);
           procuraElemento("T1", notas[i].T1);
@@ -157,6 +157,8 @@ const CursosLayout = () => {
             id="P1"
             min="0"
             max="10"
+            type="number"
+            DefaultValue={form.P1}
           />
           <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
@@ -169,6 +171,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            defaultValue={form.P2}
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -182,6 +186,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            defaultValue={form.T1}
           />
           <p className="error-txt">{errors.T1?.message}</p>
 
@@ -195,6 +201,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            defaultValue={form.T2}
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -207,6 +215,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            value={form.PI}
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
@@ -237,7 +247,7 @@ const CursosLayout = () => {
           >
             Limpar
           </button>
-          <button type="button" onClick={async function() {
+          <button type="button" onClick={async function () {
             alterarNotas();
           }}> Histórico</button>
 
