@@ -6,16 +6,18 @@ import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./Navabar.css";
 
+const sair = () => {
+  localStorage.removeItem("loginStatus");
+  localStorage.removeItem("curso");
+}
 const NavBar = () => {
   return (
     <>
       <Navbar className="nav" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#home" className="logo">
             <Link to="/" className="link">
               <img src={logo} alt="" />
             </Link>
-          </Navbar.Brand>
           <Nav
             className="justify-content-center align-items-center"
             id="nav-items"
@@ -41,12 +43,13 @@ const NavBar = () => {
                 Administração
               </NavDropdown.Item>
             </NavDropdown>
-            <Link to="/Login" className="link">
-              Login
+            <Link to="/" className="link" onClick={
+              sair()}>
+              Sair
             </Link>
           </Nav>
         </Container>
-      </Navbar>
+      </Navbar >
     </>
   );
 };

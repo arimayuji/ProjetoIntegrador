@@ -5,7 +5,7 @@ import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ListaUsuarios } from "../db/BancoDeDados";
 
 
@@ -14,9 +14,8 @@ function Login() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid },
+    formState: { isValid },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
     mode: "onSubmit",
@@ -27,38 +26,43 @@ function Login() {
 
   //recebe a lista de usuários os dados do banco
   let users = ListaUsuarios();
-  
- //verificação de conta
-  const account_verification = (data) => {
-     
-    for(let i = 0; i < users.length; i++) {
-      if(data.email === users[i].id) {
-        if(data.senha === users[i].senha) {
-          
-          verificar_Curso(users[i].curso);
-          
-        }
-      }
-    }
-  };
 
-  
+
   const verificar_Curso = (curso) => {
 
-    if(curso === "Ciência da Computação") return navigate("/Ciência%20da%20Computação")
-  
-    else if(curso === "Sistema da Informação") return navigate("/Sistema%20da%20Informação")
+    if (curso === "Ciência da Computação") return navigate("/Ciência_da_Computação")
 
-    else if(curso === "Design") return navigate("/Design")
+    else if (curso === "Sistema da Informação") return navigate("/Sistema_da_Informação")
 
-    else if(curso === "Engenharia") return navigate("/Engenharia") 
+    else if (curso === "Design") return navigate("/Design")
 
-    else if(curso === "Administração") return navigate("/Administração")
-  
+    else if (curso === "Engenharia") return navigate("/Engenharia")
+
+    else if (curso === "Administração") return navigate("/Administração")
+
   }
   const [showSenha, setSenha] = useState("bi bi-eye-slash");
   const [showInputType, setInputType] = useState("password");
+  // ação executada toda vez que a tela é carregada
+  //verificação de conta
+  const account_verification = (data) => {
+    for (let i = 0; i < users.length; i++) {
+      if (data.email === users[i].id && data.senha === users[i].senha) {
+        localStorage.setItem("cursos", users[i].curso);
+        localStorage.setItem("isLoggedIn", true);
+        verificar_Curso(users[i].curso);
+      }
+    }
 
+  };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const curso = localStorage.getItem("cursos");
+    if (isLoggedIn) {
+      verificar_Curso(curso);
+    }
+  }, []);
   const handleToggleSenha = () => {
     setSenha((prevState) =>
       prevState === "bi bi-eye-slash" ? "bi bi-eye" : "bi bi-eye-slash"
@@ -109,21 +113,9 @@ function Login() {
 
           <p className="error-txt">{errors.senha?.message}</p>
 
-          <button type="submit">Entrar</button>
-          <div className="opcoes">
-            <ul>
-              <li>
-                <Link to="/RecuperarSenha" className="link">
-                  Recuperar Senha
-                </Link>
-              </li>
-              <li>
-                <Link to="/Cadastrar" className="link">
-                  Cadastrar-se!
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <button type="submit" >
+            Entrar
+          </button>
         </form>
       </div>
     </>

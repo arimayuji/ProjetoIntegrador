@@ -2,7 +2,7 @@ import logo from "../images/logo-mauaBlue.png";
 import office from "../images/office365.png";
 import "./Office.css";
 import { Link } from "react-router-dom";
-function Login() {
+function Office() {
   return (
     <>
       <div className="office-login">
@@ -14,11 +14,11 @@ function Login() {
               <img src={office} alt="" />
             </Link>
           </span>
-          
+
         </div>
       </div>
     </>
   );
 }
 
-export default Login;
+export default Office;
