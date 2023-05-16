@@ -109,9 +109,12 @@ const CursosLayout = () => {
   return (
     <>
       <GlobalStyle />
+
       <div className="root-cursos">
+
         <Outlet />
         <form onSubmit={handleSubmit(form_result)}>
+
           <label htmlFor="Semestre" id="Semestre">
             Semestre :
           </label>
@@ -215,7 +218,7 @@ const CursosLayout = () => {
             Calcular
           </button>
           <button
-            type="button"
+            type="reset"
             onClick={() => {
               setForm({
                 P1: 0,

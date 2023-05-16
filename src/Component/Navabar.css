@@ -7,9 +7,13 @@
 }
 .logo {
   display: flex;
-  margin-left: 0;
+  margin-right: 0;
 }
-
+.container-fluid{
+  display: flex;
+  justify-content: none;
+  align-items: none;
+}
 #nav-items {
   display: flex;
   margin: auto;
