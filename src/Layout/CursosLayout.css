@@ -39,15 +39,17 @@ input[type="submit"]:hover {
 }
 /* css para passou */
 .resultado_p {
-  background-color: green;
+  background-color: white;
   border-radius: 0.5rem;
-  border: 0.2rem solid green;
+  padding: .5rem;
+  color: green;
 }
 /* css para nao passou */
 .resultado_np {
-  background-color: rgb(110, 27, 27);
+  background-color: white;
   border-radius: 0.5rem;
-  border: 0.2rem solid rgb(110, 27, 27);
+  padding: .5rem;
+  color: red;
 }
 
 .resultados {

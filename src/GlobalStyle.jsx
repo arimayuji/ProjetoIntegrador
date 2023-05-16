@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
     border-radius: 0.5rem;
     border: 0.2rem solid #004684;
     padding: 2rem;
