@@ -27,25 +27,7 @@ function Login() {
   //recebe a lista de usuários os dados do banco
   let users = ListaUsuarios();
 
-  const account_verification = (data) => {
-    for (let i = 0; i < users.length; i++) {
-      if (data.email === users[i].id && data.senha === users[i].senha) {
-        localStorage.setItem("loginStatus", true);
-        localStorage.setItem("curso", users[i].curso)
-        verificar_Curso(users[i].curso);
-        return;
-      }
-    }
-  };
-  // ação executada toda vez que a tela é carregada
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("loginStatus");
-    //   caso true , direciona diretamente para a tela do curso
-    if (isLoggedIn) {
-      const curso = localStorage.getItem("curso");
-      verificar_Curso(curso);
-    }
-  }, []);
+
   const verificar_Curso = (curso) => {
 
     if (curso === "Ciência da Computação") return navigate("/Ciência_da_Computação")
@@ -61,7 +43,26 @@ function Login() {
   }
   const [showSenha, setSenha] = useState("bi bi-eye-slash");
   const [showInputType, setInputType] = useState("password");
+  // ação executada toda vez que a tela é carregada
+  //verificação de conta
+  const account_verification = (data) => {
+    for (let i = 0; i < users.length; i++) {
+      if (data.email === users[i].id && data.senha === users[i].senha) {
+        localStorage.setItem("cursos", users[i].curso);
+        localStorage.setItem("isLoggedIn", true);
+        verificar_Curso(users[i].curso);
+      }
+    }
 
+  };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const curso = localStorage.getItem("cursos");
+    if (isLoggedIn) {
+      verificar_Curso(curso);
+    }
+  }, []);
   const handleToggleSenha = () => {
     setSenha((prevState) =>
       prevState === "bi bi-eye-slash" ? "bi bi-eye" : "bi bi-eye-slash"
