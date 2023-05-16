@@ -69,7 +69,7 @@ const CursosLayout = () => {
     }));
   };
   
-  const notas = VerificaHistorico("22.01552-3@maua.br", "materias");
+  const notas = VerificaHistorico(localStorage.getItem("email"), "materias");
   const alterarNotas = () => {
     if(notas != []) {
       for(let i = 0; i < notas.length; i++) {
