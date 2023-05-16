@@ -14,27 +14,6 @@ const firebaseapp = initializeApp({
 const db = getFirestore(firebaseapp);
 const useCollectionRef = collection(db, "usuarios");
 
-export const VerificarConta = () => {
-    for (let i = 0; i < users.length; i++) {
-        if (data.email === users[i].id && data.senha === users[i].senha) {
-            localStorage.setItem("loginStatus", true);
-            localStorage.setItem("curso", users[i].curso)
-            VerificarCurso(users[i].curso);
-            return;
-        }
-    }
-}
-export const VerificarCurso = () => {
-    if (curso === "Ciência da Computação") return navigate("/Ciência_da_Computação")
-
-    else if (curso === "Sistema da Informação") return navigate("/Sistema_da_Informação")
-
-    else if (curso === "Design") return navigate("/Design")
-
-    else if (curso === "Engenharia") return navigate("/Engenharia")
-
-    else if (curso === "Administração") return navigate("/Administração")
-}
 export const ListaUsuarios = () => {
 
     //variavel que recebera a lista de usuarios
@@ -55,37 +34,44 @@ export const ListaUsuarios = () => {
     return users
 }
 
-export const VerificaHistorico = (email, materia) => {
+export const VerificaHistorico = (id, materia) => {
 
-    const [notas, setNotas] = useState([]);
-
+    const [notas, setNotas] = useState();
+      
     useEffect(() => {
 
-        const parentDocRef = doc(useCollectionRef, email);
+        const parentDocRef = doc(useCollectionRef, id);
         const subCollectionRef = collection(parentDocRef, materia);
-
+      
         // adiciona listener para a subcoleção
         const unsubscribe = onSnapshot(subCollectionRef, (subCollectionSnapshot) => {
-            const subCollectionDocs = subCollectionSnapshot.docs;
-
-            setNotas(
-                subCollectionDocs
-                    .filter(doc => doc.data().P1 !== undefined)
-                    .map(doc => {
-                        const data = doc.data();
-                        return {
-                            id: doc.id,
-                            P1: data.P1,
-                        };
-                    })
+        const subCollectionDocs = subCollectionSnapshot.docs;
+      
+        setNotas(
+            subCollectionDocs.map((doc) => {
+            const data = doc.data();
+            return {
+                disciplinas: doc.id,
+                P1: data.P1,
+                P2: data.P2,
+                PI: data.PI,
+                T1: data.T1,
+                T2: data.T2,
+                };
+              })
             );
-        });
-
-        // retorna função de cleanup para remover o listener quando o componente for desmontado
-        return () => unsubscribe();
-    }, [])
-
-    if (notas.length !== 0) {
-        return notas;
-    }
-}
+          });
+      
+          // retorna função de cleanup para remover o listener quando o componente for desmontado
+          return () => unsubscribe();
+        },
+        [id, materia]
+    );
+      
+    return notas ? notas : [];
+};
+  
+  
+  
+  
+  
