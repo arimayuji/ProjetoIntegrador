@@ -1,7 +1,7 @@
 import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
@@ -12,6 +12,7 @@ import {
   media_prova,
   media_tarefa,
 } from "../Cursos";
+import { VerificaHistorico } from "../db/BancoDeDados";
 
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
@@ -67,6 +68,27 @@ const CursosLayout = () => {
       [campo]: valor,
     }));
   };
+  
+  const notas = VerificaHistorico("22.01552-3@maua.br", "materias");
+  const alterarNotas = () => {
+    if(notas != []) {
+      for(let i = 0; i < notas.length; i++) {
+        if(notas[i].disciplinas === sessionStorage.getItem("Materia")) {
+          
+          procuraElemento("P1", notas[i].P1);
+          procuraElemento("P2", notas[i].P2);
+          procuraElemento("T1", notas[i].T1);
+          procuraElemento("T2", notas[i].T2);
+          procuraElemento("PI", notas[i].PI);
+        }
+      }
+    }
+  }
+  const procuraElemento = async (id, valor) => {
+    const elemento = document.getElementById(id)
+    elemento.value = valor
+    handleChange(id, parseFloat(valor))
+  }
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
@@ -115,6 +137,7 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
+              sessionStorage.setItem("Materia", event.target.value)
               handleChange("Disciplinas", event.target.value);
             }}
             defaultValue={form.Disciplinas}
@@ -211,7 +234,9 @@ const CursosLayout = () => {
           >
             Limpar
           </button>
-          <button type="button"> Histórico</button>
+          <button type="button" onClick={async function() {
+            alterarNotas();
+          }}> Histórico</button>
 
           <span
             className="resultados"
