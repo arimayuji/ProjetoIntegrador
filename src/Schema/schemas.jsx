@@ -1,15 +1,20 @@
 import * as yup from "yup";
+
 export const schemaCalculadora = yup.object().shape({
     P1: yup
         .number()
         .nullable(true, "Campo vazio")
-        .positive("Apenas números positivos")
+        .positive("Número deve ser positivo")
         .test("is-between", "Nota Inválida", function (value) {
             return value >= 0.0 && value <= 10.0;
         })
-        .required("Preencher Campo")
-        .min(0, "Valor menor que 0")
-        .max(10, "Valor maior que 10"),
+        .test("is-valid-number", "Valor Inválido", function (value) {
+            if (value === "" || value === null || value === undefined) {
+                throw new yup.ValidationError("Campo vazio", value, "P1");
+            }
+            return true;
+        })
+        .required("Preencher Campo"),
     P2: yup
         .number()
         .nullable(true, "Campo vazio")
@@ -17,14 +22,13 @@ export const schemaCalculadora = yup.object().shape({
         .test("is-between", "Nota Inválida", function (value) {
             return value >= 0.0 && value <= 10.0;
         })
-        .typeError("Inserir um número válido")
-        .required("Preencher Campo")
-        .test("is-between", "Nota Inválida", function (valor) {
-            return valor >= 0.0 && valor <= 10.0;
+        .test("is-valid-number", "Valor Inválido", function (value) {
+            if (value === "" || value === null || value === undefined) {
+                throw new yup.ValidationError("Campo vazio", value, "P2");
+            }
+            return true;
         })
-        .positive("Apenas números positivos")
-        .min(0, "Valor menor que 0")
-        .max(10, "Valor maior que 10"),
+        .positive("Número deve ser positivo"),
     T1: yup
         .number()
         .nullable(true, "Campo vazio")
@@ -32,14 +36,13 @@ export const schemaCalculadora = yup.object().shape({
         .test("is-between", "Nota Inválida", function (value) {
             return value >= 0.0 && value <= 10.0;
         })
-        .typeError("Inserir um número válido")
-        .required("Preencher Campo")
-        .test("is-between", "Nota Inválida", function (valor) {
-            return valor >= 0.0 && valor <= 10.0;
+        .test("is-valid-number", "Valor Inválido", function (value) {
+            if (value === "" || value === null || value === undefined) {
+                throw new yup.ValidationError("Campo vazio", value, "T1");
+            }
+            return true;
         })
-        .positive()
-        .min(0, "Valor menor que 0")
-        .max(10, "Valor maior que 10"),
+        .positive("Número deve ser positivo"),
     T2: yup
         .number()
         .nullable(true, "Campo vazio")
@@ -47,30 +50,42 @@ export const schemaCalculadora = yup.object().shape({
         .test("is-between", "Nota Inválida", function (value) {
             return value >= 0.0 && value <= 10.0;
         })
-        .positive()
-        .min(0, "Valor menor que 0")
-        .max(10, "Valor maior que 10"),
-    PI: yup
-        .number("valor errado")
-        .nullable(true, "Campo vazio")
-        .required("Nota Inválida")
-        .test("is-between", "Nota Inválida", function (value) {
-            return value >= 0.0 && value <= 10.0;
+        .test("is-valid-number", "Valor Inválido", function (value) {
+            if (value === "" || value === null || value === undefined) {
+                throw new yup.ValidationError("Campo vazio", value, "T2");
+            }
+            return true;
         })
-        .positive()
-        .min(0, "Valor menor que 0")
-        .max(10, "Valor maior que 10"),
+        .positive("Número deve ser positivo"),
+    PI: yup
+        .mixed()
+        .nullable(true)
+        .test("is-valid-number", "Valor Inválido", function (value) {
+            if (value === "" || value === null || value === undefined) {
+                throw new yup.ValidationError("Campo vazio", value, "PI");
+            }
+            return true;
+        })
+        .test("is-between", "Valor fora do intervalo", function (value) {
+            return value >= 0 && value <= 10;
+        }),
 });
+
+
 export const schemaLogin = yup.object().shape({
-    email: yup.string().email("Email Inválido").required("Preencher Campo"),
-    senha: yup.string().required("Preencher Campo").min(8, "Senha Inválida").max(20, "Senha Inválida").test('existe-numero', 'Senha Inválida', (value) => {
-        return /\d/.test(value);
-    }),
-})
-export const schemaCadastro = yup.object().shape({
-    email: yup.string().email("Email Inválido").required("Preencher Campo"),
-    senha: yup.string().required("Preencher Campo").min(8, "Mínimo de 8 caracteres").max(20, "Máximo de 20 caracteres").test('existe-numero', 'Senha deve possuir ao menos um número', (value) => {
-        return /\d/.test(value);
-    }),
-    nome: yup.string().required("Preencher Campo").min(3, "Mínimo de 3 caracteres").max(15, "Máximo de 15 caracteres"),
-})
+    email: yup
+        .string()
+        .email("Email Inválido")
+        .required("Preencher Campo")
+        .test('email-estrutura', 'Email Inválido', (value) => {
+            return /^[\d]{2}\.[\d]{5}-[\d]@maua\.br$/.test(value);
+        }),
+    senha: yup
+        .string()
+        .required("Preencher Campo")
+        .min(8, "Senha Inválida")
+        .max(20, "Senha Inválida")
+        .test('existe-numero', 'Senha Inválida', (value) => {
+            return /\d/.test(value);
+        }),
+});

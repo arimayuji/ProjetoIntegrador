@@ -1,7 +1,7 @@
 import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
@@ -12,6 +12,7 @@ import {
   media_prova,
   media_tarefa,
 } from "../Cursos";
+import { VerificaHistorico } from "../db/BancoDeDados";
 
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
@@ -67,6 +68,27 @@ const CursosLayout = () => {
       [campo]: valor,
     }));
   };
+
+  const notas = VerificaHistorico(localStorage.getItem("email"), "materias");
+  const alterarNotas = () => {
+    if (notas != []) {
+      for (let i = 0; i < notas.length; i++) {
+        if (notas[i].disciplinas === sessionStorage.getItem("Materia")) {
+
+          procuraElemento("P1", notas[i].P1);
+          procuraElemento("P2", notas[i].P2);
+          procuraElemento("T1", notas[i].T1);
+          procuraElemento("T2", notas[i].T2);
+          procuraElemento("PI", notas[i].PI);
+        }
+      }
+    }
+  }
+  const procuraElemento = async (id, valor) => {
+    const elemento = document.getElementById(id)
+    elemento.value = valor
+    handleChange(id, parseFloat(valor))
+  }
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
@@ -87,9 +109,12 @@ const CursosLayout = () => {
   return (
     <>
       <GlobalStyle />
+
       <div className="root-cursos">
+
         <Outlet />
         <form onSubmit={handleSubmit(form_result)}>
+
           <label htmlFor="Semestre" id="Semestre">
             Semestre :
           </label>
@@ -115,6 +140,7 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
+              sessionStorage.setItem("Materia", event.target.value)
               handleChange("Disciplinas", event.target.value);
             }}
             defaultValue={form.Disciplinas}
@@ -131,6 +157,8 @@ const CursosLayout = () => {
             id="P1"
             min="0"
             max="10"
+            type="number"
+            DefaultValue={form.P1}
           />
           <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
@@ -143,6 +171,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            defaultValue={form.P2}
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -156,6 +186,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            defaultValue={form.T1}
           />
           <p className="error-txt">{errors.T1?.message}</p>
 
@@ -169,6 +201,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            defaultValue={form.T2}
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -181,6 +215,8 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            type="number"
+            value={form.PI}
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
@@ -192,7 +228,7 @@ const CursosLayout = () => {
             Calcular
           </button>
           <button
-            type="button"
+            type="reset"
             onClick={() => {
               setForm({
                 P1: 0,
@@ -211,7 +247,9 @@ const CursosLayout = () => {
           >
             Limpar
           </button>
-          <button type="button"> Histórico</button>
+          <button type="button" onClick={async function () {
+            alterarNotas();
+          }}> Histórico</button>
 
           <span
             className="resultados"
