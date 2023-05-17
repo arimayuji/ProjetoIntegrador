@@ -58,7 +58,7 @@ export const schemaCalculadora = yup.object().shape({
         })
         .positive("Número deve ser positivo"),
     PI: yup
-        .mixed()
+        .number()
         .nullable(true)
         .test("is-valid-number", "Valor Inválido", function (value) {
             if (value === "" || value === null || value === undefined) {
