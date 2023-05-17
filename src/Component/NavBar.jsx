@@ -44,8 +44,9 @@ const NavBar = () => {
                 Administração
               </NavDropdown.Item>
             </NavDropdown>
-            <Link to="/" className="link" onClick={
-              sair()}>
+            <Link to="/" className="link" onClick={function () {
+            sair();
+            }}>
               Sair
             </Link>
           </Nav>
