@@ -8,6 +8,7 @@ import "./Navabar.css";
 
 const sair = () => {
   localStorage.removeItem("loginStatus");
+  localStorage.removeItem("email");
   localStorage.removeItem("curso");
 }
 const NavBar = () => {

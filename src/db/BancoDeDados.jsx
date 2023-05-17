@@ -23,48 +23,55 @@ export const ListaUsuarios = () => {
 
         //transforma os dados do banco numa array
         const getUsers = async () => {
-        const data = await getDocs(useCollectionRef);
-        setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-      
-    }
-    getUsers();
+            const data = await getDocs(useCollectionRef);
+            setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 
-    },[])
+        }
+        getUsers();
+
+    }, [])
 
     return users
 }
 
-export const VerificaHistorico = (email, materia) => {
+export const VerificaHistorico = (id, materia) => {
 
-    const [notas, setNotas] = useState([]);
-
+    const [notas, setNotas] = useState();
+      
     useEffect(() => {
 
-        const parentDocRef = doc(useCollectionRef, email);
+        const parentDocRef = doc(useCollectionRef, id);
         const subCollectionRef = collection(parentDocRef, materia);
-
+      
         // adiciona listener para a subcoleção
         const unsubscribe = onSnapshot(subCollectionRef, (subCollectionSnapshot) => {
-            const subCollectionDocs = subCollectionSnapshot.docs;
-            
-            setNotas(
-                subCollectionDocs
-                    .filter(doc => doc.data().P1 !== undefined)
-                    .map(doc => {
-                        const data = doc.data();
-                        return {
-                            id: doc.id,
-                            P1: data.P1,
-                        };
-                    })
+        const subCollectionDocs = subCollectionSnapshot.docs;
+      
+        setNotas(
+            subCollectionDocs.map((doc) => {
+            const data = doc.data();
+            return {
+                disciplinas: doc.id,
+                P1: data.P1,
+                P2: data.P2,
+                PI: data.PI,
+                T1: data.T1,
+                T2: data.T2,
+                };
+              })
             );
-        });
-
-        // retorna função de cleanup para remover o listener quando o componente for desmontado
-        return () => unsubscribe();
-    },[])
-    
-    if(notas.length !== 0) {
-        return notas;
-    }
-}
+          });
+      
+          // retorna função de cleanup para remover o listener quando o componente for desmontado
+          return () => unsubscribe();
+        },
+        [id, materia]
+    );
+      
+    return notas ? notas : [];
+};
+  
+  
+  
+  
+  
