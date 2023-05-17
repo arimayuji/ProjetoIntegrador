@@ -12,7 +12,7 @@ import {
   media_prova,
   media_tarefa,
 } from "../Cursos";
-import { VerificaHistorico } from "../db/BancoDeDados";
+import { AtualizarNotas, VerificaHistorico } from "../db/BancoDeDados";
 
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
@@ -69,7 +69,7 @@ const CursosLayout = () => {
     }));
   };
 
-  const notas = VerificaHistorico(localStorage.getItem("email"), "materias");
+  const notas = VerificaHistorico(localStorage.getItem("email"), "disciplinas");
   const alterarNotas = () => {
     if (notas != []) {
       for (let i = 0; i < notas.length; i++) {
@@ -105,6 +105,7 @@ const CursosLayout = () => {
   // resultados do forms quando ocorrer o submit
   const form_result = (data) => {
     console.log(data);
+    AtualizarNotas(localStorage.getItem("email"), data, sessionStorage.getItem("Materia"));
   };
   return (
     <>

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { collection, deleteDoc, doc, getDocs, getFirestore, setDoc, onSnapshot } from 'firebase/firestore';
+import { collection, writeBatch, doc, getDocs, getFirestore, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react'
 
 
@@ -34,14 +34,14 @@ export const ListaUsuarios = () => {
     return users
 }
 
-export const VerificaHistorico = (id, materia) => {
+export const VerificaHistorico = (id, sub_colecao) => {
 
     const [notas, setNotas] = useState();
       
     useEffect(() => {
 
         const parentDocRef = doc(useCollectionRef, id);
-        const subCollectionRef = collection(parentDocRef, materia);
+        const subCollectionRef = collection(parentDocRef, sub_colecao);
       
         // adiciona listener para a subcoleção
         const unsubscribe = onSnapshot(subCollectionRef, (subCollectionSnapshot) => {
@@ -65,13 +65,38 @@ export const VerificaHistorico = (id, materia) => {
           // retorna função de cleanup para remover o listener quando o componente for desmontado
           return () => unsubscribe();
         },
-        [id, materia]
+        [id, sub_colecao]
     );
       
     return notas ? notas : [];
 };
   
-  
+export const AtualizarNotas = async (id, data, materia) => {
+
+    const parentDocRef = doc(useCollectionRef, id);
+    // Obtém uma referência para a subcoleção
+    const subCollectionRef = collection(parentDocRef, "disciplinas");
+
+    // Obtém os documentos da subcoleção
+    const subCollectionSnapshot = await getDocs(subCollectionRef);
+    console.log(subCollectionSnapshot)
+    // Cria um objeto batch para agrupar as operações de atualização
+    const batchUpdate = writeBatch(db);
+   
+
+    // Obtém a referência para o documento atual
+    const docRef = doc(subCollectionRef, materia);
+
+    // Define os dados que você deseja atualizar
+    const newData = { P1: data.P1, P2: data.P2, T1: data.T1, T2: data.T2, PI: data.PI};
+
+    // Adiciona a operação de atualização ao batch
+    batchUpdate.update(docRef, newData);
+    
+    console.log("cheguei aqui")
+    // Executa o batch para aplicar as atualizações
+    await batchUpdate.commit();
+}
   
   
   
