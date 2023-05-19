@@ -1,7 +1,7 @@
 import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
@@ -21,7 +21,6 @@ const disciplinas = (semestre) => {
 };
 
 const CursosLayout = () => {
-
   const [form, setForm] = useState({
     Semestre: 0,
     P1: 0,
@@ -74,7 +73,6 @@ const CursosLayout = () => {
     if (notas != []) {
       for (let i = 0; i < notas.length; i++) {
         if (notas[i].disciplinas === sessionStorage.getItem("Materia")) {
-
           procuraElemento("P1", notas[i].P1);
           procuraElemento("P2", notas[i].P2);
           procuraElemento("T1", notas[i].T1);
@@ -83,39 +81,50 @@ const CursosLayout = () => {
         }
       }
     }
-  }
+  };
   const procuraElemento = async (id, valor) => {
-    const elemento = document.getElementById(id)
-    elemento.value = valor
-    handleChange(id, parseFloat(valor))
-  }
+    const elemento = document.getElementById(id);
+    elemento.value = valor;
+    handleChange(id, parseFloat(valor));
+  };
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
     handleSubmit,
     reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid, errors, },
+    formState: { isSubmitted, isValid, errors },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
-    defaultValues: { Semestre: 0, Disciplinas: "Banco de dados", T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
+    defaultValues: {
+      Semestre: 0,
+      Disciplinas: "Banco de dados",
+      T1: 0,
+      T2: 0,
+      P1: 0,
+      P2: 0,
+      PI: 0,
+    },
     mode: "onSubmit",
     resolver: yupResolver(schemaCalculadora),
   });
   // resultados do forms quando ocorrer o submit
   const form_result = (data) => {
     console.log(data);
-    AtualizarNotas(localStorage.getItem("email"), data, sessionStorage.getItem("Materia"));
+    AtualizarNotas(
+      localStorage.getItem("email"),
+      data,
+      sessionStorage.getItem("Materia")
+    );
+    console.log(data.P2);
   };
   return (
     <>
       <GlobalStyle />
 
       <div className="root-cursos">
-
         <Outlet />
         <form onSubmit={handleSubmit(form_result)}>
-
           <label htmlFor="Semestre" id="Semestre">
             Semestre :
           </label>
@@ -128,7 +137,6 @@ const CursosLayout = () => {
             }}
             defaultValue={form.Disciplinas}
           >
-
             <option value="0">1</option>
             <option value="1">2</option>
             <option value="2">3</option>
@@ -141,7 +149,7 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
-              sessionStorage.setItem("Materia", event.target.value)
+              sessionStorage.setItem("Materia", event.target.value);
               handleChange("Disciplinas", event.target.value);
             }}
             defaultValue={form.Disciplinas}
@@ -159,7 +167,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-            DefaultValue={form.P1}
+            
           />
           <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
@@ -173,7 +181,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-            defaultValue={form.P2}
+          
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -188,7 +196,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-            defaultValue={form.T1}
+          
           />
           <p className="error-txt">{errors.T1?.message}</p>
 
@@ -203,7 +211,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-            defaultValue={form.T2}
+         
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -217,7 +225,6 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-            value={form.PI}
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
@@ -240,17 +247,26 @@ const CursosLayout = () => {
                 Semestre: 0,
                 Disciplinas: "Banco de Dados",
               });
-              reset({ T1: 0, T2: 0, P1: 0, P2: 0, PI: 0, Semestre: 0, Disciplinas: "Banco de Dados" })
-            }
-            }
-
-
+              reset({
+                T1: 0,
+                T2: 0,
+                P1: 0,
+                P2: 0,
+                PI: 0,
+                Semestre: 0,
+                Disciplinas: "Banco de Dados",
+              });
+            }}
           >
             Limpar
           </button>
-          <button type="button" onClick={async function () {
-            alterarNotas();
-          }}> Histórico</button>
+          <button
+            type="button"
+            onClick={async function () {
+              alterarNotas();
+            }}>
+            Histórico
+          </button>
 
           <span
             className="resultados"
@@ -259,7 +275,7 @@ const CursosLayout = () => {
             {isSubmitted && isValid && resultado_forms()}
           </span>
         </form>
-      </div >
+      </div>
     </>
   );
 };

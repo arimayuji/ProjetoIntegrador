@@ -92,8 +92,6 @@ export const AtualizarNotas = async (id, data, materia) => {
 
     // Adiciona a operação de atualização ao batch
     batchUpdate.update(docRef, newData);
-    
-    console.log("cheguei aqui")
     // Executa o batch para aplicar as atualizações
     await batchUpdate.commit();
 }
