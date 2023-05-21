@@ -128,10 +128,17 @@ i{
 /* tabela historico */
 .table{
  border: .2rem solid #004684;
-
-
+ text-align: center;
+}
+.table td{
+  padding: auto;
 }
 .table th{
-  
+  background-color:#004684;
+  color: white;
+  border-color:white;
+}
+.table tbody tr td:first-child {
+  color: #004684;
 }
 `

@@ -34,15 +34,16 @@ const CursosLayout = () => {
   const [display, setDisplay] = useState(false);
   const [historico, setHistorico] = useState([]);
 
-  useEffect(() => {
-    const fetchHistorico = async () => {
-      const notas1 = await ConsultarHistorico(localStorage.getItem("email"));
-      console.log(notas1);
-      setHistorico(notas1);
-    };
+  const fetchHistorico = async () => {
+    const notas1 = await ConsultarHistorico(localStorage.getItem("email"));
+    console.log(notas1);
+    setHistorico(notas1);
+  };
 
+  useEffect(() => {
     fetchHistorico();
   }, []);
+
 
   const resultado_forms = () => {
     return (
@@ -120,14 +121,15 @@ const CursosLayout = () => {
     resolver: yupResolver(schemaCalculadora),
   });
   // resultados do forms quando ocorrer o submit
-  const form_result = (data) => {
-    console.log(data);
-    AtualizarNotas(
+  const form_result = async (data) => {
+    await AtualizarNotas(
       localStorage.getItem("email"),
       data,
       sessionStorage.getItem("Materia")
     );
-    console.log(data.P2);
+
+    // Atualiza o histórico após a atualização das notas
+    fetchHistorico();
   };
   return (
     <>
