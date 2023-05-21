@@ -125,4 +125,13 @@ i{
   font-size: 2rem;
   
 }
+/* tabela historico */
+.table{
+ border: .2rem solid #004684;
+
+
+}
+.table th{
+  
+}
 `
