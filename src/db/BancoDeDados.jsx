@@ -70,12 +70,16 @@ export const VerificaHistorico = (id, sub_colecao) => {
 
     return notas ? notas : [];
 };
-export const VerificaHistorico1 = async (id) => {
+export const ConsultarHistorico = async (id) => {
+    // documento usuari
     const parentDocRef = doc(useCollectionRef, id);
+    // sub-colecao disciplinas 
     const subCollectionRef = collection(parentDocRef, "disciplinas");
 
     try {
+        // consulta de todos os documentos da sub-colecao
         const subCollectionSnapshot = await getDocs(subCollectionRef);
+        // array com todos os campos de cada documento
         const notas = subCollectionSnapshot.docs.map((doc) => doc.data());
         return notas;
     } catch (error) {

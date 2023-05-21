@@ -13,7 +13,7 @@ import {
   media_prova,
   media_tarefa,
 } from "../Cursos";
-import { AtualizarNotas, VerificaHistorico1 } from "../db/BancoDeDados";
+import { AtualizarNotas, ConsultarHistorico } from "../db/BancoDeDados";
 
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
