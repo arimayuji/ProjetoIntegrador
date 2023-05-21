@@ -36,7 +36,8 @@ const CursosLayout = () => {
 
   useEffect(() => {
     const fetchHistorico = async () => {
-      const notas1 = await VerificaHistorico1(localStorage.getItem("email"));
+      const notas1 = await ConsultarHistorico(localStorage.getItem("email"));
+      console.log(notas1);
       setHistorico(notas1);
     };
 

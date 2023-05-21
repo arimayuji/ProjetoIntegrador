@@ -71,16 +71,19 @@ export const VerificaHistorico = (id, sub_colecao) => {
     return notas ? notas : [];
 };
 export const ConsultarHistorico = async (id) => {
-    // documento usuari
+    // documento usuário
     const parentDocRef = doc(useCollectionRef, id);
-    // sub-colecao disciplinas 
+    // sub-coleção disciplinas 
     const subCollectionRef = collection(parentDocRef, "disciplinas");
 
     try {
-        // consulta de todos os documentos da sub-colecao
+        // consulta de todos os documentos da sub-coleção
         const subCollectionSnapshot = await getDocs(subCollectionRef);
-        // array com todos os campos de cada documento
-        const notas = subCollectionSnapshot.docs.map((doc) => doc.data());
+        // array com todos os campos de cada documento, incluindo o nome do documento
+        const notas = subCollectionSnapshot.docs.map((doc) => ({
+            id: doc.id, // nome do documento
+            ...doc.data() // campos do documento
+        }));
         return notas;
     } catch (error) {
         console.error("Erro ao consultar o histórico:", error);
