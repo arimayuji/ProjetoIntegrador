@@ -1,18 +1,19 @@
 import "./Layout.css";
 import "./CursosLayout.css";
 import { Outlet } from "react-router-dom";
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import HistoricoTable from "../Historico";
 import {
   cic_semestres,
   media_final,
   media_prova,
   media_tarefa,
 } from "../Cursos";
-import { AtualizarNotas, VerificaHistorico } from "../db/BancoDeDados";
+import { AtualizarNotas, VerificaHistorico1 } from "../db/BancoDeDados";
 
 const disciplinas = (semestre) => {
   return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
@@ -31,6 +32,17 @@ const CursosLayout = () => {
     Disciplinas: "Banco de Dados",
   });
   const [display, setDisplay] = useState(false);
+  const [historico, setHistorico] = useState([]);
+
+  useEffect(() => {
+    const fetchHistorico = async () => {
+      const notas1 = await VerificaHistorico1(localStorage.getItem("email"));
+      setHistorico(notas1);
+    };
+
+    fetchHistorico();
+  }, []);
+
   const resultado_forms = () => {
     return (
       <>
@@ -67,8 +79,6 @@ const CursosLayout = () => {
       [campo]: valor,
     }));
   };
-
-  const notas = VerificaHistorico(localStorage.getItem("email"), "disciplinas");
   const alterarNotas = () => {
     if (notas != []) {
       for (let i = 0; i < notas.length; i++) {
@@ -167,7 +177,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-            
+
           />
           <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
@@ -181,7 +191,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-          
+
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -196,7 +206,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-          
+
           />
           <p className="error-txt">{errors.T1?.message}</p>
 
@@ -211,7 +221,7 @@ const CursosLayout = () => {
             min="0"
             max="10"
             type="number"
-         
+
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -274,7 +284,9 @@ const CursosLayout = () => {
           >
             {isSubmitted && isValid && resultado_forms()}
           </span>
+
         </form>
+        <HistoricoTable historico={historico} />
       </div>
     </>
   );
