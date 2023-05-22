@@ -12,6 +12,9 @@ import {
   media_final,
   media_prova,
   media_tarefa,
+  display_media_final,
+  display_media_prova,
+  display_media_tarefa,
 } from "../Cursos";
 import { AtualizarNotas, ConsultarHistorico } from "../db/BancoDeDados";
 
@@ -22,6 +25,13 @@ const disciplinas = (semestre) => {
 };
 
 const CursosLayout = () => {
+  const [display, setDisplay] = useState(false);
+  const [historico, setHistorico] = useState([]);
+  const [media, setMedia] = useState({
+    MP: 0,
+    MF: 0,
+    MT: 0,
+  });
   const [form, setForm] = useState({
     Semestre: 0,
     P1: 0,
@@ -30,10 +40,31 @@ const CursosLayout = () => {
     T2: 0,
     PI: 0,
     Disciplinas: "Banco de Dados",
-  });
-  const [display, setDisplay] = useState(false);
-  const [historico, setHistorico] = useState([]);
+    MP: media.MP,
+    MF: media.MF,
+    MT: media.MT,
 
+  });
+
+
+  const atualizarMedia = (data) => {
+    const novaMP = media_tarefa(data.T1, data.T2);
+    const novaMF = media_prova(data.P1, data.P2);
+    const novaMT = media_final(
+      data.Disciplinas,
+      data.P1,
+      data.P2,
+      data.T1,
+      data.T2,
+      data.PI
+    );
+
+    setMedia({
+      MP: novaMP,
+      MF: novaMF,
+      MT: novaMT,
+    });
+  };
   const fetchHistorico = async () => {
     const notas1 = await ConsultarHistorico(localStorage.getItem("email"));
     console.log(notas1);
@@ -49,16 +80,26 @@ const CursosLayout = () => {
     return (
       <>
         <div className="resultado-display">
-          {media_tarefa(form.T1, form.T2)}
-          {media_prova(form.P1, form.P2)}
-          {media_final(
-            form.Disciplinas,
-            form.P1,
-            form.P2,
-            form.T1,
-            form.T2,
-            form.PI
-          )}
+          <input
+            {...register("MP")}
+            value={media.MP}
+            readOnly
+            type="text"
+          />
+
+          <input
+            {...register("MF")}
+            value={media.MF}
+            readOnly
+            type="text"
+          />
+
+          <input
+            {...register("MT")}
+            value={media.MT}
+            readOnly
+            type="text"
+          />
           {
             <button
               type="submit"
@@ -81,24 +122,6 @@ const CursosLayout = () => {
       [campo]: valor,
     }));
   };
-  const alterarNotas = () => {
-    if (notas != []) {
-      for (let i = 0; i < notas.length; i++) {
-        if (notas[i].disciplinas === sessionStorage.getItem("Materia")) {
-          procuraElemento("P1", notas[i].P1);
-          procuraElemento("P2", notas[i].P2);
-          procuraElemento("T1", notas[i].T1);
-          procuraElemento("T2", notas[i].T2);
-          procuraElemento("PI", notas[i].PI);
-        }
-      }
-    }
-  };
-  const procuraElemento = async (id, valor) => {
-    const elemento = document.getElementById(id);
-    elemento.value = valor;
-    handleChange(id, parseFloat(valor));
-  };
   // mode : apenas verifica os campos em determinado evento (onSubmit)
   const {
     register,
@@ -116,6 +139,9 @@ const CursosLayout = () => {
       P1: 0,
       P2: 0,
       PI: 0,
+      MP: 0,
+      MF: 0,
+      MT: 0,
     },
     mode: "onSubmit",
     resolver: yupResolver(schemaCalculadora),
@@ -130,6 +156,7 @@ const CursosLayout = () => {
 
     // Atualiza o histórico após a atualização das notas
     fetchHistorico();
+    atualizarMedia(data);
   };
   return (
     <>
@@ -274,10 +301,7 @@ const CursosLayout = () => {
             Limpar
           </button>
           <button
-            type="button"
-            onClick={async function () {
-              alterarNotas();
-            }}>
+            type="button">
             Histórico
           </button>
 

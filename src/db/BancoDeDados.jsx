@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { collection, writeBatch, doc, getDocs, getFirestore, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react'
-
+import { media_final, media_prova, media_tarefa } from '../Cursos';
 
 //dados do banco firebase
 const firebaseapp = initializeApp({
@@ -90,6 +90,7 @@ export const ConsultarHistorico = async (id) => {
         return [];
     }
 };
+
 export const AtualizarNotas = async (id, data, materia) => {
 
     const parentDocRef = doc(useCollectionRef, id);
@@ -107,7 +108,7 @@ export const AtualizarNotas = async (id, data, materia) => {
     const docRef = doc(subCollectionRef, materia);
 
     // Define os dados que você deseja atualizar
-    const newData = { P1: data.P1, P2: data.P2, T1: data.T1, T2: data.T2, PI: data.PI };
+    const newData = { P1: data.P1, P2: data.P2, T1: data.T1, T2: data.T2, PI: data.PI, MP: media_prova(data.P1, data.P2), MT: media_tarefa(data.T1, data.T2), MF: media_final(materia, data.P1, data.P2, data.T1, data.T2, data.PI) };
 
     // Adiciona a operação de atualização ao batch
     batchUpdate.update(docRef, newData);
