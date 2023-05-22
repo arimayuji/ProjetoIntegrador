@@ -2,6 +2,7 @@ import HistoricoTable from "../Historico";
 import { useEffect, useState } from "react";
 import { GlobalStyle } from "../GlobalStyle";
 import { ConsultarHistorico } from "../db/BancoDeDados";
+
 const Notas = () => {
   <GlobalStyle />
   const [historico, setHistorico] = useState([]);
