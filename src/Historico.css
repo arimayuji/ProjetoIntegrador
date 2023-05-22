@@ -1,0 +1,36 @@
+.table {
+    font-size: 20px;
+}
+
+/* tabela historico */
+.table {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.table td {
+    padding: auto;
+}
+
+.table th {
+    background-color: #004684 !important;
+    color: white;
+    border-color: white;
+}
+
+.table tbody tr td:first-child {
+    color: #004684;
+}
+
+@media screen and (max-width: 768px) {
+    .table td,.table th{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .table td,.table th{
+        font-size: 12px
+
+    }
+}
