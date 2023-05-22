@@ -76,7 +76,7 @@ input[type="submit"]:hover {
 }
 
 .resultado-display input {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 button[type="reset"] {

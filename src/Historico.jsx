@@ -18,7 +18,7 @@ const HistoricoTable = ({ historico }) => {
     return (
         <>
             <div className="table-responsive">
-                <Table variant="blue" className="table" bordered>
+                <Table variant="blue" className="table" >
                     {/* Cabeçalho da tabela */}
                     <thead>
                         <tr>

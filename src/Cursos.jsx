@@ -6,7 +6,7 @@ export const cic_semestres = [
       "Modelagem Orientada a Objetos",
       "Lógica de Programação",
       "Programação Orientada a Objetos",
-      "Projeto Integrador I",
+      "Projeto Integrador ",
     ],
   },
   {
@@ -17,7 +17,7 @@ export const cic_semestres = [
       "Matemática Discreta",
       "Legislação",
       "Estatística",
-      "Projeto Integrador II",
+      "Projeto Integrador",
     ],
   },
   {
@@ -28,7 +28,7 @@ export const cic_semestres = [
       "Algoritmos e Estrutura de Dados",
       "Desenvolvimento Ágil",
       "Paradigmas",
-      "Projeto Integrador III",
+      "Projeto Integrador ",
     ],
   },
 ];
@@ -82,7 +82,7 @@ export const cic_calculos = {
     peso_prova: 0.5,
     peso_tarefa: 0.5,
   },
-  Estatística: {
+  "Estatística": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
@@ -94,11 +94,11 @@ export const cic_calculos = {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  Interface: {
+  "Interface": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  Legislação: {
+  "Legislação": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
@@ -110,17 +110,17 @@ export const cic_calculos = {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  Modelagem: {
+  "Modelagem": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  POO: {
+  "Programação Orientada a Objetos": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
   "Paradigmas": {
-    peso_prova: 1,
-    peso_tarefa: 0,
+    peso_prova: 0.9,
+    peso_tarefa: 0.1,
   },
   "Projeto Integrador": {
     peso_prova: 0.6,
