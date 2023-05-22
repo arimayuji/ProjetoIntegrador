@@ -25,7 +25,7 @@ export const cic_semestres = [
     disciplinas: [
       "Física e Modelagem Computacional",
       "Cálculo Computacional",
-      "Algoritmos e Estrutura de dados",
+      "Algoritmos e Estrutura de Dados",
       "Desenvolvimento Ágil",
       "Paradigmas",
       "Projeto Integrador III",
@@ -46,7 +46,7 @@ const calcularMedia = (nota1, nota2) => {
   if (isNaN(media) || (nota1 === 0 && nota2 === 0)) {
     media = 0;
   }
-  return media.toFixed(1);
+  return parseFloat(media.toFixed(1));
 };
 
 export const media_tarefa = (T1, T2) => {
@@ -106,7 +106,7 @@ export const display_media_final = (Disciplina, P1, P2, T1, T2, PI) => {
 };
 
 export const cic_calculos = {
-  Algoritmo: {
+  "Algoritmos e Estrutura de Dados": {
     peso_prova: 0.5,
     peso_tarefa: 0.5,
   },
@@ -118,7 +118,7 @@ export const cic_calculos = {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  Cálculo: {
+  "Cálculo Computacional": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
@@ -130,7 +130,7 @@ export const cic_calculos = {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  Física: {
+  "Física e Modelagem Computacional": {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
@@ -162,7 +162,7 @@ export const cic_calculos = {
     peso_prova: 0.6,
     peso_tarefa: 0.4,
   },
-  Paradigmas: {
+  "Paradigmas": {
     peso_prova: 1,
     peso_tarefa: 0,
   },

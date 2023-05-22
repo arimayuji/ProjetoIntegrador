@@ -82,21 +82,21 @@ const CursosLayout = () => {
         <div className="resultado-display">
           <input
             {...register("MP")}
-            value={media.MP}
+            value={"MP : " + media.MP}
             readOnly
             type="text"
           />
 
           <input
             {...register("MF")}
-            value={media.MF}
+            value={"MF : " + media.MF}
             readOnly
             type="text"
           />
 
           <input
             {...register("MT")}
-            value={media.MT}
+            value={"MT : " + media.MT}
             readOnly
             type="text"
           />
@@ -157,6 +157,7 @@ const CursosLayout = () => {
     // Atualiza o histórico após a atualização das notas
     fetchHistorico();
     atualizarMedia(data);
+    console.log(data.P1, parseFloat(data.P1))
   };
   return (
     <>
@@ -181,7 +182,7 @@ const CursosLayout = () => {
             <option value="1">2</option>
             <option value="2">3</option>
           </select>
-          <label htmlFor="Disciplina" id="Disciplina">
+          <label htmlFor="Disciplinas" id="Disciplinas">
             Disciplinas :
           </label>
           <select
@@ -200,13 +201,13 @@ const CursosLayout = () => {
           <input
             {...register("P1")}
             onChange={(event) => {
-              handleChange("P1", parseFloat(event.target.value));
+              handleChange("P1", event.target.value);
             }}
             name="P1"
             id="P1"
             min="0"
             max="10"
-            type="number"
+
 
           />
           <p className="error-txt">{errors.P1?.message}</p>
@@ -216,12 +217,10 @@ const CursosLayout = () => {
             name="P2"
             id="P2"
             onChange={(event) => {
-              handleChange("P2", parseFloat(event.target.value));
+              handleChange("P2", event.target.value);
             }}
             min="0"
             max="10"
-            type="number"
-
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -231,11 +230,11 @@ const CursosLayout = () => {
             name="T1"
             id="T1"
             onChange={(event) => {
-              handleChange("T1", parseFloat(event.target.value));
+              handleChange("T1", event.target.value);
             }}
             min="0"
             max="10"
-            type="number"
+
 
           />
           <p className="error-txt">{errors.T1?.message}</p>
@@ -246,11 +245,11 @@ const CursosLayout = () => {
             name="T2"
             id="T2"
             onChange={(event) => {
-              handleChange("T2", parseFloat(event.target.value));
+              handleChange("T2", event.target.value);
             }}
             min="0"
             max="10"
-            type="number"
+
 
           />
           <p className="error-txt">{errors.T2?.message}</p>
@@ -260,11 +259,11 @@ const CursosLayout = () => {
             name="PI"
             id="PI"
             onChange={(event) => {
-              handleChange("PI", parseFloat(event.target.value));
+              handleChange("PI", event.target.value);
             }}
             min="0"
             max="10"
-            type="number"
+
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
