@@ -12,9 +12,6 @@ import {
   media_final,
   media_prova,
   media_tarefa,
-  display_media_final,
-  display_media_prova,
-  display_media_tarefa,
 } from "../Cursos";
 import { AtualizarNotas, ConsultarHistorico } from "../db/BancoDeDados";
 

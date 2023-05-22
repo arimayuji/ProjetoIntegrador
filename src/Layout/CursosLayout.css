@@ -47,6 +47,7 @@ input[type="submit"]:hover {
   padding: .5rem;
   color: green;
 }
+
 /* css para nao passou */
 .resultado_np {
   background-color: white;
@@ -74,6 +75,10 @@ input[type="submit"]:hover {
   box-shadow: #004684 0px 2px 5px 0px, #004684 0px 1px 1px 0px;
 }
 
+.resultado-display input {
+  font-size: 2rem;
+}
+
 button[type="reset"] {
   background-color: red;
   box-shadow: red 0px 2px 4px, red 0px 7px 13px -3px, red 0px -3px 0px inset;
@@ -97,14 +102,14 @@ button[type="button"] {
   font-weight: bold;
   font-size: 1rem;
 }
+
 input[type="number"]::-webkit-inner-spin-button {
   all: unset;
   min-width: 21px;
   min-height: 45px;
   margin: 17px;
   padding: 0px;
-  background-image: linear-gradient(
-      to top,
+  background-image: linear-gradient(to top,
       transparent 0px,
       transparent 16px,
       #fff 16px,
@@ -114,17 +119,14 @@ input[type="number"]::-webkit-inner-spin-button {
       #004684 35px,
       #004684 36px,
       transparent 36px,
-      transparent 40px
-    ),
-    linear-gradient(
-      to right,
+      transparent 40px),
+    linear-gradient(to right,
       transparent 0px,
       transparent 10px,
       #004684 10px,
       #004684 11px,
       transparent 11px,
-      transparent 21px
-    );
+      transparent 21px);
   transform: rotate(90deg) scale(0.8, 0.9);
   cursor: pointer;
 }

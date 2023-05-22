@@ -33,13 +33,6 @@ export const cic_semestres = [
   },
 ];
 
-const resultado = (tipoMedia, resultado, classe) => {
-  return (
-    <span className={classe}>
-      {tipoMedia}: {resultado}
-    </span>
-  );
-};
 
 const calcularMedia = (nota1, nota2) => {
   let media = (nota1 + nota2) / 2;
@@ -68,43 +61,6 @@ export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
 
   return media_f.toFixed(1);
 };
-
-export const display_media_tarefa = (T1, T2) => {
-  const media = media_tarefa(T1, T2);
-  if (media >= 6) {
-    return resultado("Média Tarefa", media, "resultado_p");
-  } else {
-    if (isNaN(media)) {
-      return resultado("Média Tarefa", 0, "resultado_np");
-    }
-    return resultado("Média Tarefa", media, "resultado_np");
-  }
-};
-
-export const display_media_prova = (P1, P2) => {
-  const media = media_prova(P1, P2);
-  if (media >= 6) {
-    return resultado("Média Prova", media, "resultado_p");
-  } else {
-    if (isNaN(media)) {
-      return resultado("Média Prova", 0, "resultado_np");
-    }
-    return resultado("Média Prova", media, "resultado_np");
-  }
-};
-
-export const display_media_final = (Disciplina, P1, P2, T1, T2, PI) => {
-  const media = media_final(Disciplina, P1, P2, T1, T2, PI);
-  if (media >= 6) {
-    return resultado("Média Final", media, "resultado_p");
-  } else {
-    if (isNaN(media)) {
-      return resultado("Média Final", 0, "resultado_np");
-    }
-    return resultado("Média Final", media, "resultado_np");
-  }
-};
-
 export const cic_calculos = {
   "Algoritmos e Estrutura de Dados": {
     peso_prova: 0.5,
