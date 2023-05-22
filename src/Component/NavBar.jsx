@@ -31,13 +31,13 @@ const NavBar = () => {
               Notas
             </Link>
             <NavDropdown title="Cursos" id="navDropDown">
-              <NavDropdown.Item id="navDrop-item" href="/Ciência da Computação">
+              <NavDropdown.Item id="navDrop-item" href="/Ciência_da_Computação">
                 Ciência da Computação
               </NavDropdown.Item>
               <NavDropdown.Item id="navDrop-item" href="/Design">
                 Design
               </NavDropdown.Item>
-              <NavDropdown.Item id="navDrop-item" href="/Sistema da Informação">
+              <NavDropdown.Item id="navDrop-item" href="/Sistema_da_Informação">
                 Sistema da Informação
               </NavDropdown.Item>
               <NavDropdown.Item id="navDrop-item" href="/Administração">

@@ -64,15 +64,8 @@ const CursosLayout = () => {
   };
   const fetchHistorico = async () => {
     const notas1 = await ConsultarHistorico(localStorage.getItem("email"));
-    console.log(notas1);
     setHistorico(notas1);
   };
-
-  useEffect(() => {
-    fetchHistorico();
-  }, []);
-
-
   const resultado_forms = () => {
     return (
       <>
@@ -309,7 +302,6 @@ const CursosLayout = () => {
           </span>
 
         </form>
-        <HistoricoTable historico={historico} />
       </div>
     </>
   );

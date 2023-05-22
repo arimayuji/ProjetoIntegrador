@@ -26,7 +26,7 @@ function App() {
       </Route>
       <Route element={<Layout />}>
         <Route path="/Calculadora" element={<Calculadora />} />
-        <Route path="/Notas" element={<Notas />} />F
+        <Route path="/Notas" element={<Notas />} />
         <Route path="/Contato" element={<Contato />} />
         <Route element={<CursosLayout />}>
           <Route path="/Ciência_da_Computação" element={<Cic />} />
