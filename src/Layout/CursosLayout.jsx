@@ -5,8 +5,7 @@ import { useForm } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
-import { useState, useEffect } from "react";
-import HistoricoTable from "../Historico";
+import { useState } from "react";
 import {
   cic_semestres,
   media_final,
@@ -45,9 +44,9 @@ const CursosLayout = () => {
 
 
   const atualizarMedia = (data) => {
-    const novaMP = media_tarefa(data.T1, data.T2);
-    const novaMF = media_prova(data.P1, data.P2);
-    const novaMT = media_final(
+    const novaMT = media_tarefa(data.T1, data.T2);
+    const novaMP = media_prova(data.P1, data.P2);
+    const novaMF = media_final(
       data.Disciplinas,
       data.P1,
       data.P2,
@@ -72,24 +71,24 @@ const CursosLayout = () => {
         <div className="resultado-display">
           <input
             {...register("MP")}
-            value={"MP : " + media.MP}
-            readOnly
-            type="text"
-          />
-
-          <input
-            {...register("MF")}
-            value={"MF : " + media.MF}
+            value={"Média Prova : " + media.MP}
             readOnly
             type="text"
           />
 
           <input
             {...register("MT")}
-            value={"MT : " + media.MT}
+            value={"Média Tarefa : " + media.MT}
             readOnly
             type="text"
           />
+          <input
+            {...register("MF")}
+            value={"Média Final : " + media.MF}
+            readOnly
+            type="text"
+          />
+
           {
             <button
               type="submit"
@@ -147,7 +146,6 @@ const CursosLayout = () => {
     // Atualiza o histórico após a atualização das notas
     fetchHistorico();
     atualizarMedia(data);
-    console.log(data.P1, parseFloat(data.P1))
   };
   return (
     <>
@@ -155,7 +153,7 @@ const CursosLayout = () => {
 
       <div className="root-cursos">
         <Outlet />
-        <form onSubmit={handleSubmit(form_result)}>
+        <form onSubmit={handleSubmit(form_result)} >
           <label htmlFor="Semestre" id="Semestre">
             Semestre :
           </label>
@@ -166,7 +164,6 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("Semestre", event.target.value);
             }}
-            defaultValue={form.Disciplinas}
           >
             <option value="0">1</option>
             <option value="1">2</option>
@@ -197,8 +194,7 @@ const CursosLayout = () => {
             id="P1"
             min="0"
             max="10"
-
-
+            value={form.P1}
           />
           <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
@@ -211,6 +207,7 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
+            value={form.P2}
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -224,8 +221,7 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
-
-
+            value={form.T1}
           />
           <p className="error-txt">{errors.T1?.message}</p>
 
@@ -239,8 +235,7 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
-
-
+            value={form.T2}
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -253,7 +248,7 @@ const CursosLayout = () => {
             }}
             min="0"
             max="10"
-
+            value={form.PI}
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
@@ -274,7 +269,7 @@ const CursosLayout = () => {
                 T2: 0,
                 PI: 0,
                 Semestre: 0,
-                Disciplinas: "Banco de Dados",
+                Disciplinas: form.Disciplinas,
               });
               reset({
                 T1: 0,
@@ -283,8 +278,9 @@ const CursosLayout = () => {
                 P2: 0,
                 PI: 0,
                 Semestre: 0,
-                Disciplinas: "Banco de Dados",
+                Disciplinas: form.Disciplinas,
               });
+              window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top of the page
             }}
           >
             Limpar

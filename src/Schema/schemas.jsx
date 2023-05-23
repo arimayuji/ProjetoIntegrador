@@ -5,7 +5,7 @@ export const schemaCalculadora = yup.object().shape({
     .number()
     .nullable(true)
     .transform((value) => (isNaN(value) ? undefined : Number(value)))
-    .test("is-positive", "Number must be positive or zero", (value) => {
+    .test("is-positive", "Nota Inválida", (value) => {
       return value >= 0;
     })
     .test("is-between", "Nota Inválida", function (value) {
@@ -16,7 +16,7 @@ export const schemaCalculadora = yup.object().shape({
     .number()
     .nullable(true)
     .transform((value) => (isNaN(value) ? undefined : Number(value)))
-    .test("is-positive", "Number must be positive or zero", (value) => {
+    .test("is-positive", "Nota Inválida", (value) => {
       return value >= 0;
     })
     .test("is-between", "Nota Inválida", function (value) {
@@ -27,7 +27,7 @@ export const schemaCalculadora = yup.object().shape({
     .number()
     .nullable(true)
     .transform((value) => (isNaN(value) ? undefined : Number(value)))
-    .test("is-positive", "Number must be positive or zero", (value) => {
+    .test("is-positive", "Nota Inválida", (value) => {
       return value >= 0;
     })
     .test("is-between", "Nota Inválida", function (value) {
@@ -38,7 +38,7 @@ export const schemaCalculadora = yup.object().shape({
     .number()
     .nullable(true)
     .transform((value) => (isNaN(value) ? undefined : Number(value)))
-    .test("is-positive", "Number must be positive or zero", (value) => {
+    .test("is-positive", "Nota Inválida", (value) => {
       return value >= 0;
     })
     .test("is-between", "Nota Inválida", function (value) {
@@ -49,7 +49,7 @@ export const schemaCalculadora = yup.object().shape({
     .number()
     .nullable(true)
     .transform((value) => (isNaN(value) ? undefined : Number(value)))
-    .test("is-positive", "Number must be positive or zero", (value) => {
+    .test("is-positive", "Nota Inválida", (value) => {
       return value >= 0;
     })
     .test("is-between", "Nota Inválida", function (value) {
