@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
 import "./Historico.css"
 
-const aprovarNota = (nota) => {
+const statusAprovacao = (nota) => {
     if (nota >= 6) {
-        return "Aprovado"
+        return <td style={{ color: "blue" }}>Aprovado</td>
     }
-    return "Reprovado"
+    return <td style={{ color: "red" }}>Reprovado</td>
 }
 const HistoricoTable = ({ historico }) => {
     const [historicoData, setHistoricoData] = useState(historico);
@@ -47,7 +47,7 @@ const HistoricoTable = ({ historico }) => {
                                 <td>{item.MP}</td>
                                 <td>{item.MF}</td>
                                 <td>{item.MT}</td>
-                                <td>{aprovarNota(item.MF)}</td>
+                                {statusAprovacao(item.MF)}
                             </tr>
                         ))}
                     </tbody>
