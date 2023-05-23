@@ -104,7 +104,27 @@ const CursosLayout = () => {
       </>
     );
   };
-
+  const handleReset = () => {
+    setForm({
+      P1: 0,
+      P2: 0,
+      T1: 0,
+      T2: 0,
+      PI: 0,
+      Semestre:0,
+      Disciplinas:"Banco de Dados",
+    });
+    reset({
+      T1: 0,
+      T2: 0,
+      P1: 0,
+      P2: 0,
+      PI: 0,
+      Semestre:0,
+      Disciplinas:"Banco de Dados",
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" ,});
+  };
   const handleChange = (campo, valor) => {
     setForm((prevState) => ({
       ...prevState,
@@ -121,8 +141,8 @@ const CursosLayout = () => {
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
     defaultValues: {
-      Semestre: 0,
-      Disciplinas: "Banco de dados",
+      Semestre: form.Semestre,
+      Disciplinas: form.Disciplinas,
       T1: 0,
       T2: 0,
       P1: 0,
@@ -164,6 +184,7 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("Semestre", event.target.value);
             }}
+            value={form.Semestre}
           >
             <option value="0">1</option>
             <option value="1">2</option>
@@ -179,8 +200,9 @@ const CursosLayout = () => {
             onChange={(event) => {
               sessionStorage.setItem("Materia", event.target.value);
               handleChange("Disciplinas", event.target.value);
+              console.log(event.target.value)
             }}
-            defaultValue={form.Disciplinas}
+            value={form.Disciplinas}
           >
             {disciplinas(form.Semestre)}
           </select>
@@ -255,33 +277,14 @@ const CursosLayout = () => {
             type="submit"
             onClick={() => {
               setDisplay(true);
+
             }}
           >
             Calcular
           </button>
           <button
             type="reset"
-            onClick={() => {
-              setForm({
-                P1: 0,
-                P2: 0,
-                T1: 0,
-                T2: 0,
-                PI: 0,
-                Semestre: 0,
-                Disciplinas: form.Disciplinas,
-              });
-              reset({
-                T1: 0,
-                T2: 0,
-                P1: 0,
-                P2: 0,
-                PI: 0,
-                Semestre: 0,
-                Disciplinas: form.Disciplinas,
-              });
-              window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top of the page
-            }}
+            onClick={handleReset}
           >
             Limpar
           </button>

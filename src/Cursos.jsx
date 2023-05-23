@@ -39,15 +39,15 @@ const calcularMedia = (nota1, nota2) => {
   if (isNaN(media) || (nota1 === 0 && nota2 === 0)) {
     media = 0;
   }
-  return parseFloat(media);
+  return parseFloat(media).toFixed(1);
 };
 
 export const media_tarefa = (T1, T2) => {
-  return calcularMedia(T1, T2).toFixed(1);
+  return calcularMedia(T1, T2);
 };
 
 export const media_prova = (P1, P2) => {
-  return calcularMedia(P1, P2).toFixed(1);
+  return calcularMedia(P1, P2);
 };
 
 export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
