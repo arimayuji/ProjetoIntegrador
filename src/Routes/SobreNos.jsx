@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import logoToSalvo from "../images/logo-toSalvoBlue.png";
 import "./SobreNos.css";
 import Leo from "../images/Leo.jpg";
-import Yuji from "../images/Yuji.jpg";
+import Yuji from "../images/Yuji.jpeg";
 import Luigi from "../images/Luigi.jpg";
 import Oda from "../images/Oda.jpg";
 import Cadu from "../images/Cadu.jpg";
