@@ -94,6 +94,25 @@ export const GlobalStyle = createGlobalStyle`
     color: #004684;
     font-weight: bold;
   }
+  button.sbn{
+    display: flex;
+    margin: 0 auto;
+    padding: .5rem 2rem;
+    width: fit-content;
+    background-color: white;
+    border-radius:.5rem;
+    outline: 0;
+    border: 0;
+    box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px, #004684 0px -3px 0px inset;
+    color: black;
+    
+    
+  }
+  button.sbn:hover{
+    background-color:white;
+    color: #004684;
+    font-weight: bold;
+  }
   span {
   display: flex;
   font-size: 1rem;
@@ -117,6 +136,7 @@ i{
   justify-content: center;
   align-items: center;
   color: #004684;
-
+  font-size: 2rem;
+  
 }
-`;
+`

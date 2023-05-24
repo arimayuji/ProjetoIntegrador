@@ -9,11 +9,14 @@ import Login from "./Routes/Login.jsx";
 import LogOutLayout from "./Layout/LogOutLayout.jsx";
 import Office from "./Routes/Office.jsx";
 import CursosLayout from "./Layout/CursosLayout.jsx";
+import RecuperarSenha from "./Routes/RecuperarSenha.jsx";
+import SobreNos from "./Routes/SobreNos.jsx";
 import "./Component/NavaBar.css";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Office365" element={<Office />} />
+        <Route path="/RecuperarSenha" element={< RecuperarSenha />} />
+        <Route path="/SobreNos" element={< SobreNos />} />
       </Route>
       <Route element={<Layout />}>
         <Route path="/Calculadora" element={<Calculadora />} />
