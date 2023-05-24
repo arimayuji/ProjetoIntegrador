@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logoToSalvo from "../images/logo-toSalvoBlue.png";
 import "./Homepage.css";
-
 import office from "../images/office365.png";
 import "./Office.css";
 
@@ -33,5 +32,4 @@ function Layout() {
     </>
   );
 }
-
 export default Layout;

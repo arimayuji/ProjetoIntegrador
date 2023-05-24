@@ -60,7 +60,10 @@ export const GlobalStyle = createGlobalStyle`
      text-decoration:underline;
      text-decoration-color:#004684;
   }
-  
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
   input[type=number]::-webkit-inner-spin-button { 
   all: unset; 
   min-width: 21px;
