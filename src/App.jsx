@@ -2,7 +2,8 @@ import React from "react";
 import Homepage from "./Routes/Homepage.jsx";
 import Contato from "./Routes/Contato.jsx";
 import Notas from "./Routes/Notas.jsx";
-import Cic from "./Routes/Cic.jsx";
+import Cic from "./Routes/CienciaDaComputacao.jsx";
+import Sistemas from "./Routes/SistemasDaInformacao.jsx";
 import Calculadora from "./Routes/Calculadora.jsx";
 import Layout from "./Layout/layout.jsx";
 import Login from "./Routes/Login.jsx";
@@ -31,7 +32,8 @@ function App() {
         <Route path="/Notas" element={<Notas />} />F
         <Route path="/Contato" element={<Contato />} />
         <Route element={<CursosLayout />}>
-          <Route path="/Ciência da Computação" element={<Cic />} />
+          <Route path="/Ciência_da_Computação" element={<Cic />} />
+          <Route path="/Sistemas_da_Informação" element={<Sistemas />} />
         </Route>
       </Route>
     </Routes>
