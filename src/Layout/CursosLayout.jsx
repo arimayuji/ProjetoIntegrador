@@ -7,7 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
 import { useState } from "react";
 import {
-  cic_calculos,
   cic_semestres,
   media_final,
   media_prova,
@@ -77,7 +76,7 @@ const CursosLayout = () => {
     formState: { isSubmitted, isValid, errors, },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
-    defaultValues: { T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
+    defaultValues: { Semestre: 0, Disciplinas: "Banco de dados", T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
     mode: "onSubmit",
     resolver: yupResolver(schemaCalculadora),
   });
@@ -100,9 +99,8 @@ const CursosLayout = () => {
             id="Semestre"
             onChange={(event) => {
               handleChange("Semestre", event.target.value);
-              console.log(event.target.value);
             }}
-            value={String(form.Semestre)}
+            defaultValue={form.Disciplinas}
           >
 
             <option value="0">1</option>
@@ -119,7 +117,7 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("Disciplinas", event.target.value);
             }}
-            value={form.Disciplinas} // Ajustado aqui
+            defaultValue={form.Disciplinas}
           >
             {disciplinas(form.Semestre)}
           </select>
@@ -194,10 +192,22 @@ const CursosLayout = () => {
             Calcular
           </button>
           <button
-            type="reset"
+            type="button"
             onClick={() => {
-              reset({ T1: 0.0, T2: 0.0, P1: 0.0, P2: 0.0, PI: 0.0 });
-            }}
+              setForm({
+                P1: 0,
+                P2: 0,
+                T1: 0,
+                T2: 0,
+                PI: 0,
+                Semestre: 0,
+                Disciplinas: "Banco de Dados",
+              });
+              reset({ T1: 0, T2: 0, P1: 0, P2: 0, PI: 0, Semestre: 0, Disciplinas: "Banco de Dados" })
+            }
+            }
+
+
           >
             Limpar
           </button>

@@ -3,9 +3,8 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   * {
   box-sizing: border-box;
-  color: black;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 550;
   transition: 0.5s;
   font-family: "Oxygen", sans-serif;
   }
@@ -18,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     border: 0.2rem solid #004684;
     padding: 2rem;
     row-gap: 2rem;
+    background-color:white;
   }
   body {
   width: 100%;
@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-weight:bolder;
     height: 2rem;
-    color: black;
+    color: #004684;
     justify-content: center;
     align-items: center;
     background-color: white;
@@ -91,6 +91,25 @@ export const GlobalStyle = createGlobalStyle`
     color: #004684;
     font-weight: bold;
   }
+  button.sbn{
+    display: flex;
+    margin: 0 auto;
+    padding: .5rem 2rem;
+    width: fit-content;
+    background-color: white;
+    border-radius:.5rem;
+    outline: 0;
+    border: 0;
+    box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px, #004684 0px -3px 0px inset;
+    color: black;
+    
+    
+  }
+  button.sbn:hover{
+    background-color:white;
+    color: #004684;
+    font-weight: bold;
+  }
   span {
   display: flex;
   font-size: 1rem;
@@ -99,10 +118,22 @@ export const GlobalStyle = createGlobalStyle`
 }
 a.link {
   display: flex;
-  color: white;
   text-decoration: none;
+  font-weight: 550;
 }
-a.link:hover {
-  color: white;
+
+img{
+  display: flex;
+  width: fit-content;
+  height: 5rem;
 }
-`;
+
+i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #004684;
+  font-size: 2rem;
+  
+}
+`
