@@ -4,7 +4,7 @@ import "./SobreNos.css";
 import Leo from "../images/Leo.jpg";
 import Yuji from "../images/Yuji.jpeg";
 import Luigi from "../images/Luigi.jpg";
-import Oda from "../images/Oda.jpg";
+import Oda from "../images/Oda.png";
 import Cadu from "../images/Cadu.jpg";
 import Rafael from "../images/Rafael.jpg";
 import { GlobalStyle } from "../GlobalStyle";
