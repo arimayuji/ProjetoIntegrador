@@ -66,10 +66,14 @@ export const schemaLogin = yup.object().shape({
         .string()
         .email("Email Inválido")
         .required("Preencher Campo")
-        .test('email-estrutura', 'Email Inválido', (value) => {
-            return /^[A-Za-z]{2}\.[A-Za-z]{5}-[0-9]@maua\.br$/.test(value);
+        .test("email-estrutura", "Email Inválido", (value) => {
+            return /^[\d]{2}\.[\d]{5}-[\d]@maua\.br$/.test(value);
         }),
-    senha: yup.string().required("Preencher Campo").min(8, "Senha Inválida").max(20, "Senha Inválida").test('existe-numero', 'Senha Inválida', (value) => {
-        return /\d/.test(value);
-    }),
-})
+    senha: yup
+        .string()
+        .required("Preencher Campo")
+        .max(9, "Senha Inválida")
+        .test("existe-letra", "Senha Inválida", (value) => {
+            return /^\d+$/.test(value);
+        }),
+});
