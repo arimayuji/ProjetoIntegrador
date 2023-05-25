@@ -1,26 +1,24 @@
 .tela {
   display: flex;
   height: fit-content;
-  width: 50rem;
-  height: 30rem;
+  margin: 0 auto;
+  width: fit-content;
   border-radius: .5rem;
-  padding: 2rem;
+  padding: 1rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 2rem;
   background-color: white;
-  transition: transform 1s ease;
+  transition: transform 2s ease;
   transform: translateY(100%);
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
-.tela p {
-  font-weight: 550px;
+  box-shadow: #004684 0px 1px 1px 0px inset, #004684 0px 50px 100px -20px, #004684 0px 30px 60px -30px;
 }
 
 .tela.show {
   transform: translateY(0);
 }
+
 .office span {
   display: flex;
   color: black;
@@ -33,9 +31,8 @@
 
 .tela img {
   display: flex;
-  margin-top: 1rem;
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
 }
 
 .office img {
@@ -55,10 +52,59 @@
 
 }
 
-
-.show {
-  margin-top: 50px; /* Ajuste o valor conforme necessário para posicionar abaixo do footer */
-}
-.office-img:hover{
+.office-img:hover {
   background-color: #004684;
+}
+
+div.carousel-conteudo {
+  display: flex;
+  width: fit-content;
+  height: 10rem;
+  padding: 0 .5rem;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border-left: .2rem solid #004684;
+}
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.section.texto1 p{
+  font-weight: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section.texto2 p{
+  font-weight: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-conteudo p {
+  display: flex;
+  color: #004684;
+  font-weight: bold;
+  text-decoration: underline;
+  line-height: 2rem;
+}
+.custom-carousel .carousel-item {
+  display: flex;
+  background-color: transparent;
+  padding-left: .5rem;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.custom-carousel {
+  max-width: 18rem;
+  overflow-x: hidden;
+
+}
+
+.custom-carousel .carousel-item.active {
+  transform: translateX(0%);
 }
