@@ -94,8 +94,15 @@ section {
   transform: translateX(0%);
 }
 
-button {
+button{
   display: flex;
-  width: 30rem;
-  height: 5rem;
+  justify-content: center;
+  align-items: center;
 }
+button a{
+  display: flex;
+  text-align: center;
+  font-size: 2rem;
+  width: 10rem;
+  height: 5rem;
+} 
