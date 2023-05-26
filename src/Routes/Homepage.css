@@ -106,3 +106,42 @@ button a{
   width: 10rem;
   height: 5rem;
 } 
+
+.tela button a {
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: fit-content;
+  letter-spacing: .1rem;
+  height: 5rem;
+  transition: .5s;
+}
+
+.tela button:hover {
+  animation: pulse 3s infinite;
+  transition: .3s;
+  background-color: white;
+  background-position: 100%;
+
+}
+
+.tela button a:hover {
+  color: #004684;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
