@@ -11,7 +11,7 @@ function Layout() {
   const [showText, setShowText] = useState(false);
 
   const handleButtonClick = () => {
-    setShowText(true);
+    setShowText(!showText);
   };
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -59,8 +59,8 @@ function Layout() {
           <p> Experimente agora mesmo e aproveite todos os recursos que nossa calculadora de notas universitárias tem a oferecer!</p>
         </section>
         {!showText && (
-          <button onClick={handleButtonClick} className="leia-mais-button">
-            Leia Mais
+          <button onClick={handleButtonClick} className="pulsate">
+            <i class="bi bi-arrow-down"></i>
           </button>
         )}
         {showText && (
@@ -69,6 +69,9 @@ function Layout() {
             <p>Com nossa calculadora de notas, você poderá calcular suas médias, acompanhar seu desempenho  e planejar seu sucesso acadêmico. </p>
             <p>Além disso, oferecemos recursos adicionais, como adicionar notas de provas futuras e simular cenários para saber como afetarão sua média.</p>
             <p>Experimente o Tô Salvo e descubra como podemos ajudá-lo a alcançar seus objetivos acadêmicos!</p>
+            <button onClick={handleButtonClick} className="pulsate">
+              <i class="bi bi-arrow-up"></i>
+            </button>
           </div >
         )
         }
