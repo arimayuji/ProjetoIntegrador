@@ -12,7 +12,7 @@ function Layout() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setPageLoaded(true);
-    }, 500); // Aguarde 500ms antes de remover a classe de carregamento
+    }, 700); // Aguarde 500ms antes de remover a classe de carregamento
 
     return () => clearTimeout(timer);
   }, []);
@@ -25,6 +25,10 @@ function Layout() {
           <p> Bem-vindo ao Tô Salvo, o seu site de calculadora de notas universitárias!</p>
           <p >Experimente agora mesmo e comece a usar o Tô Salvo para seu sucesso acadêmico!</p>
         </section>
+        <button>
+          <Link to="/Login" className="link">
+            Faça Login
+          </Link></button>
 
         <Carousel interval={3000} controls={false} indicators={false}
           className="custom-carousel" transition="fade">
@@ -43,7 +47,7 @@ function Layout() {
 
           </Carousel.Item>
         </Carousel>
-        
+
         <section className="texto-2">
           <p>
             Com o Tô Salvo, você terá o controle das suas notas e poderá planejar seu sucesso acadêmico de forma eficiente.
@@ -52,11 +56,6 @@ function Layout() {
           <p> Experimente agora mesmo e aproveite todos os recursos que nossa calculadora de notas universitárias tem a oferecer!</p>
         </section>
 
-        <div className="office">
-          <Link to="/Login" className="link">
-            <button>Faça Login</button>
-          </Link>
-        </div>
       </div>
     </>
   );
