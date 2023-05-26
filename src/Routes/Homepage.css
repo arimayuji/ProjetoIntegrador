@@ -51,8 +51,13 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: .5s;
 }
 
+section:hover {
+  transform: scale(1.05); 
+  transition: transform 0.3s ease-in-out; 
+}
 .section.texto1 p {
   font-weight: 550px;
   display: flex;
@@ -94,18 +99,14 @@ section {
   transform: translateX(0%);
 }
 
-button{
+.tela button {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0.2rem;
+  background-color: #004684;
+  color: white;
 }
-button a{
-  display: flex;
-  text-align: center;
-  font-size: 2rem;
-  width: 10rem;
-  height: 5rem;
-} 
 
 .tela button a {
   display: flex;
@@ -144,4 +145,11 @@ button a{
   100% {
     transform: scale(1);
   }
+}
+.texto-leia-mais{
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

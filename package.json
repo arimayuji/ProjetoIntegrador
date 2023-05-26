@@ -21,6 +21,7 @@
     "react-hook-form": "^7.43.9",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.10.0",
+    "read-more-react": "^1.0.10",
     "styled-components": "^5.3.10",
     "yup": "^1.1.1"
   },
