@@ -1,3 +1,6 @@
+@import url("../Layout/Layout.css");
+
+
 .tela {
   display: flex;
   height: fit-content;
@@ -171,4 +174,50 @@ button i {
   100% {
     transform: scale(1);
   }
+}
+
+nav.nav {
+  background-color: transparent;
+}
+
+nav.nav a {
+  color: #004684;
+  font-size: 1.8rem;
+  padding-right: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 146px;
+}
+
+.root-main {
+  background-image: url("../images/19366.jpg");
+  background-repeat: no-repeat;
+  background-position: right 0;
+  background-color: black;
+  background-size: cover;
+}
+
+.main-content h1 {
+  display: flex;
+  color: #004684;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 146px;
+}
+
+div.main-content {
+  display: flex;
+  min-height: 10vh;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-top: auto;
+  flex: 1;
+  overflow: hidden;
+  padding-top: 10vh;
+
+  /* Define a margem superior para acomodar a altura da navbar */
+  /* Define a margem superior para acomodar a altura do footer */
 }
