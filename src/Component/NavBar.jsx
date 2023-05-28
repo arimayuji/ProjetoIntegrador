@@ -16,9 +16,9 @@ const NavBar = () => {
     <>
       <Navbar className="nav" expand="lg">
         <Container fluid>
-            <Link to="/" className="link">
-              <img src={logo} alt="" />
-            </Link>
+          <Link to="/" className="link">
+            <img src={logo} alt="" />
+          </Link>
           <Nav
             className="justify-content-center align-items-center"
             id="nav-items"
@@ -45,10 +45,14 @@ const NavBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Link to="/" className="link" onClick={function () {
-            sair();
+              sair();
             }}>
               Sair
             </Link>
+            <div className="user">
+              <i class="bi bi-person-circle"></i>
+              <p>{localStorage.getItem("email")}</p>
+            </div>
           </Nav>
         </Container>
       </Navbar >

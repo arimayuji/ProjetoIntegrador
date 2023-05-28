@@ -2,18 +2,22 @@
   background-color: #004684;
   min-height: 10vh;
 }
+
 .container {
   height: fit-content;
 }
+
 .logo {
   display: flex;
   margin-right: 0;
 }
-.container-fluid{
+
+.container-fluid {
   display: flex;
   justify-content: none;
   align-items: none;
 }
+
 #nav-items {
   display: flex;
   margin: auto;
@@ -21,6 +25,7 @@
   column-gap: 20%;
   row-gap: 20%;
 }
+
 /* css do botão que aciona o dropdown 24-39 */
 #navDropDown {
   display: flex;
@@ -34,12 +39,14 @@
   margin: 0;
   z-index: 1;
 }
+
 #navDropDown:hover {
   background-color: #004684;
   color: white;
   text-decoration: none;
   border-color: white;
 }
+
 /* css dos itens presentes no dropdown 41-49*/
 
 /* css para alterar a div que contém todas as opções do dropdown */
@@ -48,4 +55,27 @@
   border-color: #004684;
   height: fit-content;
   box-shadow: #004684 0px 5px 15px;
+}
+
+div.user {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+div.user i {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+div.user p{
+  display: flex;
+  color: white;
+  white-space: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
