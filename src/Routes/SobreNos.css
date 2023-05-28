@@ -141,7 +141,7 @@ main div.texto {
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  width: 30%;
+  width: 50%;
   justify-content: center;
   align-items: center;
 }
@@ -169,8 +169,8 @@ main .img-space {
 }
 
 main img {
-  width: 20rem;
-  height: 20rem;
+  width: 25rem;
+  height: 25rem;
 
 }
 
@@ -184,7 +184,10 @@ main img {
     width: 50%;
   }
 
-  main img {}
+  main img {
+    width: 20rem;
+    height: 20rem;
+  }
 }
 
 /* Estilos para telas menores que 480px */
