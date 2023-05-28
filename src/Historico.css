@@ -1,0 +1,119 @@
+/* tabela historico */
+.table-responsive {
+    border: 0;
+}
+
+table.table {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    border-collapse: separate;
+    /* Separa as bordas das células */
+    border-spacing: 5px 10px;
+    /* Define o espaçamento vertical entre as linhas */
+}
+
+.table td {
+    padding: auto;
+    margin-top: 1rem;
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: .1rem solid #004684;
+    border-right: .1rem solid #004684;
+}
+
+.table tbody tr {
+    padding: 1rem 0;
+}
+
+.table th {
+    background-color: #004684 !important;
+    color: white;
+    border-color: white;
+    width: 5rem;
+    height: 4rem;
+    border: .1rem solid #004684;
+    border-right-color: white;
+    border-right-width: .1rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody tr td:first-child {
+    color: white;
+    border-radius: .5rem;
+    border: .1rem solid #004684;
+    background-color: #004684;
+    transition: .5s;
+}
+.table tbody tr td:first-child:hover {
+    transform: translateY(-5px);
+}
+
+.table th:first-child,
+.table td:first-child {
+    border-top-left-radius: 5px;
+    /* Define o raio para a borda superior esquerda */
+    border-bottom-left-radius: 5px;
+    /* Define o raio para a borda inferior esquerda */
+}
+
+.table th:last-child,
+.table td:last-child {
+    border-top-right-radius: 5px;
+    /* Define o raio para a borda superior direita */
+    border-bottom-right-radius: 5px;
+    /* Define o raio para a borda inferior direita */
+}
+
+@media screen and (max-width: 1200px) {
+
+    .table td,
+    .table th {
+        font-size: 16px;
+        width: 3rem;
+        height: 3rem;
+    }
+    .table{
+        border-spacing: 5px 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .table td,
+    .table th {
+        font-size: 16px;
+        width: 2rem;
+        height: 3rem;
+    }
+    .table{
+        border-spacing: 0px 3px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    .table td,
+    .table th {
+        font-size: 10px;
+        width: 2rem;
+        height: 2rem;
+
+    }
+    .table{
+        border-spacing: 0px 2px;
+    }
+}
+@media screen and (max-width: 476px) {
+
+    .table td,
+    .table th {
+        font-size: 8px;
+        width: 2rem;
+        height: 2rem;
+
+    }
+}

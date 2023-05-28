@@ -1,4 +1,4 @@
-import React from "react";
+import SobreNos from "./Routes/SobreNos.jsx";
 import Homepage from "./Routes/Homepage.jsx";
 import Contato from "./Routes/Contato.jsx";
 import Notas from "./Routes/Notas.jsx";
@@ -17,19 +17,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Routes, Route } from "react-router-dom";
 
-
 function App() {
   return (
     <Routes>
       <Route element={<LogOutLayout />}>
         <Route index element={<Homepage />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/SobreNos" element={<SobreNos />} />
         <Route path="/Office365" element={<Office />} />
-        <Route path="/SobreNos" element={< SobreNos />} />
       </Route>
       <Route element={<Layout />}>
         <Route path="/Calculadora" element={<Calculadora />} />
-        <Route path="/Notas" element={<Notas />} />F
+        <Route path="/Notas" element={<Notas />} />
         <Route path="/Contato" element={<Contato />} />
         <Route element={<CursosLayout />}>
           <Route path="/Ciência_da_Computação" element={<Cic />} />

@@ -1,4 +1,3 @@
-// lista dos semestres do curso Ciência da Computação
 export const cic_semestres = [
   {
     semestre: 1,
@@ -7,7 +6,7 @@ export const cic_semestres = [
       "Modelagem Orientada a Objetos",
       "Lógica de Programação",
       "Programação Orientada a Objetos",
-      "Projeto Integrador I",
+      "Projeto Integrador ",
     ],
   },
   {
@@ -18,6 +17,7 @@ export const cic_semestres = [
       "Matemática Discreta",
       "Legislação",
       "Estatística",
+      "Projeto Integrador",
     ],
   },
   {
@@ -25,13 +25,19 @@ export const cic_semestres = [
     disciplinas: [
       "Física e Modelagem Computacional",
       "Cálculo Computacional",
-      "Algoritmos e Estrutura de dados",
+      "Algoritmos e Estrutura de Dados",
       "Desenvolvimento Ágil",
       "Paradigmas",
-      "Projeto Integrador III",
+      "Projeto Integrador ",
     ],
   },
 ];
+const calcularMedia = (nota1, nota2) => {
+  let media = (nota1 + nota2) / 2;
+  if (isNaN(media) || (nota1 === 0 && nota2 === 0)) {
+    media = 0;
+  }
+  return parseFloat(media).toFixed(1);
 export const sistemas_semestres = [
   {
     semestre: 1,
@@ -76,43 +82,25 @@ const resultado_0 = (tipoMedia, resultado, classe) => {
 };
 
 export const media_tarefa = (T1, T2) => {
-  let media_t = (T1 + T2) / 2;
-  if (media_t >= 6) {
-    return resultado_0("Média Tarefa", media_t.toFixed(1), "resultado_p");
-  } else {
-    if (isNaN(media_t)) {
-      return resultado_0("Média Tarefa", 0, "resultado_np");
-    }
-    return resultado_0("Média Tarefa", media_t.toFixed(1), "resultado_np");
-  }
-};
-export const media_prova = (P1, P2) => {
-  let media_p = (P1 + P2) / 2;
-  if (media_p >= 6) {
-    return resultado_0("Média Prova", media_p.toFixed(1), "resultado_p");
-  } else {
-    if (isNaN(media_p)) {
-      return resultado_0("Média Prova", 0, "resultado_np");
-    }
-    return resultado_0("Média Prova", media_p.toFixed(1), "resultado_np");
-  }
-};
-export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
-  let media_f =
-    ((P1 + P2) / 2) * cic_calculos[Disciplina].peso_prova +
-    ((T1 + T2) / 2) * cic_calculos[Disciplina].peso_tarefa +
-    PI * 0.1;
-  // retorna media tarefa,prova e final na lista medias
-  if (media_f >= 6) {
-    return resultado_0("Média Final", media_f.toFixed(1), "resultado_p");
-  } else {
-    if (isNaN(media_f)) {
-      return resultado_0("Média Final", 0, "resultado_np");
-    }
-    return resultado_0("Média Final", media_f.toFixed(1), "resultado_np");
-  }
+  return calcularMedia(T1, T2);
 };
 
+export const media_prova = (P1, P2) => {
+  return calcularMedia(P1, P2);
+};
+
+export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
+  const peso_prova = cic_calculos[Disciplina].peso_prova;
+  const peso_tarefa = cic_calculos[Disciplina].peso_tarefa;
+
+  const media_f =
+    (calcularMedia(P1, P2) * peso_prova + calcularMedia(T1, T2) * peso_tarefa) *
+    0.9 +
+    PI * 0.1;
+
+
+  return media_f.toFixed(1);
+};
 // retorna media tarefa,prova e final na lista medias
 const materia_pesos = (peso_prova, peso_tarefa) => {
   return {
