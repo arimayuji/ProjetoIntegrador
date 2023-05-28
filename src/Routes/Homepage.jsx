@@ -45,24 +45,25 @@ function Layout() {
                   Notas
                 </Link>
                 <Link to="/Login" className="link">
-                  Login
+                    <button>Login</button>
                 </Link>
+        
               </Nav>
+              
             </Container>
           </Navbar>
         </div>
-        <div className="main-content">
-          <h1>Faça seus cálculos</h1>
-          <h1>com Tô Salvo</h1>
-          <section className="sub-title"><p>
-            Acesse agora e simplifique seu acompanhamento de desempenho!  </p>
-            <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
-            <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
-          </section>
+          <div className="main-content">
+            <h1>Faça seus cálculos</h1>
+            <h1>com Tô Salvo</h1>
+            <section className="sub-title"><p>
+              Acesse agora e simplifique seu acompanhamento de desempenho!  </p>
+              <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
+              <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
+            </section>
+            <button>Calcule Agora!</button>
+          </div>
         </div>
-
-      </div>
-
     </>
   );
 }

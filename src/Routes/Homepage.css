@@ -1,34 +1,6 @@
 @import url("../Layout/Layout.css");
 
 
-.tela {
-  display: flex;
-  height: fit-content;
-  margin: 0 auto;
-  min-width: 50%;
-  border-radius: .5rem;
-  padding: 1rem;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 3rem;
-  font-weight: bold;
-  background-color: transparent;
-  transition: transform 2s ease;
-  transform: translateY(100%);
-  box-shadow: #004684 0px 5px 15px 0px;
-}
-
-.tela.show {
-  transform: translateY(0);
-}
-
-.tela img {
-  display: flex;
-  width: 15rem;
-  height: 15rem;
-}
-
 .office-img:hover {
   background-color: #004684;
 }
@@ -36,12 +8,12 @@
 div.carousel-conteudo {
   display: flex;
   width: fit-content;
-  height: 10rem;
+  height: fit-content;
+  flex-direction: column;
   padding: 0 .5rem;
   background-color: transparent;
   justify-content: center;
   align-items: center;
-  border-left: .2rem solid #004684;
 }
 
 section {
@@ -57,125 +29,6 @@ section:hover {
   transition: transform 0.3s ease-in-out;
 }
 
-.section.texto1 p {
-  font-weight: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.section.texto2 p {
-  font-weight: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel-conteudo p {
-  display: flex;
-  color: #004684;
-  font-weight: bold;
-  text-decoration: underline;
-  line-height: 2rem;
-}
-
-.custom-carousel .carousel-item {
-  display: flex;
-  background-color: transparent;
-  padding-left: .5rem;
-  transform: translateX(100%);
-  transition: transform .5s ease-in-out;
-}
-
-.custom-carousel {
-  width: 20rem;
-  overflow-x: hidden;
-}
-
-.custom-carousel .carousel-item.active {
-  transform: translateX(0%);
-}
-
-.tela button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.2rem;
-  background-color: #004684;
-  color: white;
-}
-
-.tela button a {
-  display: flex;
-  justify-content: center;
-  color: white;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  width: fit-content;
-  letter-spacing: .1rem;
-  height: 5rem;
-  transition: .5s;
-}
-
-.tela button:hover {
-  animation: pulse 3s infinite;
-  transition: .3s;
-  background-color: white;
-  background-position: 100%;
-
-}
-
-.tela button a:hover {
-  color: #004684;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  70% {
-    transform: scale(.9);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.texto-leia-mais {
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-button i {
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.pulsate {
-  animation: pulsate 1.5s ease-out infinite;
-}
-
-@keyframes pulsate {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 nav.nav {
   background-color: transparent;
 }
@@ -185,8 +38,17 @@ nav.nav a {
   font-size: 1.8rem;
   padding-right: 1.5rem;
   font-style: normal;
-  font-weight: 700;
   line-height: 146px;
+}
+
+nav.nav a button {
+  display: flex;
+  background-color: #004684;
+  padding: .5rem 2rem;
+  width: fit-content;
+  border-radius: .5rem;
+  outline: 0;
+  line-height: normal;
 }
 
 .root-main {
@@ -203,7 +65,7 @@ nav.nav a {
   font-size: 3.5rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 146px;
+  line-height: 100px;
 }
 
 div.main-content {
@@ -212,7 +74,7 @@ div.main-content {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 2.5rem;
   margin-top: auto;
   flex: 1;
   overflow: hidden;
@@ -226,4 +88,10 @@ div.main-content {
   display: flex;
   margin: 0 auto;
   font-size: 16px;
+  line-height: 30px;
 }
+
+.main-content button {
+  font-size: 2.5rem;
+}
+
