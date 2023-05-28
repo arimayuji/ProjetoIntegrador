@@ -41,8 +41,8 @@ function Layout() {
                 <Link to="/Calculadora" className="link">
                   Calculadora
                 </Link>
-                <Link to="/Notas" className="link">
-                  Notas
+                <Link to="/SobreNos" className="link">
+                  Quem Somos
                 </Link>
                 <Link to="/Login" className="link">
                     <button>Login</button>

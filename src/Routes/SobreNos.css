@@ -10,8 +10,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  column-gap: 5rem;
-  row-gap: 5rem;
+  column-gap: 3rem;
 }
 
 div.icons {
@@ -23,6 +22,7 @@ div.icons {
   align-items: center;
   border-top: 0.1rem solid #004684;
 }
+
 .bio {
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ div.icons {
   height: fit-content;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: .5rem;
   text-align: center;
   padding: 1rem;
   border: 0.1rem solid #004684;
@@ -48,48 +48,49 @@ div.icons {
 .member:hover {
   transform: translateY(-1.5rem) translateZ(1.5rem);
 }
+
 .member img {
   display: flex;
   margin: 0 auto;
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 10rem;
   object-fit: cover;
-  border-radius: 50%;
-  border: 0.2rem dashed #004684;
+  border-radius: 2rem;
+  border: 0.2rem solid #004684;
 }
+
 .bio h3 {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
+
 .icons i {
   display: flex;
+  width: 3rem;
+  height: 3rem;
   transition: transform 0.3s ease-in-out;
 }
+
 .icons i:hover {
   transform: translateY(-.5rem) translateZ(.5rem);
 }
-.bsz {
+
+.membros-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   row-gap: 5rem;
 }
-.bsz h1 {
+
+.membros-section h1 {
   display: flex;
   color: white;
   font-weight: bold;
   background-color: #004684;
   padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-.bsz img {
-  display: flex;
-  width: 10rem;
-  height: 10rem;
-  background-color: #004684;
   border-radius: 0.5rem;
 }
 
@@ -113,6 +114,7 @@ button :hover {
 }
 
 @keyframes animation {
+
   0%,
   10%,
   100% {
@@ -123,4 +125,50 @@ button :hover {
   90% {
     width: 100%;
   }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5rem;
+}
+
+main div.texto {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+div.texto section {
+  display: flex;
+  background-color: white;
+  padding: 1rem;
+  border-bottom: .2rem solid #004684;
+}
+
+div.texto p {
+  display: flex;
+  
+}
+
+main .img-space {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  border: .5rem solid #004684;
+  background-color: #004684;
+}
+
+main img {
+  width: 20rem;
+  height: 20rem;
+
 }
