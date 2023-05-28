@@ -1,25 +1,30 @@
-import "../Layout/Layout.css";
-import "../Layout/CursosLayout.css";
+
+import { Outlet } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
 import { useState } from "react";
 import {
-  sistemas_semestres,
+  cic_semestres,
   media_final,
   media_prova,
   media_tarefa,
 } from "../Cursos";
-
+import { AtualizarNotas, ConsultarHistorico } from "../db/BancoDeDados";
 const disciplinas = (semestre) => {
-  return sistemas_semestres[semestre].disciplinas.map((disciplina, chave) => (
+  return cic_semestres[semestre].disciplinas.map((disciplina, chave) => (
     <option key={chave}>{disciplina}</option>
   ));
 };
-
 const CursosLayout = () => {
-
+  const [display, setDisplay] = useState(false);
+  const [historico, setHistorico] = useState([]);
+  const [media, setMedia] = useState({
+    MP: 0,
+    MF: 0,
+    MT: 0,
+  });
   const [form, setForm] = useState({
     Semestre: 0,
     P1: 0,
@@ -28,22 +33,59 @@ const CursosLayout = () => {
     T2: 0,
     PI: 0,
     Disciplinas: "Banco de Dados",
+    MP: media.MP,
+    MF: media.MF,
+    MT: media.MT,
+
   });
-  const [display, setDisplay] = useState(false);
+
+
+  const atualizarMedia = (data) => {
+    const novaMT = media_tarefa(data.T1, data.T2);
+    const novaMP = media_prova(data.P1, data.P2);
+    const novaMF = media_final(
+      data.Disciplinas,
+      data.P1,
+      data.P2,
+      data.T1,
+      data.T2,
+      data.PI
+    );
+
+    setMedia({
+      MP: novaMP,
+      MF: novaMF,
+      MT: novaMT,
+    });
+  };
+  const fetchHistorico = async () => {
+    const notas1 = await ConsultarHistorico(localStorage.getItem("email"));
+    setHistorico(notas1);
+  };
   const resultado_forms = () => {
     return (
       <>
         <div className="resultado-display">
-          {media_tarefa(form.T1, form.T2)}
-          {media_prova(form.P1, form.P2)}
-          {media_final(
-            form.Disciplinas,
-            form.P1,
-            form.P2,
-            form.T1,
-            form.T2,
-            form.PI
-          )}
+          <input
+            {...register("MP")}
+            value={"Média Prova : " + media.MP}
+            readOnly
+            type="text"
+          />
+
+          <input
+            {...register("MT")}
+            value={"Média Tarefa : " + media.MT}
+            readOnly
+            type="text"
+          />
+          <input
+            {...register("MF")}
+            value={"Média Final : " + media.MF}
+            readOnly
+            type="text"
+          />
+
           {
             <button
               type="submit"
@@ -59,7 +101,27 @@ const CursosLayout = () => {
       </>
     );
   };
-
+  const handleReset = () => {
+    setForm({
+      P1: 0,
+      P2: 0,
+      T1: 0,
+      T2: 0,
+      PI: 0,
+      Semestre: 0,
+      Disciplinas: "Banco de Dados",
+    });
+    reset({
+      T1: 0,
+      T2: 0,
+      P1: 0,
+      P2: 0,
+      PI: 0,
+      Semestre: 0,
+      Disciplinas: "Banco de Dados",
+    });
+    window.scrollTo({ top: 0, behavior: "smooth", });
+  };
   const handleChange = (campo, valor) => {
     setForm((prevState) => ({
       ...prevState,
@@ -72,23 +134,44 @@ const CursosLayout = () => {
     handleSubmit,
     reset,
     // utilizado para capturar erroros de dados,
-    formState: { isSubmitted, isValid, errors, },
+    formState: { isSubmitted, isValid, errors },
   } = useForm({
     // apenas verifica os campos quando ocorrer o Submit
-    defaultValues: { Semestre: 0, Disciplinas: "Banco de dados", T1: 0, T2: 0, P1: 0, P2: 0, PI: 0 },
+    defaultValues: {
+      Semestre: form.Semestre,
+      Disciplinas: form.Disciplinas,
+      T1: 0,
+      T2: 0,
+      P1: 0,
+      P2: 0,
+      PI: 0,
+      MP: 0,
+      MF: 0,
+      MT: 0,
+    },
     mode: "onSubmit",
     resolver: yupResolver(schemaCalculadora),
   });
   // resultados do forms quando ocorrer o submit
-  const form_result = (data) => {
-    console.log(data);
+  const form_result = async (data) => {
+    await AtualizarNotas(
+      localStorage.getItem("email"),
+      data,
+      sessionStorage.getItem("Materia")
+    );
+
+    // Atualiza o histórico após a atualização das notas
+    fetchHistorico();
+    atualizarMedia(data);
   };
   return (
     <>
       <GlobalStyle />
+
       <div className="root-cursos">
-        <h1>Sistemas da Informacao</h1>
-        <form onSubmit={handleSubmit(form_result)}>
+        <Outlet />
+        <h1>Sistemas da Informação</h1>
+        <form onSubmit={handleSubmit(form_result)} >
           <label htmlFor="Semestre" id="Semestre">
             Semestre :
           </label>
@@ -99,14 +182,13 @@ const CursosLayout = () => {
             onChange={(event) => {
               handleChange("Semestre", event.target.value);
             }}
-            defaultValue={form.Disciplinas}
+            value={form.Semestre}
           >
-
             <option value="0">1</option>
             <option value="1">2</option>
             <option value="2">3</option>
           </select>
-          <label htmlFor="Disciplina" id="Disciplina">
+          <label htmlFor="Disciplinas" id="Disciplinas">
             Disciplinas :
           </label>
           <select
@@ -114,9 +196,11 @@ const CursosLayout = () => {
             name="Disciplinas"
             id="Disciplinas"
             onChange={(event) => {
+              sessionStorage.setItem("Materia", event.target.value);
               handleChange("Disciplinas", event.target.value);
+              console.log(event.target.value)
             }}
-            defaultValue={form.Disciplinas}
+            value={form.Disciplinas}
           >
             {disciplinas(form.Semestre)}
           </select>
@@ -124,12 +208,13 @@ const CursosLayout = () => {
           <input
             {...register("P1")}
             onChange={(event) => {
-              handleChange("P1", parseFloat(event.target.value));
+              handleChange("P1", event.target.value);
             }}
             name="P1"
             id="P1"
             min="0"
             max="10"
+            value={form.P1}
           />
           <p className="error-txt">{errors.P1?.message}</p>
           <label htmlFor="P2">P2 :</label>
@@ -138,10 +223,11 @@ const CursosLayout = () => {
             name="P2"
             id="P2"
             onChange={(event) => {
-              handleChange("P2", parseFloat(event.target.value));
+              handleChange("P2", event.target.value);
             }}
             min="0"
             max="10"
+            value={form.P2}
           />
           <p className="error-txt">{errors.P2?.message}</p>
 
@@ -151,10 +237,11 @@ const CursosLayout = () => {
             name="T1"
             id="T1"
             onChange={(event) => {
-              handleChange("T1", parseFloat(event.target.value));
+              handleChange("T1", event.target.value);
             }}
             min="0"
             max="10"
+            value={form.T1}
           />
           <p className="error-txt">{errors.T1?.message}</p>
 
@@ -164,10 +251,11 @@ const CursosLayout = () => {
             name="T2"
             id="T2"
             onChange={(event) => {
-              handleChange("T2", parseFloat(event.target.value));
+              handleChange("T2", event.target.value);
             }}
             min="0"
             max="10"
+            value={form.T2}
           />
           <p className="error-txt">{errors.T2?.message}</p>
           <label htmlFor="PI">Projeto Integrador :</label>
@@ -176,41 +264,32 @@ const CursosLayout = () => {
             name="PI"
             id="PI"
             onChange={(event) => {
-              handleChange("PI", parseFloat(event.target.value));
+              handleChange("PI", event.target.value);
             }}
             min="0"
             max="10"
+            value={form.PI}
           />
           <p className="error-txt">{errors.PI?.message}</p>
           <button
             type="submit"
             onClick={() => {
               setDisplay(true);
+
             }}
           >
             Calcular
           </button>
           <button
-            type="button"
-            onClick={() => {
-              setForm({
-                P1: 0,
-                P2: 0,
-                T1: 0,
-                T2: 0,
-                PI: 0,
-                Semestre: 0,
-                Disciplinas: "Banco de Dados",
-              });
-              reset({ T1: 0, T2: 0, P1: 0, P2: 0, PI: 0, Semestre: 0, Disciplinas: "Banco de Dados" })
-            }
-            }
-
-
+            type="reset"
+            onClick={handleReset}
           >
             Limpar
           </button>
-          <button type="button"> Histórico</button>
+          <button
+            type="button">
+            Histórico
+          </button>
 
           <span
             className="resultados"
@@ -218,8 +297,10 @@ const CursosLayout = () => {
           >
             {isSubmitted && isValid && resultado_forms()}
           </span>
+
         </form>
-      </div >
+      </div>
+
     </>
   );
 };

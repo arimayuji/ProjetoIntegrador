@@ -38,6 +38,7 @@ const calcularMedia = (nota1, nota2) => {
     media = 0;
   }
   return parseFloat(media).toFixed(1);
+}
 export const sistemas_semestres = [
   {
     semestre: 1,

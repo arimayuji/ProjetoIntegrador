@@ -10,7 +10,6 @@ import Login from "./Routes/Login.jsx";
 import LogOutLayout from "./Layout/LogOutLayout.jsx";
 import Office from "./Routes/Office.jsx";
 import CursosLayout from "./Layout/CursosLayout.jsx";
-import SobreNos from "./Routes/SobreNos.jsx";
 import "./Component/NavaBar.css";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
