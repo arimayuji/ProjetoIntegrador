@@ -21,14 +21,14 @@ section:hover {
 
 
 
-nav.nav a.link {
+nav.nav-home a.link {
   color: #004684;
   font-size: 1.8rem;
   padding-right: 1rem;
   width: fit-content;
 }
 
-nav.nav a button {
+nav.nav-home a button {
   display: flex;
   background-color: #004684;
   padding: .5rem 2rem;
@@ -38,7 +38,12 @@ nav.nav a button {
   line-height: normal;
 }
 
-.root-main {
+.nav-home #nav-items {
+  row-gap: 3rem;
+  justify-content: center;
+}
+
+.root-main-home {
   background-image: url("../images/19366.jpg");
   background-repeat: no-repeat;
   background-position: right 0;
@@ -46,27 +51,41 @@ nav.nav a button {
   background-size: cover;
 }
 
-.main-content h1 {
+.main-content-home h1 {
   display: flex;
   color: #004684;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   font-size: 3.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: 100px;
 }
 
-div.main-content {
+.root-main-home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.header-home {
+
+  margin-top: auto;
+}
+
+div.main-content-home {
   display: flex;
   min-height: 10vh;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  row-gap: 2.5rem;
   margin-top: auto;
   flex: 1;
   overflow: hidden;
   padding-top: 10vh;
-
+  row-gap: 2rem;
   /* Define a margem superior para acomodar a altura da navbar */
   /* Define a margem superior para acomodar a altura do footer */
 }
@@ -78,7 +97,38 @@ div.main-content {
   line-height: 30px;
 }
 
-.main-content button {
+.main-content-home button.login-home {
   font-size: 2.5rem;
 }
 
+@media (max-width: 768px) {
+  .main-content-home h1 {
+    line-height: 60px;
+    font-size: 3.5rem;
+    width: 80%;
+    padding-top: .5rem;
+  }
+
+  .main-content-home p {
+    width: 80%;
+    font-size: .8rem;
+  }
+
+  .main-content-home button.login-home {
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+  .main-content-home h1 {
+    line-height: 60px;
+    font-size: 2.5rem;
+    width: 80%;
+  }
+
+  .main-content-home p {
+    width: 80%;
+    font-size: .5rem;
+  }
+}

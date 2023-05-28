@@ -25,9 +25,9 @@ function Layout() {
   return (
     <>
       <GlobalStyle />
-      <div className="root-main">
-        <div className="header">
-          <Navbar className="nav" expand="lg">
+      <div className="root-main-home">
+        <div className="header-home">
+          <Navbar className="nav-home" expand="lg">
             <Container fluid>
               <Navbar.Brand href="#home" className="logo">
                 <Link to="/" className="link">
@@ -53,7 +53,7 @@ function Layout() {
             </Container>
           </Navbar>
         </div>
-          <div className="main-content">
+          <div className="main-content-home">
             <h1>Faça seus cálculos</h1>
             <h1>com Tô Salvo</h1>
             <section className="sub-title"><p>
@@ -61,7 +61,7 @@ function Layout() {
               <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
               <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
             </section>
-            <button>Calcule Agora!</button>
+            <button className="login-home">Calcule Agora!</button>
           </div>
         </div>
     </>
