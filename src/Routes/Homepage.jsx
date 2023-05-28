@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/toSalvo-Branco.jpeg";
+import logo from "../images/toSalvo-Blue.png";
 import "./Homepage.css";
 import { GlobalStyle } from "../GlobalStyle";
 import Container from "react-bootstrap/Container";
@@ -54,7 +54,11 @@ function Layout() {
         <div className="main-content">
           <h1>Faça seus cálculos</h1>
           <h1>com Tô Salvo</h1>
-
+          <section className="sub-title"><p>
+            Acesse agora e simplifique seu acompanhamento de desempenho!  </p>
+            <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
+            <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
+          </section>
         </div>
 
       </div>

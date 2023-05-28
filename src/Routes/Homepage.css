@@ -221,3 +221,9 @@ div.main-content {
   /* Define a margem superior para acomodar a altura da navbar */
   /* Define a margem superior para acomodar a altura do footer */
 }
+
+.sub-title p {
+  display: flex;
+  margin: 0 auto;
+  font-size: 16px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import logoToSalvo from "../images/toSalvo-Blue.jpeg";
+import logoToSalvo from "../images/toSalvo-Blue.png";
 import "./SobreNos.css";
 import Leo from "../images/Leo.jpg";
 import Yuji from "../images/Yuji.jpeg";

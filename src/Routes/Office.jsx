@@ -1,4 +1,4 @@
-import logo from "../images/toSalvo-Blue.jpeg";
+import logo from "../images/toSalvo-Blue.png";
 import office from "../images/office365.png";
 import "./Office.css";
 import { Link } from "react-router-dom";
