@@ -26,6 +26,12 @@ nav.nav-home a.link {
   font-size: 1.8rem;
   padding-right: 1rem;
   width: fit-content;
+  white-space: nowrap;
+}
+
+nav.nav-home a.link:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
 }
 
 nav.nav-home a button {
@@ -37,7 +43,10 @@ nav.nav-home a button {
   outline: 0;
   line-height: normal;
 }
-
+nav.nav-home a button:hover{
+  background-color: white;
+  color: #004684;
+}
 .nav-home #nav-items {
   row-gap: 3rem;
   justify-content: center;
@@ -85,7 +94,7 @@ div.main-content-home {
   flex: 1;
   overflow: hidden;
   padding-top: 10vh;
-  row-gap: 2rem;
+  row-gap: 3rem;
   /* Define a margem superior para acomodar a altura da navbar */
   /* Define a margem superior para acomodar a altura do footer */
 }
@@ -93,12 +102,31 @@ div.main-content-home {
 .sub-title p {
   display: flex;
   margin: 0 auto;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 30px;
+}
+
+button.login-home:hover {
+  animation: swing 5s infinite;
 }
 
 .main-content-home button.login-home {
   font-size: 2.5rem;
+  box-shadow: #004684 0px 54px 55px, #004684 0px -12px 30px, #004684 0px 4px 6px, #004684 0px 12px 13px, #004684 0px -3px 5px;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(-5deg);
+  }
 }
 
 @media (max-width: 768px) {
