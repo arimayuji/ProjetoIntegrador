@@ -11,6 +11,7 @@
   align-items: center;
   flex-wrap: wrap;
   column-gap: 3rem;
+  row-gap: 3rem;
 }
 
 div.icons {
@@ -154,7 +155,7 @@ div.texto section {
 
 div.texto p {
   display: flex;
-  
+
 }
 
 main .img-space {
@@ -163,12 +164,65 @@ main .img-space {
   height: fit-content;
   justify-content: center;
   align-items: center;
-  border: .5rem solid #004684;
-  background-color: #004684;
+
+
 }
 
 main img {
   width: 20rem;
   height: 20rem;
 
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  main div.texto {
+    width: 50%;
+  }
+
+  main img {}
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+  main {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  .team-members {
+    row-gap: 2rem;
+
+  }
+
+  main .texto {
+
+    justify-content: unset;
+    align-items: unset;
+  }
+
+  main .texto section {
+    width: 120%;
+    padding: 2rem;
+  }
+  .texto section p{
+    width: 100%;
+  }
+  .member {
+    width: 80%;
+  }
+
+  main .img-space {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-space img{
+    width: 15rem;
+    height: 15rem;
+  }
 }
