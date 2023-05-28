@@ -37,7 +37,7 @@ const NavBar = () => {
               <NavDropdown.Item id="navDrop-item" href="/Design">
                 Design
               </NavDropdown.Item>
-              <NavDropdown.Item id="navDrop-item" href="/Sistema_da_Informação">
+              <NavDropdown.Item id="navDrop-item" href="/Sistemas_da_Informação">
                 Sistema da Informação
               </NavDropdown.Item>
               <NavDropdown.Item id="navDrop-item" href="/Administração">

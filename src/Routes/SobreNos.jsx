@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import logoToSalvo from "../images/logo-toSalvoBlue.png";
 import "./SobreNos.css";
 import Leo from "../images/Leo.jpg";
-import Yuji from "../images/Yuji.jpg";
+import Yuji from "../images/Yuji.jpeg";
 import Luigi from "../images/Luigi.jpg";
-import Oda from "../images/Oda.jpg";
+import Oda from "../images/Oda.png";
 import Cadu from "../images/Cadu.jpg";
 import Rafael from "../images/Rafael.jpg";
 import { GlobalStyle } from "../GlobalStyle";
@@ -29,9 +28,9 @@ const Layout = () => {
               <h3>Leonardo</h3>
             </div>
             <div className="icons">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
-              <i class="bi bi-instagram"></i>
+              <a href="https://www.linkedin.com/in/leonardo-ribeiro-27509a271/"><i className="bi bi-linkedin"></i></a>
+              <a href="https://github.com/TheRibeiro"><i className="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/ribeiro_le0/"><i className="bi bi-instagram"></i></a>
             </div>
 
           </div>
@@ -43,9 +42,9 @@ const Layout = () => {
             </div>
 
             <div className="icons">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
-              <i class="bi bi-instagram"></i>
+              <a href="https://www.linkedin.com/in/yuji-arima-7b7059209/"><i className="bi bi-linkedin"></i></a>
+              <a href="https://github.com/yujiarima17"><i className="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/_yarim_17/"><i className="bi bi-instagram"></i></a>
             </div>
           </div>
           <div className="member">
@@ -56,9 +55,9 @@ const Layout = () => {
             </div>
 
             <div className="icons">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
-              <i class="bi bi-instagram"></i>
+              <a href="https://www.linkedin.com/in/luigi-ishii-055136236/"><i className="bi bi-linkedin"></i></a>
+              <a href="https://github.com/luigishii"><i className="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/luigishii/"><i className="bi bi-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -71,22 +70,25 @@ const Layout = () => {
             </div>
 
             <div className="icons">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
-              <i class="bi bi-instagram"></i>
+              <a href="https://www.linkedin.com/in/henrique-yui-oda-279847212/"><i className="bi bi-linkedin"></i></a>
+              <a href="https://github.com/henriqueoda"><i className="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/henriqueoda7/  "><i className="bi bi-instagram"></i></a>
             </div>
           </div>
           <div className="member">
             <img src={Cadu} alt="Membro 5" />
             <div className="bio">
-              <i class="bi bi-person-bounding-box"> </i>
-              <h3>Cadu</h3>
+       
+                <i class="bi bi-person-bounding-box"> </i>
+                <h3>Cadu</h3>
+                
+             
             </div>
 
             <div className="icons">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
-              <i class="bi bi-instagram"></i>
+              <a href="https://www.linkedin.com/in/cadu-dias-45b596238/"><i className="bi bi-linkedin"></i></a>
+              <a href="https://github.com/Cadub"><i className="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/dias.cadu/"><i className="bi bi-instagram"></i></a>
             </div>
           </div>
           <div className="member">
@@ -97,9 +99,9 @@ const Layout = () => {
             </div>
 
             <div className="icons">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
-              <i class="bi bi-instagram"></i>
+              <a href="https://www.linkedin.com/in/rafael-carrasco-66b7581a3/"><i className="bi bi-linkedin"></i></a>
+              <a href="https://github.com/RafCarrasco"><i className="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/orafaelcarrasco/"><i className="bi bi-instagram"></i></a>
             </div>
           </div>
         </div>

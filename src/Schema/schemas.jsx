@@ -75,3 +75,4 @@ export const schemaLogin = yup.object().shape({
       return /\d/.test(value);
     }),
 });
+

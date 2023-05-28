@@ -1,4 +1,6 @@
-import emailjs from "@emailjs/browser";
+import emailjs from '@emailjs/browser';
+
+
 const templateParams = (emailDestinatario) => {
     return (
         {
@@ -12,7 +14,7 @@ const templateParams = (emailDestinatario) => {
 const serviceId = "service_0krmjdc"
 const templateId = "template_n9m4x9p"
 const publicKey = "smCmzwvqmtu28Kek8"
-export const sendEmail = (e) => {
+export const sendEmail = (e) => {S
 
     emailjs.send(
         serviceId,
