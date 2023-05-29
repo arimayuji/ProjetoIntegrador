@@ -1,6 +1,17 @@
 @import url("./Navabar.css");
+
 img {
   display: flex;
   width: 50%;
   height: 50%;
+}
+
+button.sbn1 {
+  box-shadow: #fafafa 0px 2px 4px, #fafafa 0px 7px 13px -3px, white 0px -3px 0px inset;
+  color: #004684;
+  background-color: white;
+}
+button.sbn1:hover {
+  background-color: #004684;
+  color: white;
 }
