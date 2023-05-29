@@ -28,13 +28,13 @@ function Login() {
   let users = ListaUsuarios();
   const accountVerification = (data) => {
     for (let i = 0; i < users.length; i++) {
-        if(data.email === users[i].id && data.senha === users[i].senha) {
-          localStorage.setItem("loginStatus", true);
-          localStorage.setItem("curso", users[i].curso)
-          localStorage.setItem("email", users[i].id)
-          verificarCurso(users[i].curso);
-          return;
-        }
+      if (data.email === users[i].id && data.senha === users[i].senha) {
+        localStorage.setItem("loginStatus", true);
+        localStorage.setItem("curso", users[i].curso)
+        localStorage.setItem("email", users[i].id)
+        verificarCurso(users[i].curso);
+        return;
+      }
     }
   }
   const verificarCurso = (curso) => {
@@ -99,13 +99,13 @@ function Login() {
               <i class="bi bi-lock"></i>Senha :
             </label>
             <span className="campo">
-              <i class={showSenha} onClick={handleToggleSenha}></i>
               <input
                 type={showInputType}
                 {...register("senha")}
                 name="senha"
                 placeholder="*****"
               />
+              <i class={showSenha} onClick={handleToggleSenha}></i>
             </span>
           </div>
 

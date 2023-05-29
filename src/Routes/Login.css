@@ -1,9 +1,8 @@
 .login {
   display: flex;
   height: fit-content;
-  width: 20rem;
+  width: fit-content;
   border-radius: 0.5rem;
-  padding: 2rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -27,7 +26,10 @@
   align-items: center;
   row-gap: 1rem;
 }
-
+.email-campo{
+  /* alinha input email por causa do tamanho do olho  */
+  padding-right: 38px;
+}
 .login-forms input {
   display: flex;
   border: 0;
@@ -99,3 +101,4 @@ li a.link {
   display: flex;
   margin-right: auto;
 }
+
