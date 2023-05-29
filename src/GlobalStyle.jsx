@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-weight:bolder;
     height: 5rem;
+    width: 20rem;
     color: #004684;
     justify-content: center;
     align-items: center;
@@ -39,9 +40,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 0.5rem;
     border: 0.2rem solid #004684;
   }
-  form input[type="number"]{
-    width: 10rem;
-  }
+ 
   option{
     display: flex;
     justify-content: center;
