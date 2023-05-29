@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { GlobalStyle } from "../GlobalStyle";
-import logo from "../images/toSalvo-Branco.png"
+import logo from "../images/logo-maua.png"
 const Footer = () => {
   return (
     <>
