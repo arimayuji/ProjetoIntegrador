@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { GlobalStyle } from "../GlobalStyle";
-import Logo from "../images/logo-toSalvoBlue.png";
+import Logo from "../images/toSalvo-Blue.png";
 import { schemaLogin } from "../Schema/schemas";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";

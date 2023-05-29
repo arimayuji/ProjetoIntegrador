@@ -6,7 +6,8 @@ export const GlobalStyle = createGlobalStyle`
   font-size: 1.3rem;
   font-weight: 550;
   transition: 0.5s;
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  
   }
   form {
     display: flex;

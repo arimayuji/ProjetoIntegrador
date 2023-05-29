@@ -19,8 +19,8 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
+      <Route index element={<Homepage />} />
       <Route element={<LogOutLayout />}>
-        <Route index element={<Homepage />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SobreNos" element={<SobreNos />} />
         <Route path="/Office365" element={<Office />} />

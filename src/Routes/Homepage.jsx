@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logoToSalvo from "../images/logo-toSalvoBlue.png";
+import logo from "../images/toSalvo-Blue.png";
 import "./Homepage.css";
-import "./Office.css";
-import Carousel from 'react-bootstrap/Carousel';
+import { GlobalStyle } from "../GlobalStyle";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import { useEffect } from "react";
 
 function Layout() {
@@ -22,61 +24,48 @@ function Layout() {
   }, []);
   return (
     <>
-      <div className={`tela ${pageLoaded ? "show" : "loading"}`}>
-        <img src={logoToSalvo} alt="" />
-        <section className="texto-1">
-          <p> Bem-vindo ao Tô Salvo, o seu site de calculadora de notas universitárias!</p>
-          <p >Experimente agora mesmo e comece a usar o Tô Salvo para seu sucesso acadêmico!</p>
-        </section>
-        <button>
-          <Link to="/Login" className="link">
-            Faça Login
-          </Link>
-        </button>
+      <GlobalStyle />
+      <div className="root-main-home">
+        <div className="header-home">
+          <Navbar className="nav-home" expand="lg">
+            <Container fluid>
+              <Navbar.Brand href="#home" className="logo">
+                <Link to="/" className="link">
+                  <img src={logo} alt="" />
+                </Link>
+              </Navbar.Brand>
+              <Nav
+                className="justify-content-center align-items-center"
+                id="nav-items"
+              >
+                <Link to="/Calculadora" className="link">
+                  Calculadora
 
-        <Carousel interval={3000} controls={false} indicators={false} className="custom-carousel" transition="fade">
-          <Carousel.Item>
-            <div className="carousel-conteudo">
-              <p>Calcule suas notas universitárias de forma rápida!</p>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="carousel-conteudo">
-              <p>Use a Calculadora Tô Salvo para se planejar!</p>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="carousel-conteudo">
-              <p>Acompanhe seu desempenho acadêmico conosco!</p>
-            </div>
-          </Carousel.Item>
-        </Carousel>
+                </Link>
+                <Link to="/SobreNos" className="link">
+                  Quem Somos
+                </Link>
+                <Link to="/Login" className="link">
+                  <button>Login</button>
+                </Link>
 
-        <section className="texto-2">
-          <p>
-            Com o Tô Salvo, você terá o controle das suas notas e poderá planejar seu sucesso acadêmico de forma eficiente.
-          </p>
-          <p> Experimente agora mesmo e aproveite todos os recursos que nossa calculadora de notas universitárias tem a oferecer!</p>
-        </section>
-        {!showText && (
-          <button onClick={handleButtonClick} className="pulsate">
-            <i class="bi bi-arrow-down"></i>
-          </button>
-        )}
-        {showText && (
-          <div className="texto-leia-mais">
-            <p>Tô Salvo é uma ferramenta  para  universitários que desejam ter mais controle sobre suas notas.  </p>
-            <p>Com nossa calculadora de notas, você poderá calcular suas médias, acompanhar seu desempenho  e planejar seu sucesso acadêmico. </p>
-            <p>Além disso, oferecemos recursos adicionais, como adicionar notas de provas futuras e simular cenários para saber como afetarão sua média.</p>
-            <p>Experimente o Tô Salvo e descubra como podemos ajudá-lo a alcançar seus objetivos acadêmicos!</p>
-            <button onClick={handleButtonClick} className="pulsate">
-              <i class="bi bi-arrow-up"></i>
-            </button>
-          </div >
-        )
-        }
+              </Nav>
+
+            </Container>
+          </Navbar>
+        </div>
+        <div className="main-content-home">
+          <h1>Faça seus cálculos</h1>
+          <h1>com Tô Salvo</h1>
+          <section className="sub-title"><p>
+            Acesse agora e simplifique seu acompanhamento de desempenho!  </p>
+            <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
+            <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
+          </section>
+
+          <button className="login-home"><Link to="/Office365">Calcule Agora!</Link></button>
+        </div>
       </div>
-
     </>
   );
 }

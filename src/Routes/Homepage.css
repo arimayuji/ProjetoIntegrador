@@ -1,45 +1,10 @@
-.tela {
-  display: flex;
-  height: fit-content;
-  margin: 0 auto;
-  min-width: 50%;
-  border-radius: .5rem;
-  padding: 1rem;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 3rem;
-  font-weight: bold;
-  background-color: transparent;
-  transition: transform 2s ease;
-  transform: translateY(100%);
-  box-shadow: #004684 0px 5px 15px 0px;
-}
+@import url("../Layout/Layout.css");
 
-.tela.show {
-  transform: translateY(0);
-}
-
-.tela img {
-  display: flex;
-  width: 15rem;
-  height: 15rem;
-}
 
 .office-img:hover {
   background-color: #004684;
 }
 
-div.carousel-conteudo {
-  display: flex;
-  width: fit-content;
-  height: 10rem;
-  padding: 0 .5rem;
-  background-color: transparent;
-  justify-content: center;
-  align-items: center;
-  border-left: .2rem solid #004684;
-}
 
 section {
   display: flex;
@@ -54,121 +19,153 @@ section:hover {
   transition: transform 0.3s ease-in-out;
 }
 
-.section.texto1 p {
-  font-weight: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.section.texto2 p {
-  font-weight: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel-conteudo p {
-  display: flex;
+nav.nav-home a.link {
   color: #004684;
-  font-weight: bold;
-  text-decoration: underline;
-  line-height: 2rem;
-}
-
-.custom-carousel .carousel-item {
-  display: flex;
-  background-color: transparent;
-  padding-left: .5rem;
-  transform: translateX(100%);
-  transition: transform .5s ease-in-out;
-}
-
-.custom-carousel {
-  width: 20rem;
-  overflow-x: hidden;
-}
-
-.custom-carousel .carousel-item.active {
-  transform: translateX(0%);
-}
-
-.tela button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.2rem;
-  background-color: #004684;
-  color: white;
-}
-
-.tela button a {
-  display: flex;
-  justify-content: center;
-  color: white;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  padding-right: 1rem;
   width: fit-content;
-  letter-spacing: .1rem;
-  height: 5rem;
-  transition: .5s;
+  display: flex;
+  text-align: center;
+  white-space: nowrap;
 }
 
-.tela button:hover {
-  animation: pulse 3s infinite;
-  transition: .3s;
+nav.nav-home a.link:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+nav.nav-home a button {
+  display: flex;
+  background-color: #004684;
+  padding: .5rem 2rem;
+  width: fit-content;
+  border-radius: .5rem;
+  outline: 0;
+  line-height: normal;
+}
+
+nav.nav-home a button:hover {
   background-color: white;
-  background-position: 100%;
-
-}
-
-.tela button a:hover {
   color: #004684;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  70% {
-    transform: scale(.9);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+.nav-home #nav-items {
+  row-gap: 3rem;
+  justify-content: center;
 }
 
-.texto-leia-mais {
+.root-main-home {
+  background-image: url("../images/19366.jpg");
+  background-repeat: no-repeat;
+  background-position: right 0;
+  background-color: black;
+  background-size: cover;
+}
+
+.main-content-home h1 {
   display: flex;
+  color: #004684;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100px;
+}
+
+.root-main-home {
+  display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 
-button i {
+.header-home {
+
+  margin-top: auto;
+}
+
+div.main-content-home {
+  display: flex;
+  min-height: 10vh;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: auto;
+  flex: 1;
+  overflow: hidden;
+  padding-top: 10vh;
+  row-gap: 3rem;
+  /* Define a margem superior para acomodar a altura da navbar */
+  /* Define a margem superior para acomodar a altura do footer */
+}
+
+.sub-title p {
+  display: flex;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+button.login-home:hover {
+  animation: swing 5s infinite;
+}
+
+.main-content-home button.login-home {
+  box-shadow: #004684 0px 54px 55px, #004684 0px -12px 30px, #004684 0px 4px 6px, #004684 0px 12px 13px, #004684 0px -3px 5px;
+}
+
+button.login-home a {
+  font-size: 2.5rem;
   color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  text-decoration: none;
 }
-
-.pulsate {
-  animation: pulsate 1.5s ease-out infinite;
+button.login-home a:hover{
+  color: #004684;
 }
-
-@keyframes pulsate {
+@keyframes swing {
   0% {
-    transform: scale(1);
+    transform: rotate(0deg);
   }
 
   50% {
-    transform: scale(1.1);
+    transform: rotate(5deg);
   }
 
   100% {
-    transform: scale(1);
+    transform: rotate(-5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-home h1 {
+    line-height: 60px;
+    font-size: 3.5rem;
+    width: 80%;
+    padding-top: .5rem;
+  }
+
+  .main-content-home p {
+    width: 80%;
+    font-size: .8rem;
+  }
+
+  .main-content-home button.login-home {
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+  .main-content-home h1 {
+    line-height: 60px;
+    font-size: 2.5rem;
+    width: 80%;
+  }
+
+  .main-content-home p {
+    width: 80%;
+    font-size: .5rem;
   }
 }
