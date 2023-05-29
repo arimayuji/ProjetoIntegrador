@@ -42,7 +42,7 @@ div.icons {
   border: 0.1rem solid #004684;
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;
+  box-shadow: #004684 0px 1px 2px 0px, #004684 0px 2px 6px 2px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -131,17 +131,22 @@ button :hover {
 main {
   display: flex;
   flex-direction: row;
-  padding-top: 2rem;
+  padding-top: 5rem;
   justify-content: center;
   align-items: center;
   column-gap: 5rem;
+  row-gap: 5rem;
 }
 
 main div.texto {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
   width: 50%;
+  background-color: white;
+  box-shadow: #004684 3px 3px 6px 0px inset, #004684 -3px -3px 6px 1px inset;
+  border-right: 0.2rem solid #004684;
+  border-left: 0.2rem solid #004684;
   justify-content: center;
   align-items: center;
 }
@@ -150,12 +155,20 @@ div.texto section {
   display: flex;
   background-color: white;
   padding: 1rem;
-  border-bottom: .2rem solid #004684;
+  justify-content: center;
+  align-items: center;
+  border: 0.2rem solid #004684;
+  box-shadow: 0 0 0.5rem #004684;
+}
+
+.div.texto section:hover {
+  transform: translateY(-1.5rem) translateZ(1.5rem);
+  box-shadow: 0 0 1rem #004684;
 }
 
 div.texto p {
   display: flex;
-
+  line-height: 2rem;
 }
 
 main .img-space {
@@ -171,13 +184,20 @@ main .img-space {
 main img {
   width: 25rem;
   height: 25rem;
+  border: 0.2rem solid #004684;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.5rem #004684;
+  transition: box-shadow 0.3s ease-in-out;
+}
 
+main img:hover {
+  box-shadow: 0 0 2rem #004684;
 }
 
 @media (max-width: 768px) {
   main {
     flex-direction: column;
-    row-gap: 1rem;
+    flex-direction: column-reverse;
   }
 
   main div.texto {
@@ -194,7 +214,6 @@ main img {
 @media (max-width: 480px) {
   main {
     flex-direction: column;
-    row-gap: 1rem;
   }
 
   .team-members {
@@ -212,9 +231,11 @@ main img {
     width: 120%;
     padding: 2rem;
   }
-  .texto section p{
+
+  .texto section p {
     width: 100%;
   }
+
   .member {
     width: 80%;
   }
@@ -224,7 +245,8 @@ main img {
     justify-content: center;
     align-items: center;
   }
-  .img-space img{
+
+  .img-space img {
     width: 15rem;
     height: 15rem;
   }
