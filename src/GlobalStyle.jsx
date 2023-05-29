@@ -75,25 +75,32 @@ export const GlobalStyle = createGlobalStyle`
     
   }
   button[type="reset"] {
-  background-color: red;
+  background-color: #f95959;
   width: 8rem;
-  box-shadow: red 0px 2px 4px, red 0px 7px 13px -3px, red 0px -3px 0px inset;
+  box-shadow: #f95959 0px 2px 4px, #f95959 0px 7px 13px -3px,
+    red 0px -3px 0px inset;
 }
-
+button[type="reset"]:hover{
+  background-color:white;
+  color: #f95959;
+}
 button {
   background-color: #004684;
   width: 20rem;
   box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px,
-    #004684 0px -3px 0px inset;
+    blue 0px -3px 0px inset;
 }
 
 button[type="button"] {
-  background-color: green;
+  background-color: #42b883;
   width: 8rem;
-  box-shadow: green 0px 2px 4px, green 0px 7px 13px -3px,
+  box-shadow: #42b883 0px 2px 4px, #42b883 0px 7px 13px -3px,
     green 0px -3px 0px inset;
 }
-
+button[type="button"]:hover{
+  background-color:white;
+  color: green;
+}
   button:hover{
     background-color:white;
     color: #004684;
