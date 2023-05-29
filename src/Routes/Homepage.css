@@ -19,13 +19,13 @@ section:hover {
   transition: transform 0.3s ease-in-out;
 }
 
-
-
 nav.nav-home a.link {
   color: #004684;
   font-size: 1.8rem;
   padding-right: 1rem;
   width: fit-content;
+  display: flex;
+  text-align: center;
   white-space: nowrap;
 }
 
@@ -43,10 +43,12 @@ nav.nav-home a button {
   outline: 0;
   line-height: normal;
 }
-nav.nav-home a button:hover{
+
+nav.nav-home a button:hover {
   background-color: white;
   color: #004684;
 }
+
 .nav-home #nav-items {
   row-gap: 3rem;
   justify-content: center;
@@ -111,10 +113,17 @@ button.login-home:hover {
 }
 
 .main-content-home button.login-home {
-  font-size: 2.5rem;
   box-shadow: #004684 0px 54px 55px, #004684 0px -12px 30px, #004684 0px 4px 6px, #004684 0px 12px 13px, #004684 0px -3px 5px;
 }
 
+button.login-home a {
+  font-size: 2.5rem;
+  color: white;
+  text-decoration: none;
+}
+button.login-home a:hover{
+  color: #004684;
+}
 @keyframes swing {
   0% {
     transform: rotate(0deg);

@@ -40,30 +40,32 @@ function Layout() {
               >
                 <Link to="/Calculadora" className="link">
                   Calculadora
+
                 </Link>
                 <Link to="/SobreNos" className="link">
                   Quem Somos
                 </Link>
                 <Link to="/Login" className="link">
-                    <button>Login</button>
+                  <button>Login</button>
                 </Link>
-        
+
               </Nav>
-              
+
             </Container>
           </Navbar>
         </div>
-          <div className="main-content-home">
-            <h1>Faça seus cálculos</h1>
-            <h1>com Tô Salvo</h1>
-            <section className="sub-title"><p>
-              Acesse agora e simplifique seu acompanhamento de desempenho!  </p>
-              <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
-              <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
-            </section>
-            <button className="login-home">Calcule Agora!</button>
-          </div>
+        <div className="main-content-home">
+          <h1>Faça seus cálculos</h1>
+          <h1>com Tô Salvo</h1>
+          <section className="sub-title"><p>
+            Acesse agora e simplifique seu acompanhamento de desempenho!  </p>
+            <p> Calcule suas notas com precisão e facilidade no To Salvo. Nossa plataforma oferece uma ferramenta intuitiva para calcular sua média acadêmica.</p>
+            <p>Simplifique sua vida estudantil com nossa plataforma completa!</p>
+          </section>
+
+          <button className="login-home"><Link to="/Office365">Calcule Agora!</Link></button>
         </div>
+      </div>
     </>
   );
 }
