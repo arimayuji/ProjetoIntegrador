@@ -69,7 +69,7 @@ const CursosLayout = () => {
   const resultado_forms = () => {
     return (
       <>
-        <h1>Ciência da Computação</h1>
+
         <div className="resultado-display">
           <input
             {...register("MP")}
@@ -172,7 +172,7 @@ const CursosLayout = () => {
   return (
     <>
       <GlobalStyle />
-
+      <h1>Ciência da Computação</h1>
       <div className="root-cursos">
         <Outlet />
         <form onSubmit={handleSubmit(form_result)} >
