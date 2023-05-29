@@ -284,16 +284,19 @@ const CursosLayout = () => {
           >
             Calcular
           </button>
-          <button
-            type="reset"
-            onClick={handleReset}
-          >
-            Limpar
-          </button>
-          <button
-            type="button">
-            Histórico
-          </button>
+          <div className="btns">
+            <button
+              type="reset"
+              onClick={handleReset}
+            >
+              Limpar
+            </button>
+            <button
+              type="button">
+              Histórico
+            </button>
+          </div>
+
 
           <span
             className="resultados"

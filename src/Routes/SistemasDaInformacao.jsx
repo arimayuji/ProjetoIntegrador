@@ -6,14 +6,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { GlobalStyle } from "../GlobalStyle";
 import { useState } from "react";
 import {
-  sis_semestres,
+  sistemas_semestres,
   media_final,
   media_prova,
   media_tarefa,
 } from "../Cursos";
 import { AtualizarNotas, ConsultarHistorico } from "../db/BancoDeDados";
 const disciplinas = (semestre) => {
-  return sis_semestres[semestre].disciplinas.map((disciplina, chave) => (
+  return sistemas_semestres[semestre].disciplinas.map((disciplina, chave) => (
     <option key={chave}>{disciplina}</option>
   ));
 };

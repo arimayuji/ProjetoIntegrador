@@ -74,6 +74,26 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px, #004684 0px -3px 0px inset;
     
   }
+  button[type="reset"] {
+  background-color: red;
+  width: 8rem;
+  box-shadow: red 0px 2px 4px, red 0px 7px 13px -3px, red 0px -3px 0px inset;
+}
+
+button {
+  background-color: #004684;
+  width: 20rem;
+  box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px,
+    #004684 0px -3px 0px inset;
+}
+
+button[type="button"] {
+  background-color: green;
+  width: 8rem;
+  box-shadow: green 0px 2px 4px, green 0px 7px 13px -3px,
+    green 0px -3px 0px inset;
+}
+
   button:hover{
     background-color:white;
     color: #004684;

@@ -103,6 +103,12 @@ button[type="button"] {
   font-size: 1rem;
 }
 
+.btns {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+}
+
 input[type="number"]::-webkit-inner-spin-button {
   all: unset;
   min-width: 21px;
