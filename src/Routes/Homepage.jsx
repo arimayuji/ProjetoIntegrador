@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import logo from "../images/toSalvo-Blue.png";
 import { GlobalStyle } from "../GlobalStyle";
@@ -6,17 +6,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./Homepage.css";
-import { useEffect } from "react";
+
 
 function Layout() {
-  const [pageLoaded, setPageLoaded] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPageLoaded(true);
-    }, 700); // Aguarde 500ms antes de remover a classe de carregamento
-
-    return () => clearTimeout(timer);
-  }, []);
+ 
   return (
     <>
       <GlobalStyle />
@@ -33,7 +26,7 @@ function Layout() {
                 className="justify-content-center align-items-center"
                 id="nav-items"
               >
-                <Link to="/Calculadora" className="link">
+                <Link  className="link">
                   Calculadora
 
                 </Link>

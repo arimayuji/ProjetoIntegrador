@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,7 +45,7 @@ const CursosLayout = () => {
 
   const atualizarMedia = (data) => {
     const novaMT = media_tarefa(data.T1, data.T2);
-    const novaMP = media_prova(data.P1, data.P2,data.PSUB);
+    const novaMP = media_prova(data.P1, data.P2, data.PSUB);
     const novaMF = media_final(
       data.Disciplinas,
       data.P1,
@@ -72,21 +72,24 @@ const CursosLayout = () => {
     return (
       <>
         <div className="resultado-display">
+          <span>Média Prova:</span>
           <input
             {...register("MP")}
-            value={"Média Prova : " + media.MP}
+            value={media.MP}
             readOnly
             type="text"
           />
+          <span>Média Tarefa:</span>
           <input
             {...register("MT")}
-            value={"Média Tarefa : " + media.MT}
+            value={media.MT}
             readOnly
             type="text"
           />
+          <span>Média Final:</span>
           <input
             {...register("MF")}
-            value={"Média Final : " + media.MF}
+            value={media.MF}
             readOnly
             type="text"
           />
@@ -174,9 +177,8 @@ const CursosLayout = () => {
   return (
     <>
       <GlobalStyle />
-      <h1>Ciência da Computação</h1>
       <div className="root-cursos">
-        <Outlet />
+        <h1>Ciência da Computação</h1>
         <form onSubmit={handleSubmit(form_result)}>
           <label htmlFor="Semestre" id="Semestre">
             Semestre :
@@ -315,7 +317,7 @@ const CursosLayout = () => {
             type="submit"
             onClick={() => {
               setDisplay(true);
-              
+
             }}
           >
             Calcular

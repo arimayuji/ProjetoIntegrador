@@ -38,8 +38,13 @@
   margin: 0;
   z-index: 1;
 }
-a:hover{
-  color: white;
+.container-fluid.header a.link{
+  padding: .5rem;
+  border-radius: .5rem;
+}
+.container-fluid.header a.link:hover{
+  color:#004684;
+  background-color: white;
 }
 #navDropDown:hover {
   background-color: #004684;

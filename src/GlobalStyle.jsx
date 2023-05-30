@@ -90,6 +90,7 @@ button {
   width: 20rem;
   box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px,
     blue 0px -3px 0px inset;
+  white-space:nowrap;
 }
 
 button[type="button"] {

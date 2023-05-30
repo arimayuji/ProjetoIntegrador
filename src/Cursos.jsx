@@ -6,7 +6,6 @@ export const cic_semestres = [
       "Modelagem Orientada a Objetos",
       "Lógica de Programação",
       "Programação Orientada a Objetos",
-      "Projeto Integrador ",
     ],
   },
   {
@@ -17,7 +16,7 @@ export const cic_semestres = [
       "Matemática Discreta",
       "Legislação",
       "Estatística",
-      "Projeto Integrador",
+
     ],
   },
   {
@@ -28,7 +27,7 @@ export const cic_semestres = [
       "Algoritmos e Estrutura de Dados",
       "Desenvolvimento Ágil",
       "Paradigmas",
-      "Projeto Integrador ",
+
     ],
   },
 ];
@@ -50,7 +49,6 @@ export const sistemas_semestres = [
       "Modelagem Orientada a Objetos",
       "Lógica de Programação",
       "Programação Orientada a Objetos",
-      "Projeto Integrador I",
     ],
   },
   {
@@ -72,7 +70,6 @@ export const sistemas_semestres = [
       "Estrutura de Dados",
       "Paradigmas",
       "FrameWorks Low Code",
-      "Projeto Integrador III",
     ],
   },
 ];
@@ -137,8 +134,7 @@ export const cic_calculos = {
   "Matemática Discreta": materia_pesos(0.6, 0.4),
   "Modelagem": materia_pesos(0.6, 0.4),
   "POO": materia_pesos(0.6, 0.4),
-  "Paradigmas": materia_pesos(1, 0),
-  "Projeto Integrador": materia_pesos(0.6, 0.4),
+  "Paradigmas": materia_pesos(0.9, 0.1),
 };
 export const sistemas_calculos = {
   "Estrutura de Dados": materia_pesos(0.6, 0.4),
@@ -155,7 +151,6 @@ export const sistemas_calculos = {
   "Matemática Discreta": materia_pesos(0.6, 0.4),
   "Modelagem": materia_pesos(0.6, 0.4),
   "POO": materia_pesos(0.6, 0.4),
-  "Paradigmas": materia_pesos(1, 0),
-  "Projeto Integrador": materia_pesos(0.6, 0.4),
+  "Paradigmas": materia_pesos(0.9, 0.1),
 };
 

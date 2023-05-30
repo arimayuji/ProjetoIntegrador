@@ -14,23 +14,19 @@ const sair = () => {
 const NavBar = () => {
   return (
     <>
-      <Navbar className="nav" expand="lg">
-        <Container fluid>
-          <Link to="/" className="link">
+      <Navbar className="nav " expand="lg">
+        <Container fluid className="header">
+          <Link to="/" >
             <img src={logo} alt="" />
           </Link>
           <Nav
             className="justify-content-center align-items-center"
             id="nav-items"
           >
-            <Link to="/Calculadora" className="link">
-              Calculadora
-            </Link>
-
             <Link to="/Notas" className="link">
               Notas
             </Link>
-            <NavDropdown title="Cursos" id="navDropDown">
+            {/* <NavDropdown title="Cursos" id="navDropDown">
               <NavDropdown.Item id="navDrop-item" href="/Ciência_da_Computação">
                 Ciência da Computação
               </NavDropdown.Item>
@@ -43,7 +39,7 @@ const NavBar = () => {
               <NavDropdown.Item id="navDrop-item" href="/Administração">
                 Administração
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <Link to="/" className="link" onClick={function () {
               sair();
             }}>

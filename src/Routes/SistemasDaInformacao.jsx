@@ -1,5 +1,5 @@
 
-import { Outlet } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 import { schemaCalculadora } from "../Schema/schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -169,7 +169,6 @@ const CursosLayout = () => {
       <GlobalStyle />
 
       <div className="root-cursos">
-        <Outlet />
         <h1>Sistemas da Informação</h1>
         <form onSubmit={handleSubmit(form_result)} >
           <label htmlFor="Semestre" id="Semestre">

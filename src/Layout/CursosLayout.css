@@ -13,6 +13,11 @@ form input:active {
 select {
   width: fit-content;
   padding: 0 5rem;
+  margin: 0 auto;
+}
+
+select option {
+  font-size: 1rem;
 }
 
 input[type="submit"] {
@@ -71,14 +76,26 @@ input[type="submit"]:hover {
   border-radius: 0.5rem;
   border: 0.2rem solid #004684;
   padding: 1rem;
+  margin: 0 auto;
   row-gap: 1.5rem;
   box-shadow: #004684 0px 2px 5px 0px, #004684 0px 1px 1px 0px;
 }
 
-.resultado-display input {
-  font-size: 1rem;
+.resultado-display span {
+  display: flex;
+  color: white;
+  margin: 0 auto;
 }
 
+.resultado-display button {
+  background-color: white;
+  color: #004684;
+}
+
+.resultado-display button:hover {
+  background-color: #004684;
+  color: white;
+}
 
 .error-txt {
   display: flex;
@@ -92,16 +109,33 @@ input[type="submit"]:hover {
   flex-direction: row;
   column-gap: 2rem;
 }
-.psub button{
+
+.psub button {
   display: flex;
   width: 10rem;
   white-space: nowrap;
-  
+
 }
-.psub{
+
+.psub {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 1rem;
+}
+
+.root-cursos h1 {
+  display: flex;
+  background-color: #004684;
+  border-radius: .5rem;
+  color: white;
+  padding: 1rem;
+  box-shadow: #004684 1.95px 1.95px 2.6px;
+}
+
+.root-cursos {
+  display: flex;
+  flex-direction: column;
   row-gap: 1rem;
 }

@@ -26,10 +26,12 @@
   align-items: center;
   row-gap: 1rem;
 }
-.email-campo{
+
+.email-campo {
   /* alinha input email por causa do tamanho do olho  */
   padding-right: 38px;
 }
+
 .login-forms input {
   display: flex;
   border: 0;
@@ -60,6 +62,10 @@
   align-items: center;
   column-gap: 0.5rem;
   text-decoration: none;
+}
+
+form.login-forms button {
+  margin-right: 38px;
 }
 
 .opcoes ul {
@@ -101,4 +107,3 @@ li a.link {
   display: flex;
   margin-right: auto;
 }
-
