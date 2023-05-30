@@ -37,7 +37,8 @@ const calcularMedia = (nota1, nota2) => {
   if (isNaN(media) || (nota1 === 0 && nota2 === 0)) {
     media = 0;
   }
-  return parseFloat(media).toFixed(1);
+  media = parseFloat(media)
+  return Math.round(media);
 
 }
 console.log(calcularMedia(4, 0));
@@ -91,7 +92,6 @@ export const media_prova = (P1, P2, PSUB) => {
   else if (PSUB > P2 && P2 <= P1) {
     media = calcularMedia(PSUB, P1)
   }
-  console.log(typeof PSUB)
   return media;
 };
 
@@ -114,8 +114,7 @@ export const media_final = (Disciplina, P1, P2, T1, T2, PI, PSUB) => {
     (media_prova_valor * peso_prova + media_tarefa(T1, T2) * peso_tarefa) *
     0.9 +
     PI * 0.1;
-  console.log(PSUB, media_prova_valor, media_f)
-  return media_f.toFixed(1);
+  return media_f;
 };
 // retorna media tarefa,prova e final na lista medias
 const materia_pesos = (peso_prova, peso_tarefa) => {
