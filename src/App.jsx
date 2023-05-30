@@ -9,6 +9,7 @@ import Layout from "./Layout/layout.jsx";
 import Login from "./Routes/Login.jsx";
 import LogOutLayout from "./Layout/LogOutLayout.jsx";
 import Office from "./Routes/Office.jsx";
+import ErrorPage from "./ErrorPage.jsx";
 import CursosLayout from "./Layout/CursosLayout.jsx";
 import "./Component/NavaBar.css";
 import "./index.css";
@@ -20,7 +21,8 @@ function App() {
   return (
     <Routes>
       <Route index element={<Homepage />} />
-      <Route element={<LogOutLayout />}>
+      <Route  path="/a" element={<ErrorPage />} />
+      <Route  element ={<LogOutLayout />}>
         <Route path="/Login" element={<Login />} />
         <Route path="/SobreNos" element={<SobreNos />} />
         <Route path="/Office365" element={<Office />} />

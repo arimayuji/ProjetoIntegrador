@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius:.5rem;
     outline: 0;
     border: 0;
-    box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px, #004684 0px -3px 0px inset;
+    box-shadow: #004684 0px 2px 4px, #004684 0px 7px 13px -3px, blue 0px -3px 0px inset;
     
   }
   button[type="reset"] {
