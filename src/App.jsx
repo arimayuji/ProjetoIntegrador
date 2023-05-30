@@ -9,6 +9,7 @@ import Layout from "./Layout/layout.jsx";
 import Login from "./Routes/Login.jsx";
 import LogOutLayout from "./Layout/LogOutLayout.jsx";
 import Office from "./Routes/Office.jsx";
+import ErrorPage from "./ErrorPage.jsx";
 import CursosLayout from "./Layout/CursosLayout.jsx";
 import "./Component/NavaBar.css";
 import "./index.css";
@@ -19,7 +20,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      <Route index element={<Homepage />} />
+      <Route path="/" element={<Homepage />} />
       <Route element={<LogOutLayout />}>
         <Route path="/Login" element={<Login />} />
         <Route path="/SobreNos" element={<SobreNos />} />
@@ -34,6 +35,7 @@ function App() {
           <Route path="/Sistemas_da_Informação" element={<Sistemas />} />
         </Route>
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
