@@ -79,23 +79,6 @@ input[type="submit"]:hover {
   font-size: 1rem;
 }
 
-/* button[type="reset"] {
-  background-color: red;
-  box-shadow: #f95959 0px 2px 4px, #f95959 0px 7px 13px -3px,
-    #f95959 0px -3px 0px inset;
-}
-
-button {
-  background-color: #004684;
-  box-shadow: #f95959 0px 2px 4px, #004684 0px 7px 13px -3px,
-    #f95959 0px -3px 0px inset;
-}
-
-button[type="button"] {
-  background-color: green;
-  box-shadow: green 0px 2px 4px, green 0px 7px 13px -3px,
-    green 0px -3px 0px inset;
-} */
 
 .error-txt {
   display: flex;
@@ -108,4 +91,17 @@ button[type="button"] {
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
+}
+.psub button{
+  display: flex;
+  width: 10rem;
+  white-space: nowrap;
+  
+}
+.psub{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
 }

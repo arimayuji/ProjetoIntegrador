@@ -108,7 +108,7 @@ export const AtualizarNotas = async (id, data, materia) => {
     const docRef = doc(subCollectionRef, materia);
 
     // Define os dados que você deseja atualizar
-    const newData = { P1: data.P1, P2: data.P2, T1: data.T1, T2: data.T2, PI: data.PI, MP: media_prova(data.P1, data.P2), MT: media_tarefa(data.T1, data.T2), MF: media_final(materia, data.P1, data.P2, data.T1, data.T2, data.PI) };
+    const newData = { P1: data.P1, P2: data.P2, T1: data.T1, T2: data.T2, PI: data.PI, MP: media_prova(data.P1, data.P2,data.PSUB), PSUB: data.PSUB, MT: media_tarefa(data.T1, data.T2), MF: media_final(materia, data.P1, data.P2, data.T1, data.T2, data.PI) };
 
     // Adiciona a operação de atualização ao batch
     batchUpdate.update(docRef, newData);

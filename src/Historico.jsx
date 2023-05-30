@@ -25,6 +25,7 @@ const HistoricoTable = ({ historico }) => {
                             <th>Disciplinas</th>
                             <th>P1</th>
                             <th>P2</th>
+                            <th>PSUB</th>
                             <th>T1</th>
                             <th>T2</th>
                             <th>PI</th>
@@ -41,12 +42,14 @@ const HistoricoTable = ({ historico }) => {
                                 <td>{item.id}</td>
                                 <td>{item.P1}</td>
                                 <td>{item.P2}</td>
+                                <td>{item.PSUB}</td>
                                 <td>{item.T1}</td>
                                 <td>{item.T2}</td>
                                 <td>{item.PI}</td>
+                                <td>{item.MT}</td>
                                 <td>{item.MP}</td>
                                 <td>{item.MF}</td>
-                                <td>{item.MT}</td>
+
                                 {statusAprovacao(item.MF)}
                             </tr>
                         ))}

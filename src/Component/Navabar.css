@@ -25,7 +25,6 @@
   column-gap: 20%;
   row-gap: 20%;
 }
-
 /* css do botão que aciona o dropdown 24-39 */
 #navDropDown {
   display: flex;
@@ -39,7 +38,9 @@
   margin: 0;
   z-index: 1;
 }
-
+a:hover{
+  color: white;
+}
 #navDropDown:hover {
   background-color: #004684;
   color: white;
@@ -71,7 +72,8 @@ div.user i {
   justify-content: center;
   align-items: center;
 }
-div.user p{
+
+div.user p {
   display: flex;
   color: white;
   white-space: nowrap;

@@ -38,7 +38,9 @@ const calcularMedia = (nota1, nota2) => {
     media = 0;
   }
   return parseFloat(media).toFixed(1);
+
 }
+console.log(calcularMedia(4, 0));
 export const sistemas_semestres = [
   {
     semestre: 1,
@@ -74,32 +76,45 @@ export const sistemas_semestres = [
   },
 ];
 // devolve um elemento span que contem o  resultado calculado da media especificada
-const resultado_0 = (tipoMedia, resultado, classe) => {
-  return (
-    <span className={classe}>
-      {tipoMedia} : {resultado}
-    </span>
-  );
-};
 
 export const media_tarefa = (T1, T2) => {
   return calcularMedia(T1, T2);
 };
 
-export const media_prova = (P1, P2) => {
-  return calcularMedia(P1, P2);
+export const media_prova = (P1, P2, PSUB) => {
+  let media = 0;
+  if (PSUB > P1 && P1 <= P2) {
+
+    media = calcularMedia(PSUB, P2)
+
+  }
+  else if (PSUB > P2 && P2 <= P1) {
+    media = calcularMedia(PSUB, P1)
+  }
+  console.log(typeof PSUB)
+  return media;
 };
 
-export const media_final = (Disciplina, P1, P2, T1, T2, PI) => {
+export const media_final = (Disciplina, P1, P2, T1, T2, PI, PSUB) => {
   const peso_prova = cic_calculos[Disciplina].peso_prova;
   const peso_tarefa = cic_calculos[Disciplina].peso_tarefa;
+  let media_f = 0
+  let media_prova_valor = 0
+  if (PSUB > P1 && P1 <= P2) {
 
-  const media_f =
-    (calcularMedia(P1, P2) * peso_prova + calcularMedia(T1, T2) * peso_tarefa) *
+    media_prova_valor = media_prova(PSUB, P2)
+
+  }
+  else if (PSUB > P2 && P2 <= P1) {
+    media_prova_valor = media_prova(PSUB, P1)
+  }
+
+
+  media_f =
+    (media_prova_valor * peso_prova + media_tarefa(T1, T2) * peso_tarefa) *
     0.9 +
     PI * 0.1;
-
-
+  console.log(PSUB, media_prova_valor, media_f)
   return media_f.toFixed(1);
 };
 // retorna media tarefa,prova e final na lista medias
@@ -144,3 +159,4 @@ export const sistemas_calculos = {
   "Paradigmas": materia_pesos(1, 0),
   "Projeto Integrador": materia_pesos(0.6, 0.4),
 };
+

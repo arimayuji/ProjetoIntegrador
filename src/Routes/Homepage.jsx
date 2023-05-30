@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/toSalvo-Blue.png";
-import "./Homepage.css";
 import { GlobalStyle } from "../GlobalStyle";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import "./Homepage.css";
 import { useEffect } from "react";
 
 function Layout() {
   const [pageLoaded, setPageLoaded] = useState(false);
-  const [showText, setShowText] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowText(!showText);
-  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setPageLoaded(true);
