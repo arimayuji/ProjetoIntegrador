@@ -24,6 +24,19 @@ export const GlobalStyle = createGlobalStyle`
   width: 100%;
   min-height: 100vh;
   }
+input:focus {
+outline: none;
+box-shadow: none;
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+-webkit-box-shadow: none !important;
+transition: background-color 5000s ease-in-out 0s;
+}
   form input,form input[type="number"],
   form select {
     display: flex;
@@ -150,7 +163,7 @@ i{
   justify-content: center;
   align-items: center;
   color: #004684;
-  font-size: 2rem;
+  font-size: 2.5rem;
   
 }
 

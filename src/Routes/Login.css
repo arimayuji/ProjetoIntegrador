@@ -53,6 +53,7 @@
   display: flex;
   width: 40%;
   height: 40%;
+  margin-right: 38px;
 }
 
 .login-forms label {

@@ -75,7 +75,6 @@ function Login() {
       <GlobalStyle />
       <div className="login">
         <Link to="/" className="link">
-          {" "}
           <i class="bi bi-arrow-left"></i>
         </Link>
         <img src={Logo} alt="" />
