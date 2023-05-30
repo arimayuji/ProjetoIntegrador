@@ -20,9 +20,8 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      <Route index element={<Homepage />} />
-      <Route  path="/a" element={<ErrorPage />} />
-      <Route  element ={<LogOutLayout />}>
+      <Route path="/" element={<Homepage />} />
+      <Route element={<LogOutLayout />}>
         <Route path="/Login" element={<Login />} />
         <Route path="/SobreNos" element={<SobreNos />} />
         <Route path="/Office365" element={<Office />} />
@@ -36,6 +35,7 @@ function App() {
           <Route path="/Sistemas_da_Informação" element={<Sistemas />} />
         </Route>
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
