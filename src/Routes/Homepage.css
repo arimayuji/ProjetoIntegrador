@@ -21,8 +21,8 @@ section:hover {
 
 nav.nav-home a.link {
   color: #004684;
-  font-size: 1.8rem;
-  padding-right: 1rem;
+  font-size: 1.5rem;
+  padding-right: .5rem;
   width: fit-content;
   display: flex;
   text-align: center;
