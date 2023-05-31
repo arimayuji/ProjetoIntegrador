@@ -75,13 +75,13 @@ function Login() {
       <GlobalStyle />
       <div className="login">
         <Link to="/" className="link">
-          <i class="bi bi-arrow-left"></i>
+          <i className="bi bi-arrow-left"></i>
         </Link>
         <img src={Logo} alt="" />
         <form onSubmit={handleSubmit(accountVerification)} className="login-forms">
           <div className="email-campo">
             <label htmlFor="email">
-              <i class="bi bi-envelope"></i>Email :
+              <i className="bi bi-envelope"></i>Email :
             </label>
             <input
               type="email"
@@ -95,7 +95,7 @@ function Login() {
 
           <div className="senha-campo">
             <label htmlFor="senha">
-              <i class="bi bi-lock"></i>Senha :
+              <i className="bi bi-lock"></i>Senha :
             </label>
             <span className="campo">
               <input
@@ -104,7 +104,7 @@ function Login() {
                 name="senha"
                 placeholder="*****"
               />
-              <i class={showSenha} onClick={handleToggleSenha}></i>
+              <i className={showSenha} onClick={handleToggleSenha}></i>
             </span>
           </div>
 

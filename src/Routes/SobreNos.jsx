@@ -1,5 +1,4 @@
 import React from "react";
-import logoToSalvo from "../images/toSalvo-Blue.png";
 import "./SobreNos.css";
 import programador from "../images/imgSobreNos.jpg";
 import Leo from "../images/Leo.jpg";
