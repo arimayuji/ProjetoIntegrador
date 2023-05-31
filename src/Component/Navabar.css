@@ -16,6 +16,7 @@
   display: flex;
   justify-content: none;
   align-items: none;
+  row-gap: 2rem;
 }
 
 #nav-items {

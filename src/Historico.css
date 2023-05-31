@@ -30,7 +30,7 @@ table.table {
 
 .table th {
     background-color: #004684 !important;
-    color: white;
+    color: white !important;
     border-color: white;
     width: 5rem;
     height: 4rem;
