@@ -38,7 +38,7 @@ div.icons {
   flex-direction: column;
   row-gap: .5rem;
   text-align: center;
-  padding: 1rem;
+  padding: .8rem;
   border: 0.1rem solid #004684;
   background-color: white;
   border-radius: 0.5rem;
@@ -53,8 +53,8 @@ div.icons {
 .member img {
   display: flex;
   margin: 0 auto;
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
   object-fit: cover;
   border-radius: 2rem;
   border: 0.2rem solid #004684;
@@ -69,8 +69,8 @@ div.icons {
 
 .icons i {
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   transition: transform 0.3s ease-in-out;
 }
 
