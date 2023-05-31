@@ -91,7 +91,6 @@ const Layout = () => {
             <div className="icons">
               <a href="https://www.linkedin.com/in/rafael-carrasco-66b7581a3/"><i className="bi bi-linkedin"></i></a>
               <a href="https://github.com/RafCarrasco"><i className="bi bi-github"></i></a>
-              <a href="https://www.instagram.com/orafaelcarrasco/"><i className="bi bi-instagram"></i></a>
             </div>
           </div>
         </div>
