@@ -38,9 +38,9 @@ function Login() {
     }
   }
   const verificarCurso = (curso) => {
-    if (curso === "Ciência da Computação") return navigate("/Ciência_da_Computação")
+    if (curso === "Ciência_da_Computação") return navigate("/Ciência_da_Computação")
 
-    else if (curso === "Sistema da Informação") return navigate("/Sistema_da_Informação")
+    else if (curso === "Sistema_da_Informação") return navigate("/Sistema_da_Informação")
 
     else if (curso === "Design") return navigate("/Design")
 

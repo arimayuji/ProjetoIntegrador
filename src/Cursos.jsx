@@ -36,11 +36,11 @@ const calcularMedia = (nota1, nota2) => {
   if (isNaN(media) || (nota1 === 0 && nota2 === 0)) {
     media = 0;
   }
-  media = parseFloat(media)
-  return Math.round(media);
+  media = media.toFixed(2)
+
+  return parseFloat(media);
 
 }
-console.log(calcularMedia(4, 0));
 export const sistemas_semestres = [
   {
     semestre: 1,
@@ -89,29 +89,26 @@ export const media_prova = (P1, P2, PSUB) => {
   else if (PSUB > P2 && P2 <= P1) {
     media = calcularMedia(PSUB, P1)
   }
+  else if (PSUB == 0) {
+    media = calcularMedia(P1, P2)
+  }
+  else {
+    media = calcularMedia(P1, P2)
+  }
+
   return media;
+
 };
 
 export const media_final = (Disciplina, P1, P2, T1, T2, PI, PSUB) => {
   const peso_prova = cic_calculos[Disciplina].peso_prova;
   const peso_tarefa = cic_calculos[Disciplina].peso_tarefa;
   let media_f = 0
-  let media_prova_valor = 0
-  if (PSUB > P1 && P1 <= P2) {
-
-    media_prova_valor = media_prova(PSUB, P2)
-
-  }
-  else if (PSUB > P2 && P2 <= P1) {
-    media_prova_valor = media_prova(PSUB, P1)
-  }
-
-
   media_f =
-    (media_prova_valor * peso_prova + media_tarefa(T1, T2) * peso_tarefa) *
+    (media_prova(P1, P2, PSUB) * peso_prova + media_tarefa(T1, T2) * peso_tarefa) *
     0.9 +
     PI * 0.1;
-  return media_f;
+  return Math.round(media_f, 1);
 };
 // retorna media tarefa,prova e final na lista medias
 const materia_pesos = (peso_prova, peso_tarefa) => {
@@ -121,12 +118,12 @@ const materia_pesos = (peso_prova, peso_tarefa) => {
   };
 }
 export const cic_calculos = {
-  "Algoritmo": materia_pesos(0.5, 0.5),
+  "Algoritmos e Estrutura de Dados": materia_pesos(0.5, 0.5),
   "Banco de Dados": materia_pesos(0.6, 0.4),
-  "Cálculo": materia_pesos(0.6, 0.4),
+  "Cálculo Computacional": materia_pesos(0.6, 0.4),
   "Desenvolvimento Ágil": materia_pesos(0.5, 0.5),
   "Estatística": materia_pesos(0.6, 0.4),
-  "Física": materia_pesos(0.6, 0.4),
+  "Física e Modelagem Computacional": materia_pesos(0.6, 0.4),
   "Front End": materia_pesos(0.6, 0.4),
   "Interface": materia_pesos(0.6, 0.4),
   "Legislação": materia_pesos(0.6, 0.4),

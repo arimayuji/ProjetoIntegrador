@@ -108,7 +108,12 @@ const CursosLayout = () => {
       </>
     );
   };
-
+  const handlePsub = () => {
+    setForm((prevState) => ({
+      ...prevState,
+      PSUB: 0,
+    }));
+  };
   const handleReset = () => {
     setForm({
       P1: 0,
@@ -306,7 +311,9 @@ const CursosLayout = () => {
                 onClick={(event) => {
                   event.preventDefault();
                   setpsubDisplay(false);
-                }} className="psub"
+                  handlePsub();
+                }}
+                className="psub"
               >
                 Remover Psub
               </button>

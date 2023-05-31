@@ -23,6 +23,9 @@ const NavBar = () => {
             className="justify-content-center align-items-center"
             id="nav-items"
           >
+            <Link to={`/${localStorage.getItem("curso")}`} className="link">
+             Calculadora
+            </Link>
             <Link to="/Notas" className="link">
               Notas
             </Link>
