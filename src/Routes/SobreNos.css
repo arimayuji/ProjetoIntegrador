@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   column-gap: 2.5rem;
   row-gap: 3rem;
+  flex-direction: row-reverse;
 }
 
 div.icons {
