@@ -1,0 +1,34 @@
+@import url('./Routes/Homepage.css');
+
+img {
+    width: 30%;
+    height: 30%;
+}
+
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+}
+.error button{
+    display: flex;
+    white-space: nowrap;
+    width: fit-content;
+    height: 5rem;
+    box-shadow: #004684 0px 1px 0px, #004684 0px 8px 24px, #004684 0px 16px 48px;
+}
+
+.error img{
+    display: flex;
+    width: 50%;
+    height: 50%;
+
+}
