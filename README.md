@@ -9,7 +9,7 @@ Projeto do Terceiro Semestre do Curso Ciência da Computação
 
 - [@Cadu Dias](https://github.com/Cadub)
 
-- [@Henrique Oda](https://github.com/luigishii)
+- [@Henrique Oda](https://github.com/henriqueoda)
 
 - [@Leonardo Ribeiro](https://github.com/TheRibeiro)
 
