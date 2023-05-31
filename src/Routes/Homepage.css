@@ -96,7 +96,8 @@ div.main-content-home {
   flex: 1;
   overflow: hidden;
   padding-top: 10vh;
-  row-gap: 3rem;
+  padding-bottom: 10vh;
+  row-gap: 4.2rem;
   /* Define a margem superior para acomodar a altura da navbar */
   /* Define a margem superior para acomodar a altura do footer */
 }
