@@ -214,12 +214,11 @@ main img:hover {
 /* Estilos para telas menores que 480px */
 @media (max-width: 480px) {
   main {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
-
   .team-members {
     row-gap: 2rem;
-
+    
   }
 
   main .texto {

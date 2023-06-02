@@ -10,8 +10,21 @@ button.sbn1 {
   box-shadow: #fafafa 0px 2px 4px, #fafafa 0px 7px 13px -3px, #fafafa 0px -3px 0px inset;
   color: #004684;
   background-color: white;
+  margin: 0 auto;
 }
+
 button.sbn1:hover {
   background-color: #004684;
   color: white;
+}
+
+@media (max-width: 768px) {
+ 
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+  button.sbn1 {
+  
+  }
 }

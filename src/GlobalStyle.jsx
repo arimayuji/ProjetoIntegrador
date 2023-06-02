@@ -152,11 +152,7 @@ a.link {
   font-weight: 550;
 }
 
-img{
-  display: flex;
-  width: fit-content;
-  height: 5rem;
-}
+
 
 i{
   display: flex;

@@ -105,10 +105,14 @@ div.main-content-home {
 .sub-title p {
   display: flex;
   margin: 0 auto;
-  font-size: 18px;
   line-height: 30px;
 }
-
+.sub-title{
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
 button.login-home:hover {
   animation: swing 5s infinite;
 }
@@ -125,6 +129,15 @@ button.login-home a {
 }
 button.login-home a:hover{
   color: #004684;
+}
+a.navbar-brand{
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto;
+}
+a.navbar-brand a{
+  margin: 0 auto;
 }
 @keyframes swing {
   0% {
@@ -146,6 +159,7 @@ button.login-home a:hover{
     font-size: 3.5rem;
     width: 80%;
     padding-top: .5rem;
+    
   }
 
   .main-content-home p {
@@ -156,18 +170,38 @@ button.login-home a:hover{
   .main-content-home button.login-home {
     font-size: 1.5rem;
   }
+  .sub-title {
+    display: flex;
+    row-gap: 1rem;
+  }
+  div.main-content-home{
+    row-gap: 2.5rem;
+  }
+  #nav-items{
+    padding-bottom: 1rem;
+  }
 }
 
 /* Estilos para telas menores que 480px */
 @media (max-width: 480px) {
   .main-content-home h1 {
-    line-height: 60px;
+    line-height: 40px;
     font-size: 2.5rem;
     width: 80%;
   }
 
   .main-content-home p {
     width: 80%;
-    font-size: .5rem;
+    font-size: 1.2rem;
+  }
+  .sub-title {
+    display: flex;
+    row-gap: 1rem;
+  }
+  div.main-content-home{
+    row-gap: 1.5rem;
+  }
+  #nav-items{
+    padding-bottom: 1rem;
   }
 }

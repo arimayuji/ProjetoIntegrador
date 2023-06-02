@@ -129,6 +129,8 @@ input[type="submit"]:hover {
   display: flex;
   background-color: #004684;
   border-radius: .5rem;
+  justify-content: center;
+  align-items: center;
   color: white;
   padding: 1rem;
   box-shadow: #004684 1.95px 1.95px 2.6px;
@@ -138,4 +140,32 @@ input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .root-cursos h1 {
+    display: flex;
+    background-color: #004684;
+    border-radius: .5rem;
+    color: white;
+    padding: .5rem;
+    box-shadow: #004684 1.95px 1.95px 2.6px;
+  }
+
+  form {
+    padding: .5rem;
+  }
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+  .root-cursos h1 {
+    
+    padding: .1rem;
+
+  }
+
+  .root-cursos form {
+    padding: 1rem .1rem;
+  }
 }
