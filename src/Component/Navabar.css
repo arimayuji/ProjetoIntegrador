@@ -28,8 +28,8 @@ a.logo-nav img {
   width: 50%;
 }
 
-a.logo-nav  {
-  width: 50%;
+a.logo-nav {
+  width: 30%;
 }
 
 #nav-items {
@@ -37,7 +37,7 @@ a.logo-nav  {
   margin: auto;
   color: white;
   column-gap: 10%;
-  row-gap: 20%;
+  row-gap: 2rem;
   width: 60%;
 }
 
@@ -106,6 +106,18 @@ div.user p {
   margin: 0;
 }
 
+@media (max-width: 1600px) {
+  a.logo-nav {
+    width: 30%;
+
+  }
+
+  a.logo-nav img {
+    width: 50%;
+    height: 100%;
+  }
+}
+
 @media (max-width: 1200px) {
   #nav-items {
     column-gap: 5%;
@@ -124,6 +136,16 @@ div.user p {
     margin: 0 auto;
     width: 100%;
   }
+
+  a.logo-nav {
+    width: 100%;
+
+  }
+
+  a.logo-nav img {
+    width: 50%;
+    height: 100%;
+  }
 }
 
 /* Estilos para telas menores que 480px */
@@ -135,31 +157,7 @@ div.user p {
   .container-fluid img {
     margin: 0 auto;
     width: 100%;
+    height: 10rem;
   }
-  a.logo-nav  {
-    width: 100%;
-    height: 35px;
 
-  }
-  a.logo-nav img {
-    width: 50%;
-    height: 100%;
-  }
-}
-
-@media (max-width: 468px) {
-
-  img {
-    width: fit-content;
-  }
-  a.logo-nav img {
-    width: 100%;
-    height: 50%;
-  }
-  
-  a.logo-nav  {
-    width: 100%;
-    height: 35px;
-
-  }
 }

@@ -112,6 +112,9 @@ table.table {
     .table {
         border-spacing: 0px 3px;
     }
+    .table>:not(caption)>*>* {
+        padding: 0 !important;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -127,6 +130,8 @@ table.table {
     .table {
         border-spacing: 0px 2px;
     }
+
+  
 }
 
 @media screen and (max-width: 476px) {
@@ -147,10 +152,8 @@ table.table {
         width: 2rem;
         height: 1rem;
     }
-    .table tbody tr td{
-        padding: 0 !important;
-    }
-    .table>:not(caption)>*>*{
+
+    .table tbody tr td {
         padding: 0 !important;
     }
 }

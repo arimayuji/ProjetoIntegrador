@@ -18,13 +18,14 @@ button.sbn1:hover {
   color: white;
 }
 
-@media (max-width: 768px) {
- 
+a.link.maua img {
+  height: 100%;
+  width: 100%;
 }
+
+@media (max-width: 768px) {}
 
 /* Estilos para telas menores que 480px */
 @media (max-width: 480px) {
-  button.sbn1 {
-  
-  }
+  button.sbn1 {}
 }

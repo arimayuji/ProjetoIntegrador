@@ -2,13 +2,24 @@
   background-color: #004684;
   min-height: 10vh;
 }
+
 .container {
   height: fit-content;
 }
-.logo {
+
+.logo .link {
   display: flex;
   margin-left: auto;
+  justify-content: center;
+  align-items: center;
+
 }
+
+.logo .link img {
+  width: 40%;
+  height: 100%;
+}
+
 a.link {
   display: flex;
   color: white;
@@ -21,4 +32,5 @@ a.link {
   justify-content: space-between;
   margin: auto;
   color: white;
+  
 }

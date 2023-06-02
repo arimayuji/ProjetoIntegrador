@@ -86,6 +86,10 @@ nav.nav-home a button:hover {
   margin-top: auto;
 }
 
+.container-fluid {
+  row-gap: 2rem;
+}
+
 div.main-content-home {
   display: flex;
   min-height: 10vh;
@@ -107,12 +111,14 @@ div.main-content-home {
   margin: 0 auto;
   line-height: 30px;
 }
-.sub-title{
+
+.sub-title {
   display: flex;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
 }
+
 button.login-home:hover {
   animation: swing 5s infinite;
 }
@@ -127,18 +133,45 @@ button.login-home a {
   text-decoration: none;
   white-space: nowrap;
 }
-button.login-home a:hover{
+
+button.login-home a:hover {
   color: #004684;
 }
-a.navbar-brand{
+
+a.navbar-brand {
   display: flex;
   justify-content: center !important;
   align-items: center !important;
   margin: 0 auto;
 }
-a.navbar-brand a{
+
+.logo .link.maua img {
+  height: 100%;
+  width: 100%;
+}
+
+a.navbar-brand a {
   margin: 0 auto;
 }
+
+@media (max-width: 1600px) {
+  a.logo {
+    width: 40%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container-fluid {
+    flex-direction: column;
+  }
+
+  .logo .link img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
 @keyframes swing {
   0% {
     transform: rotate(0deg);
@@ -156,10 +189,11 @@ a.navbar-brand a{
 @media (max-width: 768px) {
   .main-content-home h1 {
     line-height: 60px;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     width: 80%;
     padding-top: .5rem;
-    
+    white-space: nowrap;
+
   }
 
   .main-content-home p {
@@ -170,16 +204,20 @@ a.navbar-brand a{
   .main-content-home button.login-home {
     font-size: 1.5rem;
   }
+
   .sub-title {
     display: flex;
     row-gap: 1rem;
   }
-  div.main-content-home{
+
+  div.main-content-home {
     row-gap: 2.5rem;
   }
-  #nav-items{
+
+  #nav-items {
     padding-bottom: 1rem;
   }
+
 }
 
 /* Estilos para telas menores que 480px */
@@ -188,20 +226,28 @@ a.navbar-brand a{
     line-height: 40px;
     font-size: 2.5rem;
     width: 80%;
+    white-space: nowrap;
   }
 
   .main-content-home p {
     width: 80%;
     font-size: 1.2rem;
   }
+
   .sub-title {
     display: flex;
     row-gap: 1rem;
   }
-  div.main-content-home{
+
+  div.main-content-home {
     row-gap: 1.5rem;
   }
-  #nav-items{
+
+  #nav-items {
     padding-bottom: 1rem;
+  }
+
+  a.logo img {
+    height: 100%;
   }
 }
