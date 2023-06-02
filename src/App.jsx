@@ -21,9 +21,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/SobreNos" element={<SobreNos />} />
       <Route element={<LogOutLayout />}>
         <Route path="/Login" element={<Login />} />
-        <Route path="/SobreNos" element={<SobreNos />} />
         <Route path="/Office365" element={<Office />} />
       </Route>
       <Route element={<Layout />}>

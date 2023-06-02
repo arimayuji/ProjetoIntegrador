@@ -86,7 +86,12 @@ div.icons {
   flex-direction: column;
   row-gap: 5rem;
 }
-
+.sobreNos{
+  background-color: #004684;
+}
+nav.nav-home.sobreNos a.link {
+  color: white;
+}
 .membros-section h1 {
   display: flex;
   color: white;
