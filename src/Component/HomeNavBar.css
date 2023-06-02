@@ -6,7 +6,17 @@
 .container {
   height: fit-content;
 }
-
+.nav.logout button{
+  margin-right: 0;
+  background-color: white;
+}
+.nav.logout .logo{
+  margin: 0 auto;
+}
+.nav.logout #nav-items{
+  justify-content: unset;
+  align-items:  unset;
+}
 .logo .link {
   display: flex;
   margin-left: auto;

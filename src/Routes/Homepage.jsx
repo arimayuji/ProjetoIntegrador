@@ -7,9 +7,26 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./Homepage.css";
 
+const loggedIn = () => {
+  const isLoggedIn = localStorage.getItem("loginStatus");
+  if (isLoggedIn) {
+    return (
+      <>
+        <div className="user">
+          <i className="bi bi-person-circle"></i>
+          <p>{localStorage.getItem("email")}</p>
+        </div>
+      </>
+    )
+  }
+  return (
+    <button>Login</button>
+  )
 
+
+}
 function Layout() {
- 
+
   return (
     <>
       <GlobalStyle />
@@ -26,7 +43,7 @@ function Layout() {
                 className="justify-content-center align-items-center"
                 id="nav-items"
               >
-                <Link  className="link">
+                <Link className="link">
                   Calculadora
 
                 </Link>
@@ -34,7 +51,7 @@ function Layout() {
                   Quem Somos
                 </Link>
                 <Link to="/Login" className="link">
-                  <button>Login</button>
+                  {loggedIn()}
                 </Link>
 
               </Nav>

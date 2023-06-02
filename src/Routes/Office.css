@@ -4,8 +4,7 @@
   width: 20rem;
   border-radius: .5rem;
   padding: 2rem;
-  justify-content: center;
-  align-items: center;
+
   flex-direction: column;
   row-gap: 2rem;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -15,6 +14,7 @@
   display: flex;
   color: black;
   white-space: nowrap;
+  margin: 0 auto;
 }
 
 .office {
@@ -27,8 +27,11 @@
   margin-top: 1rem;
   width: 60%;
   height: 60%;
+  margin: 0 auto;
 }
-
+.office-login a{
+  margin-left: 0;
+}
 .office img {
   display: flex;
   width: 80%;
