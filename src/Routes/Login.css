@@ -7,6 +7,7 @@
   align-items: center;
   flex-direction: column;
   row-gap: 1rem;
+  margin: 0 auto;
   box-shadow: #004684 0px 1px 1px 0px inset, #004684 0px 50px 100px -20px,
     #004684 0px 30px 60px -30px;
   background-color: white;
@@ -108,4 +109,55 @@ li a.link {
 .login a {
   display: flex;
   margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .login>a.link{
+    margin: 0 auto;
+  }
+  .login{
+    row-gap: 2rem;
+  }
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+  main {
+    flex-direction: column-reverse;
+  }
+
+  .team-members {
+    row-gap: 2rem;
+
+  }
+
+  main .texto {
+
+    justify-content: unset;
+    align-items: unset;
+  }
+
+  main .texto section {
+    width: 120%;
+    padding: 2rem;
+  }
+
+  .texto section p {
+    width: 100%;
+  }
+
+  .member {
+    width: 80%;
+  }
+
+  main .img-space {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-space img {
+    width: 15rem;
+    height: 15rem;
+  }
 }
