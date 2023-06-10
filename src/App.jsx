@@ -27,7 +27,6 @@ function App() {
         <Route path="/Office365" element={<Office />} />
       </Route>
       <Route element={<Layout />}>
-        <Route path="/Calculadora" element={<Calculadora />} />
         <Route path="/Notas" element={<Notas />} />
         <Route path="/Contato" element={<Contato />} />
         <Route element={<CursosLayout />}>
