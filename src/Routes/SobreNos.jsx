@@ -13,6 +13,24 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import logo from "../images/toSalvo-Branco.png";
 import { GlobalStyle } from "../GlobalStyle";
+const loggedIn = () => {
+  const isLoggedIn = localStorage.getItem("loginStatus");
+  if (isLoggedIn) {
+    return (
+      <>
+        <div className="user sobreNos">
+          <i className="bi bi-person-circle"></i>
+          <p>{localStorage.getItem("email")}</p>
+        </div>
+      </>
+    )
+  }
+  return (
+    <button className="sobreNos">Login</button>
+  )
+
+
+}
 const Layout = () => {
   return (
     <>
@@ -37,8 +55,8 @@ const Layout = () => {
                 <Link to="/SobreNos" className="link">
                   Quem Somos
                 </Link>
-                <Link to="/Login" className="link">
-                  <button>Login</button>
+                <Link to="/Login" className="link sobreNos">
+                  {loggedIn()}
                 </Link>
 
               </Nav>

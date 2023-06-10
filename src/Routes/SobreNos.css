@@ -199,7 +199,13 @@ main img {
 main img:hover {
   box-shadow: 0 0 2rem #004684;
 }
-
+.nav-home div.user.sobreNos>*{
+  color: white;
+}
+.nav-home  button.sobreNos{
+  background-color: white;
+  color: #004684;
+}
 @media (max-width: 768px) {
   main {
     flex-direction: column;
