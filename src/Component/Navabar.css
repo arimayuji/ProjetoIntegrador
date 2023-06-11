@@ -58,11 +58,13 @@ a.logo-nav {
 .container-fluid.header a.link {
   padding: .5rem;
   border-radius: .5rem;
+  transition: .5s;
 }
 
-.container-fluid.header a.link:hover {
-  color: #004684;
-  background-color: white;
+.header a.link:hover {
+  color: white;
+  text-decoration: underline;
+  transform: translateY(-.2rem) translateZ(.2rem) ;
 }
 
 #navDropDown:hover {
