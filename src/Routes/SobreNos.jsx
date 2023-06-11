@@ -7,61 +7,54 @@ import Luigi from "../images/Luigi.jpg";
 import Oda from "../images/Oda.png";
 import Cadu from "../images/Cadu.jpg";
 import Rafael from "../images/Rafael.jpg";
-import Container from "react-bootstrap/Container";
+import "../Component/Navabar.css";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import logo from "../images/toSalvo-Branco.png";
 import { GlobalStyle } from "../GlobalStyle";
-const loggedIn = () => {
-  const isLoggedIn = localStorage.getItem("loginStatus");
-  if (isLoggedIn) {
-    return (
-      <>
-        <div className="user sobreNos">
-          <i className="bi bi-person-circle"></i>
-          <p>{localStorage.getItem("email")}</p>
-        </div>
-      </>
-    )
-  }
-  return (
-    <button className="sobreNos">Login</button>
-  )
-
-
-}
+import { useState, useMemo } from "react";
 const Layout = () => {
+
+  const [isLogged, setIsLogged] = useState("/");
+
+  const loggedIn = useMemo(() => {
+    const isLoggedIn = localStorage.getItem("loginStatus");
+    if (isLoggedIn) {
+      setIsLogged("/Ciência_da_Computação");
+      return (
+        <>
+          <div className="user">
+            <i className="bi bi-person-circle"></i>
+            <p>{localStorage.getItem("email")}</p>
+          </div>
+        </>
+      );
+    }
+    return <button>Login</button>;
+  }, []);
+
   return (
     <>
       <GlobalStyle />
       <div className="root-main-home">
-        <div className="header-home">
-          <Navbar className="nav-home sobreNos" expand="lg">
-            <Container fluid>
-              <Navbar.Brand href="#home" className="logo">
-                <Link to="/" className="link">
-                  <img src={logo} alt="" />
-                </Link>
-              </Navbar.Brand>
-              <Nav
-                className="justify-content-center align-items-center"
-                id="nav-items"
-              >
-                <Link className="link">
-                  Calculadora
-
-                </Link>
-                <Link to="/SobreNos" className="link">
-                  Quem Somos
-                </Link>
-                <Link to="/Login" className="link sobreNos">
-                  {loggedIn()}
-                </Link>
-
-              </Nav>
-
-            </Container>
+        <div className="header d-flex">
+          <Navbar className="nav w-100" expand="sm">
+            <Link to="/" className="logo-nav">
+              <img src={logo} alt="" />
+            </Link>
+            <Nav className="justify-content-center align-items-center flex-grow-1" id="nav-items">
+              <Link className="link" to={isLogged}>
+                Calculadora
+              </Link>
+              <Link to="/SobreNos" className="link">
+                Quem Somos
+              </Link>
+              <div className="user">
+                <i className="bi bi-person-circle"></i>
+                <p>{localStorage.getItem("email")}</p>
+              </div>
+            </Nav>
           </Navbar>
         </div>
         <div className="main-content-home">
