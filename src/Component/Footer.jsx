@@ -25,7 +25,7 @@ const Footer = () => {
             id="nav-items"
           >
             <Link to="/SobreNos" className="link">
-              <button className="sbn1">Sobre nós</button>
+              <button className="sbn1">Quem Somos</button>
             </Link>
 
           </Nav>
