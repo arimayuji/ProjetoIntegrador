@@ -36,52 +36,9 @@ a.logo-nav {
   display: flex;
   margin: auto;
   color: white;
-  column-gap: 10%;
+  column-gap: 5%;
   row-gap: 2rem;
   width: 60%;
-}
-
-/* css do botão que aciona o dropdown 24-39 */
-#navDropDown {
-  display: flex;
-  background-color: white;
-  color: #004684;
-  border-radius: 0.5rem;
-  border: 0.1rem solid #004684;
-  justify-content: center;
-  align-items: center;
-  padding: .5rem 2rem;
-  margin: 0;
-  z-index: 1;
-}
-
-.container-fluid.header a.link {
-  padding: .5rem;
-  border-radius: .5rem;
-  transition: .5s;
-}
-
-.header a.link:hover {
-  color: white;
-  text-decoration: underline;
-  transform: translateY(-.2rem) translateZ(.2rem) ;
-}
-
-#navDropDown:hover {
-  background-color: #004684;
-  color: white;
-  text-decoration: none;
-  border-color: white;
-}
-
-/* css dos itens presentes no dropdown 41-49*/
-
-/* css para alterar a div que contém todas as opções do dropdown */
-.dropdown-menu.show {
-  display: flex;
-  border-color: #004684;
-  height: fit-content;
-  box-shadow: #004684 0px 5px 15px;
 }
 
 div.user {

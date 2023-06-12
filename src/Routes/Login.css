@@ -39,7 +39,7 @@
   border-radius: 0;
   border-bottom: 0.1rem solid #004684;
   background-color: transparent;
-  color: #004684;
+  color: #004684 !important;
 }
 
 .login-forms input :hover {

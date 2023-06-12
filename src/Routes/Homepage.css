@@ -111,7 +111,7 @@ div.main-content-home {
 .sub-title p {
   display: flex;
   margin: 0 auto;
-  line-height: 45px;
+  line-height: 180%;
 }
 
 .sub-title {

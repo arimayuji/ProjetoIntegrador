@@ -19,15 +19,15 @@ const NavBar = () => {
             <img src={logo} alt="" />
           </Link>
           <Nav className="justify-content-center align-items-center flex-grow-1" id="nav-items">
-            <Link to={`/${localStorage.getItem("curso")}`} className="link">
+            <Link to={`/${localStorage.getItem("curso")}`} className="link texto">
               Calculadora
             </Link>
-            <Link to="/Notas" className="link">
+            <Link to="/Notas" className="link texto">
               Notas
             </Link>
             <Link
               to="/"
-              className="link"
+              className="link texto"
               onClick={function () {
                 sair();
               }}

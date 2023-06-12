@@ -8,40 +8,31 @@ import "./Homepage.css";
 import { useState, useMemo } from "react";
 
 function Layout() {
-  const [isLogged, setIsLogged] = useState({
-    notas: "/Notas",
-    calculadora: "/Ciência_da_Computação",
-  });
+
+
 
   const sair = () => {
     localStorage.removeItem("loginStatus");
     localStorage.removeItem("email");
     localStorage.removeItem("curso");
-    setIsLogged({
-      notas: "/",
-      calculadora: "/",
-    });
+    window.location.reload();
   };
 
   const loggedIn = useMemo(() => {
     const isLoggedIn = localStorage.getItem("loginStatus");
     if (isLoggedIn) {
-      setIsLogged({
-        notas: "/Notas",
-        calculadora: "/Ciência_da_Computação",
-      });
       return (
-        <>
+        <Link className="link">
           <div className="user">
             <i className="bi bi-person-circle"></i>
             <p>{localStorage.getItem("email")}</p>
           </div>
-        </>
+        </Link>
       );
-    } else {
-      return <button>Login</button>;
     }
-  }, [localStorage.getItem("loginStatus")]);
+    return <Link to="/Office365" className="link"><button>Login</button></Link>;
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -58,16 +49,26 @@ function Layout() {
                 className="justify-content-center align-items-center"
                 id="nav-items"
               >
-                <Link className="link" to={isLogged.notas}>
-                  Notas
-                </Link>
-                <Link className="link" to={isLogged.calculadora}>
+                {localStorage.getItem("loginStatus") ? (
+
+                  <Link className="link" to="/Notas">
+                    Notas
+                  </Link>
+
+                ) : null}
+                {localStorage.getItem("loginStatus") ? (
+                  <Link className="link" to="/Ciência_da_Computação">
+                    Calculadora
+                  </Link>
+
+                ) : <Link className="link" to="/Office365">
                   Calculadora
-                </Link>
-                <Link to="/SobreNos" className="link">
+                </Link>}
+
+                <Link to="/SobreNos" className="link texto">
                   Quem Somos
                 </Link>
-                <Link to="/Login" className="link">
+                <Link to="/Office365" className="link">
                   {loggedIn}
                 </Link>
                 <Link to="/" className="link">

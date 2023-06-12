@@ -14,7 +14,27 @@
   row-gap: 3rem;
   flex-direction: row-reverse;
 }
+#nav-items i.sobreNos{
+  color: white;
+}
+nav.sobreNos>:hover{
+    text-decoration: none;
+}
+nav.sobreNos a button {
+  display: flex;
+  background-color: white;
+  color: #004684;
+  padding: .5rem 2rem;
+  width: fit-content;
+  border-radius: .5rem;
+  outline: 0;
+  line-height: normal;
+}
 
+nav.sobreNos a button:hover {
+  background-color: white;
+  color: #004684;
+}
 div.icons {
   display: flex;
   flex-direction: row;

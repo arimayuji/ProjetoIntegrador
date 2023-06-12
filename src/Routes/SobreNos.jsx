@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import "./SobreNos.css";
 import programador from "../images/imgSobreNos.png";
 import Leo from "../images/Leo.jpg";
@@ -13,25 +13,29 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import logo from "../images/toSalvo-Branco.png";
 import { GlobalStyle } from "../GlobalStyle";
-import { useState, useMemo } from "react";
-const Layout = () => {
 
-  const [isLogged, setIsLogged] = useState("/");
+const SobreNos = () => {
+
+
+  const sair = () => {
+    localStorage.removeItem("loginStatus");
+    localStorage.removeItem("email");
+    localStorage.removeItem("curso");
+  };
 
   const loggedIn = useMemo(() => {
     const isLoggedIn = localStorage.getItem("loginStatus");
     if (isLoggedIn) {
-      setIsLogged("/Ciência_da_Computação");
       return (
-        <>
-          <div className="user">
-            <i className="bi bi-person-circle"></i>
-            <p>{localStorage.getItem("email")}</p>
-          </div>
-        </>
+
+        <div className="user">
+          <i className="bi bi-person-circle"></i>
+          <p>{localStorage.getItem("email")}</p>
+        </div>
+
       );
     }
-    return <button>Login</button>;
+    return <Link to="/Office365" className="link"><button>Login</button></Link>;
   }, []);
 
   return (
@@ -39,21 +43,40 @@ const Layout = () => {
       <GlobalStyle />
       <div className="root-main-home">
         <div className="header d-flex">
-          <Navbar className="nav w-100" expand="sm">
-            <Link to="/" className="logo-nav">
-              <img src={logo} alt="" />
-            </Link>
-            <Nav className="justify-content-center align-items-center flex-grow-1" id="nav-items">
-              <Link className="link" to={isLogged}>
-                Calculadora
+          <Navbar className="nav w-100 sobreNos" expand="lg">
+            <Navbar.Brand href="#home" className="logo">
+              <Link to="/" className="link">
+                <img src={logo} alt="" />
               </Link>
-              <Link to="/SobreNos" className="link">
+            </Navbar.Brand>
+            <Nav
+              className="justify-content-center align-items-center "
+              id="nav-items"
+            >
+              {localStorage.getItem("loginStatus") ? (
+                <>
+                  <Link className="link texto" to="/Notas">
+                    Notas
+                  </Link>
+                  <Link className="link texto" to="/Ciência_da_Computação">
+                    Calculadora
+                  </Link></>
+
+              ) : <Link className="link texto" to="/Office365">
+                Calculadora
+              </Link>}
+              <Link to="/SobreNos" className="link texto">
                 Quem Somos
               </Link>
-              <div className="user">
-                <i className="bi bi-person-circle"></i>
-                <p>{localStorage.getItem("email")}</p>
-              </div>
+
+              {loggedIn}
+
+              <Link to="/" className="link">
+                <i
+                  className="bi bi-box-arrow-left sobreNos"
+                  onClick={sair}
+                ></i>
+              </Link>
             </Nav>
           </Navbar>
         </div>
@@ -164,7 +187,6 @@ const Layout = () => {
       </div>
     </>
   );
-
 };
 
-export default Layout;
+export default SobreNos;
