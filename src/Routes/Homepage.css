@@ -53,8 +53,11 @@ nav.nav-home a button:hover {
   row-gap: 3rem;
   justify-content: center;
   font-size: 1.2rem;
+  width: 80%;
 }
-
+#nav-items i.sair{
+  font-size: 2rem;
+}
 .root-main-home {
   background-image: url("../images/19366.jpg");
   background-repeat: no-repeat;

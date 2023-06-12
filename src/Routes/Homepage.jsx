@@ -72,7 +72,7 @@ function Layout() {
                   {loggedIn}
                 </Link>
                 <Link to="/" className="link">
-                  <i class="bi bi-box-arrow-left" onClick={sair}></i>
+                  <i class="bi bi-box-arrow-left sair" onClick={sair}></i>
                 </Link>
 
               </Nav>

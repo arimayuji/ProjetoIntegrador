@@ -159,7 +159,7 @@ i{
   justify-content: center;
   align-items: center;
   color: #004684;
-  font-size: 2.5rem;
+  font-size: 2rem;
   
 }
 
