@@ -177,11 +177,13 @@ a.navbar-brand a {
   }
 }
 
-@media (max-width: 1237px) {
+@media (max-width: 1250px) {
   .container-fluid {
     flex-direction: column;
   }
-
+  .nav-home #nav-items{
+    column-gap: 10%;
+  }
   .logo .link img {
     height: 100%;
     width: 100%;

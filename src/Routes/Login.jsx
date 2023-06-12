@@ -102,7 +102,7 @@ function Login() {
                 type={showInputType}
                 {...register("senha")}
                 name="senha"
-                placeholder="*****"
+                placeholder="******"
               />
               <i className={showSenha} onClick={handleToggleSenha}></i>
             </span>

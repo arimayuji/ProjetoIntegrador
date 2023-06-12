@@ -121,8 +121,8 @@ li a.link {
 }
 .logo.voltar img{
   margin: 0 auto;
-  margin-left: -80px;
-  margin-right: ;
+  margin-left: -100px;
+
 }
 @media (max-width: 768px) {
   .login>a.link{
