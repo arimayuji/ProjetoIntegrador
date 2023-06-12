@@ -282,6 +282,7 @@ const CursosLayout = () => {
             max="10"
             value={form.PI}
           />
+          <p className="error-txt">{errors.PI?.message}</p>
           <button
             onClick={(event) => {
               event.preventDefault();
@@ -318,7 +319,7 @@ const CursosLayout = () => {
               </button>
             </div>
           )}
-          <p className="error-txt">{errors.PI?.message}</p>
+      
           <button
             type="submit"
             onClick={() => {
@@ -332,7 +333,6 @@ const CursosLayout = () => {
             <button type="reset" onClick={handleReset}>
               Limpar
             </button>
-            <button type="button">Histórico</button>
           </div>
 
           <span

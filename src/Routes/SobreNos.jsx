@@ -1,6 +1,6 @@
 import React from "react";
 import "./SobreNos.css";
-import programador from "../images/imgSobreNos.jpg";
+import programador from "../images/imgSobreNos.png";
 import Leo from "../images/Leo.jpg";
 import Yuji from "../images/Yuji.jpeg";
 import Luigi from "../images/Luigi.jpg";

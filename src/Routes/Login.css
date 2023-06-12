@@ -110,7 +110,20 @@ li a.link {
   display: flex;
   margin-right: auto;
 }
-
+.logo.voltar{
+  display: flex;
+  justify-content: center;
+}
+.logo.voltar a{
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+.logo.voltar img{
+  margin: 0 auto;
+  margin-left: -80px;
+  margin-right: ;
+}
 @media (max-width: 768px) {
   .login>a.link{
     margin: 0 auto;

@@ -8,12 +8,28 @@ import "./Homepage.css";
 import { useState, useMemo } from "react";
 
 function Layout() {
-  const [isLogged, setIsLogged] = useState("/");
+  const [isLogged, setIsLogged] = useState({
+    notas: "/Notas",
+    calculadora: "/Ciência_da_Computação",
+  });
+
+  const sair = () => {
+    localStorage.removeItem("loginStatus");
+    localStorage.removeItem("email");
+    localStorage.removeItem("curso");
+    setIsLogged({
+      notas: "/",
+      calculadora: "/",
+    });
+  };
 
   const loggedIn = useMemo(() => {
     const isLoggedIn = localStorage.getItem("loginStatus");
     if (isLoggedIn) {
-      setIsLogged("/Ciência_da_Computação");
+      setIsLogged({
+        notas: "/Notas",
+        calculadora: "/Ciência_da_Computação",
+      });
       return (
         <>
           <div className="user">
@@ -22,10 +38,10 @@ function Layout() {
           </div>
         </>
       );
+    } else {
+      return <button>Login</button>;
     }
-    return <button>Login</button>;
-  }, []);
-
+  }, [localStorage.getItem("loginStatus")]);
   return (
     <>
       <GlobalStyle />
@@ -42,7 +58,10 @@ function Layout() {
                 className="justify-content-center align-items-center"
                 id="nav-items"
               >
-                <Link className="link" to={isLogged}>
+                <Link className="link" to={isLogged.notas}>
+                  Notas
+                </Link>
+                <Link className="link" to={isLogged.calculadora}>
                   Calculadora
                 </Link>
                 <Link to="/SobreNos" className="link">
@@ -51,6 +70,10 @@ function Layout() {
                 <Link to="/Login" className="link">
                   {loggedIn}
                 </Link>
+                <Link to="/" className="link">
+                  <i class="bi bi-box-arrow-left" onClick={sair}></i>
+                </Link>
+
               </Nav>
             </Container>
           </Navbar>
@@ -61,7 +84,7 @@ function Layout() {
           <section className="sub-title">
             <p>Acesse agora e simplifique seu acompanhamento de desempenho!</p>
             <p>
-              Calcule suas notas com precisão e facilidade no To Salvo. Nossa
+              Calcule suas notas com precisão e facilidade no Tô Salvo. Nossa
               plataforma oferece uma ferramenta intuitiva para calcular sua
               média acadêmica.
             </p>

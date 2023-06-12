@@ -74,10 +74,10 @@ function Login() {
     <>
       <GlobalStyle />
       <div className="login">
-        <Link to="/" className="link">
+        <div className="logo voltar"><Link to="/" className="link">
           <i className="bi bi-arrow-left"></i>
         </Link>
-        <img src={Logo} alt="" />
+          <img src={Logo} alt="" /></div>
         <form onSubmit={handleSubmit(accountVerification)} className="login-forms">
           <div className="email-campo">
             <label htmlFor="email">

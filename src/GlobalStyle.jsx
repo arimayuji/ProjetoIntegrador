@@ -90,7 +90,7 @@ transition: background-color 5000s ease-in-out 0s;
   }
   button[type="reset"] {
   background-color: #f95959;
-  width: 8rem;
+  width: 20rem;
   box-shadow: #f95959 0px 2px 4px, #f95959 0px 7px 13px -3px,
     red 0px -3px 0px inset;
 }
