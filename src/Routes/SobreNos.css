@@ -20,6 +20,10 @@
 nav.sobreNos>:hover{
     text-decoration: none;
 }
+nav.sobreNos #nav-items a.link.texto:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
+}
 nav.sobreNos a button {
   display: flex;
   background-color: white;

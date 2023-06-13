@@ -31,7 +31,13 @@ a.logo-nav img {
 a.logo-nav {
   width: 30%;
 }
-
+.component#nav-items i{
+  color: white;
+}
+.component#nav-items a.link.texto:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
+}
 #nav-items {
   display: flex;
   margin: auto;

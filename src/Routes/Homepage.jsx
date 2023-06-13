@@ -51,17 +51,17 @@ function Layout() {
               >
                 {localStorage.getItem("loginStatus") ? (
 
-                  <Link className="link" to="/Notas">
+                  <Link className="link texto" to="/Notas">
                     Notas
                   </Link>
 
                 ) : null}
                 {localStorage.getItem("loginStatus") ? (
-                  <Link className="link" to="/Ciência_da_Computação">
+                  <Link className="link texto" to="/Ciência_da_Computação">
                     Calculadora
                   </Link>
 
-                ) : <Link className="link" to="/Office365">
+                ) : <Link className="link texto" to="/Office365">
                   Calculadora
                 </Link>}
 
@@ -72,7 +72,7 @@ function Layout() {
                   {loggedIn}
                 </Link>
                 <Link to="/" className="link">
-                  <i class="bi bi-box-arrow-left sair" onClick={sair}></i>
+                  <i class="bi bi-box-arrow-left" onClick={sair}></i>
                 </Link>
 
               </Nav>
