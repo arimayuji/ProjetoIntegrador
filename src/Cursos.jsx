@@ -41,38 +41,7 @@ const calcularMedia = (nota1, nota2) => {
   return parseFloat(media);
 
 }
-export const sistemas_semestres = [
-  {
-    semestre: 1,
-    disciplinas: [
-      "Banco de Dados",
-      "Modelagem Orientada a Objetos",
-      "Lógica de Programação",
-      "Programação Orientada a Objetos",
-    ],
-  },
-  {
-    semestre: 2,
-    disciplinas: [
-      "Interface",
-      "Front End",
-      "Matemática Discreta",
-      "Legislação",
-      "Estatística",
-    ],
-  },
-  {
-    semestre: 3,
-    disciplinas: [
-      "Física e Modelagem Computacional",
-      "Cálculo e Pesquisa Operacional",
-      "Teoria Geral dos Sistemas",
-      "Estrutura de Dados",
-      "Paradigmas",
-      "FrameWorks Low Code",
-    ],
-  },
-];
+
 // devolve um elemento span que contem o  resultado calculado da media especificada
 
 export const media_tarefa = (T1, T2) => {
@@ -117,6 +86,7 @@ const materia_pesos = (peso_prova, peso_tarefa) => {
     peso_tarefa: peso_tarefa,
   };
 }
+
 export const cic_calculos = {
   "Algoritmos e Estrutura de Dados": materia_pesos(0.5, 0.5),
   "Banco de Dados": materia_pesos(0.6, 0.4),
@@ -129,25 +99,8 @@ export const cic_calculos = {
   "Legislação": materia_pesos(0.6, 0.4),
   "Lógica de Programação": materia_pesos(0.6, 0.4),
   "Matemática Discreta": materia_pesos(0.6, 0.4),
-  "Modelagem": materia_pesos(0.6, 0.4),
-  "POO": materia_pesos(0.6, 0.4),
-  "Paradigmas": materia_pesos(0.9, 0.1),
-};
-export const sistemas_calculos = {
-  "Estrutura de Dados": materia_pesos(0.6, 0.4),
-  "Banco de Dados": materia_pesos(0.6, 0.4),
-  "Cálculo e Pesquisa Operacional": materia_pesos(0.7, 0.3),
-  "Desenvolvimento Ágil": materia_pesos(0.5, 0.5),
-  "Estatística": materia_pesos(0.6, 0.4),
-  "Teoria Geral dos Sistemas": materia_pesos(0.6, 0.4),
-  "FrameWork LowCode": materia_pesos(0.6, 0.4),
-  "Front End": materia_pesos(0.6, 0.4),
-  "Interface": materia_pesos(0.6, 0.4),
-  "Legislação": materia_pesos(0.6, 0.4),
-  "Lógica de Programação": materia_pesos(0.6, 0.4),
-  "Matemática Discreta": materia_pesos(0.6, 0.4),
-  "Modelagem": materia_pesos(0.6, 0.4),
-  "POO": materia_pesos(0.6, 0.4),
+  "Modelagem Orientada a Objetos": materia_pesos(0.6, 0.4),
+  "Programação Orientada a Objetos": materia_pesos(0.6, 0.4),
   "Paradigmas": materia_pesos(0.9, 0.1),
 };
 

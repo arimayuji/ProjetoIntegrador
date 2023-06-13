@@ -1,10 +1,7 @@
 import SobreNos from "./Routes/SobreNos.jsx";
 import Homepage from "./Routes/Homepage.jsx";
-import Contato from "./Routes/Contato.jsx";
 import Notas from "./Routes/Notas.jsx";
 import Cic from "./Routes/CienciaDaComputacao.jsx";
-import Sistemas from "./Routes/SistemasDaInformacao.jsx";
-import Calculadora from "./Routes/Calculadora.jsx";
 import Layout from "./Layout/layout.jsx";
 import Login from "./Routes/Login.jsx";
 import LogOutLayout from "./Layout/LogOutLayout.jsx";
@@ -28,10 +25,8 @@ function App() {
       </Route>
       <Route element={<Layout />}>
         <Route path="/Notas" element={<Notas />} />
-        <Route path="/Contato" element={<Contato />} />
         <Route element={<CursosLayout />}>
           <Route path="/Ciência_da_Computação" element={<Cic />} />
-          <Route path="/Sistemas_da_Informação" element={<Sistemas />} />
         </Route>
       </Route>
       <Route path="*" element={<ErrorPage />} />

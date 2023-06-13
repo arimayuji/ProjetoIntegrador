@@ -40,7 +40,9 @@ table.table {
     text-align: center;
     vertical-align: middle;
 }
-
+.table-responsive button{
+    margin-top: 2rem;
+}
 .table tbody tr td:first-child {
     color: white;
     border-radius: .5rem;

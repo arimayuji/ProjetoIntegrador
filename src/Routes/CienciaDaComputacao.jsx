@@ -331,7 +331,7 @@ const CursosLayout = () => {
           </button>
           <div className="btns">
             <button type="reset" onClick={handleReset}>
-              Limpar
+              Limpar Campos
             </button>
           </div>
 
@@ -339,7 +339,7 @@ const CursosLayout = () => {
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
-            {isSubmitted && isValid && resultado_forms()}
+            { isValid && resultado_forms()}
           </span>
         </form>
       </div >

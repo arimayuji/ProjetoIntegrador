@@ -2,8 +2,8 @@
 
 img {
   display: flex;
-  width: 50%;
-  height: 50%;
+  width: 30vh;
+  height: 10vh;
 }
 
 button.sbn1 {
@@ -18,8 +18,8 @@ button.sbn1:hover {
 }
 
 a.link.maua img {
-  height: 100%;
-  width: 100%;
+  width: 30vh;
+  height: 10vh;
 }
 
 @media (max-width: 768px) {}

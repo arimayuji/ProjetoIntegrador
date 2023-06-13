@@ -25,7 +25,8 @@
 
 a.logo-nav img {
   margin: 0 auto;
-  width: 50%;
+  width: 30vh;
+  height: 10vh;
 }
 
 a.logo-nav {
@@ -37,12 +38,13 @@ a.logo-nav {
 .component#nav-items a.link.texto:hover {
   transform: scale(1.2);
   transition: transform 0.5s ease-in-out;
+  color: white;
 }
 #nav-items {
   display: flex;
   margin: auto;
   color: white;
-  column-gap: 5%;
+  column-gap: 5vw;
   row-gap: 2rem;
   width: 60%;
 }
