@@ -1,3 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap");
+
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+    height: 100px; /* Altura da barra de rolagem */
+  
+}
+
+/* Estilo do traço da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background-color: #004684;
+    border-radius: 5px; 
+    height: 50px;
+    /* Cor do traço da barra de rolagem */
+}
+
+/* Estilo da área da barra de rolagem */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Cor da área da barra de rolagem */
+}

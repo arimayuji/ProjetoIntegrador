@@ -37,7 +37,6 @@ const calcularMedia = (nota1, nota2) => {
     media = 0;
   }
   media = media.toFixed(2)
-
   return parseFloat(media);
 
 }
@@ -62,11 +61,10 @@ export const media_prova = (P1, P2, PSUB) => {
     media = calcularMedia(P1, P2)
   }
   else {
-    media = calcularMedia(P1, P2)
+    media = calcularMedia(PSUB,0)
   }
-
   return media;
-
+ 
 };
 
 export const media_final = (Disciplina, P1, P2, T1, T2, PI, PSUB) => {

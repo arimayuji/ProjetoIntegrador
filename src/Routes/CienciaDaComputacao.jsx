@@ -17,11 +17,10 @@ const disciplinas = (semestre) => {
   ));
 };
 
-
-
 const CursosLayout = () => {
   const [display, setDisplay] = useState(false);
   const [psubdisplay, setpsubDisplay] = useState(false);
+  const [removePsub, setRemovePsub] = useState(false);
   const [historico, setHistorico] = useState([]);
   const [media, setMedia] = useState({
     MP: 0,
@@ -72,26 +71,11 @@ const CursosLayout = () => {
       <>
         <div className="resultado-display">
           <span>Média Prova:</span>
-          <input
-            {...register("MP")}
-            value={media.MP}
-            readOnly
-            type="text"
-          />
+          <input {...register("MP")} value={media.MP} readOnly type="text" />
           <span>Média Tarefa:</span>
-          <input
-            {...register("MT")}
-            value={media.MT}
-            readOnly
-            type="text"
-          />
+          <input {...register("MT")} value={media.MT} readOnly type="text" />
           <span>Média Final:</span>
-          <input
-            {...register("MF")}
-            value={media.MF}
-            readOnly
-            type="text"
-          />
+          <input {...register("MF")} value={media.MF} readOnly type="text" />
           {
             <button
               type="submit"
@@ -107,12 +91,7 @@ const CursosLayout = () => {
       </>
     );
   };
-  const handlePsub = () => {
-    setForm((prevState) => ({
-      ...prevState,
-      PSUB: 0,
-    }));
-  };
+
   const handleReset = () => {
     setForm({
       P1: 0,
@@ -168,12 +147,17 @@ const CursosLayout = () => {
   });
 
   const form_result = async (data) => {
+    console.log(data);
+    if (removePsub) {
+      data.PSUB = 0;
+      setRemovePsub(false);
+    }
+    console.log(data);
     await AtualizarNotas(
       localStorage.getItem("email"),
       data,
       sessionStorage.getItem("Materia")
     );
-
     fetchHistorico();
     atualizarMedia(data);
   };
@@ -301,6 +285,7 @@ const CursosLayout = () => {
                 id="PSUB"
                 onChange={(event) => {
                   handleChange("PSUB", event.target.value);
+                  console.log(form.PSUB);
                 }}
                 min="0"
                 max="10"
@@ -311,7 +296,8 @@ const CursosLayout = () => {
                 onClick={(event) => {
                   event.preventDefault();
                   setpsubDisplay(false);
-                  handlePsub();
+                  handleChange("PSUB", 0);
+                  setRemovePsub(true);
                 }}
                 className="psub"
               >
@@ -319,12 +305,11 @@ const CursosLayout = () => {
               </button>
             </div>
           )}
-      
+
           <button
             type="submit"
             onClick={() => {
               setDisplay(true);
-
             }}
           >
             Calcular
@@ -339,10 +324,10 @@ const CursosLayout = () => {
             className="resultados"
             style={{ display: display ? "flex" : "none" }}
           >
-            { isValid && resultado_forms()}
+            {isValid && resultado_forms()}
           </span>
         </form>
-      </div >
+      </div>
     </>
   );
 };
